@@ -77,6 +77,7 @@
             this.barBtnDangNhap.Id = 4;
             this.barBtnDangNhap.ImageOptions.Image = global::quan_li_diem_sinh_vien.Properties.Resources.login;
             this.barBtnDangNhap.Name = "barBtnDangNhap";
+            this.barBtnDangNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDangNhap_ItemClick);
             // 
             // barBtnDangXuat
             // 
