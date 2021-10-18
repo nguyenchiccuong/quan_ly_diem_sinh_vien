@@ -10,6 +10,8 @@ namespace quan_li_diem_sinh_vien
     {
         public static SqlConnection conn = new SqlConnection(); //tra ve ket noi, thuoc tih quan torng là connection string
         public static string connstr; // chuoi ket noi
+        public static string connstrPublisher = "Data Source=DESKTOP-BR976AR;Initial Catalog=QLDSV_TC;Integrated Security=True"; //dung pass hdh
+
         public static SqlDataReader myReader;
         public static String servername = ""; //ten server ket noi thoi diem hien tai
         public static String username = ""; //ma nhan vien de biet ai dang dung phan mem
@@ -23,11 +25,11 @@ namespace quan_li_diem_sinh_vien
         public static String passwordDN = "";
         public static String mGroup = ""; // group
         public static String mHoten = ""; // ho ten nhan vein
-        public static String mChinhanh = "";
+        public static int mChinhanh = 0;
 
         public static String serverNameConLai = "";
         public static String connstrConLai = ""; //connstr su dung tai khoan htkn va ten server con lai
-        public static String connstrTraCuu = "Data Source=DESKTOP-BR976AR\\MSSQLSERVER_3;Initial Catalog=TN_CSDLPT;Persist Security Info=True;User ID=" +
+        public static String connstrTraCuu = "Data Source=DESKTOP-BR976AR;Initial Catalog=QLDSV_TC;Persist Security Info=True;User ID=" +
                       Program.remotelogin + ";password=" + Program.remotepassword;
 
         public static BindingSource bdsDSPM = new BindingSource();  // giữ bdsPM khi đăng nhập
