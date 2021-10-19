@@ -25,7 +25,7 @@ namespace quan_li_diem_sinh_vien
         public static String passwordDN = "";
         public static String mGroup = ""; // group
         public static String mHoten = ""; // ho ten nhan vein
-        public static int mChinhanh = 0;
+        public static String mChinhanh = "";
 
         public static String serverNameConLai = "";
         public static String connstrConLai = ""; //connstr su dung tai khoan htkn va ten server con lai

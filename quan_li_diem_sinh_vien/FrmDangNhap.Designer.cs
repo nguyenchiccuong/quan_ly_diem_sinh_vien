@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBoxDangNhap = new System.Windows.Forms.GroupBox();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnDangNhap = new System.Windows.Forms.Button();
+            this.cboKhoa = new System.Windows.Forms.ComboBox();
+            this.txbMatKhau = new System.Windows.Forms.TextBox();
+            this.txbTenDangNhap = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txbTenDangNhap = new System.Windows.Forms.TextBox();
-            this.txbMatKhau = new System.Windows.Forms.TextBox();
-            this.cboKhoa = new System.Windows.Forms.ComboBox();
-            this.btnDangNhap = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
             this.groupBoxDangNhap.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,57 @@
             this.groupBoxDangNhap.Size = new System.Drawing.Size(475, 313);
             this.groupBoxDangNhap.TabIndex = 0;
             this.groupBoxDangNhap.TabStop = false;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(279, 240);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(163, 34);
+            this.btnThoat.TabIndex = 8;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnDangNhap
+            // 
+            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangNhap.Location = new System.Drawing.Point(33, 240);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(163, 34);
+            this.btnDangNhap.TabIndex = 7;
+            this.btnDangNhap.Text = "Đăng nhập";
+            this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
+            // cboKhoa
+            // 
+            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboKhoa.FormattingEnabled = true;
+            this.cboKhoa.ItemHeight = 24;
+            this.cboKhoa.Location = new System.Drawing.Point(181, 44);
+            this.cboKhoa.Name = "cboKhoa";
+            this.cboKhoa.Size = new System.Drawing.Size(261, 32);
+            this.cboKhoa.TabIndex = 6;
+            this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
+            // 
+            // txbMatKhau
+            // 
+            this.txbMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMatKhau.Location = new System.Drawing.Point(181, 150);
+            this.txbMatKhau.Name = "txbMatKhau";
+            this.txbMatKhau.PasswordChar = '*';
+            this.txbMatKhau.Size = new System.Drawing.Size(261, 29);
+            this.txbMatKhau.TabIndex = 5;
+            // 
+            // txbTenDangNhap
+            // 
+            this.txbTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTenDangNhap.Location = new System.Drawing.Point(181, 98);
+            this.txbTenDangNhap.Name = "txbTenDangNhap";
+            this.txbTenDangNhap.Size = new System.Drawing.Size(261, 29);
+            this.txbTenDangNhap.TabIndex = 4;
             // 
             // label3
             // 
@@ -87,55 +138,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Khoa:";
             // 
-            // txbTenDangNhap
-            // 
-            this.txbTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTenDangNhap.Location = new System.Drawing.Point(181, 98);
-            this.txbTenDangNhap.Name = "txbTenDangNhap";
-            this.txbTenDangNhap.Size = new System.Drawing.Size(261, 29);
-            this.txbTenDangNhap.TabIndex = 4;
-            // 
-            // txbMatKhau
-            // 
-            this.txbMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMatKhau.Location = new System.Drawing.Point(181, 150);
-            this.txbMatKhau.Name = "txbMatKhau";
-            this.txbMatKhau.PasswordChar = '*';
-            this.txbMatKhau.Size = new System.Drawing.Size(261, 29);
-            this.txbMatKhau.TabIndex = 5;
-            // 
-            // cboKhoa
-            // 
-            this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboKhoa.FormattingEnabled = true;
-            this.cboKhoa.ItemHeight = 24;
-            this.cboKhoa.Location = new System.Drawing.Point(181, 44);
-            this.cboKhoa.Name = "cboKhoa";
-            this.cboKhoa.Size = new System.Drawing.Size(261, 32);
-            this.cboKhoa.TabIndex = 6;
-            // 
-            // btnDangNhap
-            // 
-            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap.Location = new System.Drawing.Point(33, 240);
-            this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(163, 34);
-            this.btnDangNhap.TabIndex = 7;
-            this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = true;
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(279, 240);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(163, 34);
-            this.btnThoat.TabIndex = 8;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,6 +147,7 @@
             this.Name = "FrmDangNhap";
             this.Text = "FrmDangNhap";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmDangNhap_Load);
             this.groupBoxDangNhap.ResumeLayout(false);
             this.groupBoxDangNhap.PerformLayout();
             this.ResumeLayout(false);

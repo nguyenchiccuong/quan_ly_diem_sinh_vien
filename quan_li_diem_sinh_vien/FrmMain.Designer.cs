@@ -40,13 +40,12 @@
             this.ribbonPageGroupGV1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageSV = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupSV1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageBC = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroupBC1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.statusStripThongTin = new System.Windows.Forms.StatusStrip();
             this.sttMaNV = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttNhom = new System.Windows.Forms.ToolStripStatusLabel();
+            this.sttKhoa = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
             this.statusStripThongTin.SuspendLayout();
@@ -67,8 +66,7 @@
             this.ribbonPageHeThong,
             this.ribbonPagePGV,
             this.ribbonPageGV,
-            this.ribbonPageSV,
-            this.ribbonPageBC});
+            this.ribbonPageSV});
             this.ribbonControl1.Size = new System.Drawing.Size(758, 158);
             // 
             // barBtnDangNhap
@@ -136,18 +134,6 @@
             // 
             this.ribbonPageGroupSV1.Name = "ribbonPageGroupSV1";
             // 
-            // ribbonPageBC
-            // 
-            this.ribbonPageBC.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroupBC1});
-            this.ribbonPageBC.Name = "ribbonPageBC";
-            this.ribbonPageBC.Text = "Báo cáo";
-            this.ribbonPageBC.Visible = false;
-            // 
-            // ribbonPageGroupBC1
-            // 
-            this.ribbonPageGroupBC1.Name = "ribbonPageGroupBC1";
-            // 
             // xtraTabbedMdiManager
             // 
             this.xtraTabbedMdiManager.MdiParent = this;
@@ -157,7 +143,8 @@
             this.statusStripThongTin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sttMaNV,
             this.sttHoTen,
-            this.sttNhom});
+            this.sttNhom,
+            this.sttKhoa});
             this.statusStripThongTin.Location = new System.Drawing.Point(0, 338);
             this.statusStripThongTin.Name = "statusStripThongTin";
             this.statusStripThongTin.Size = new System.Drawing.Size(758, 22);
@@ -181,6 +168,12 @@
             this.sttNhom.Name = "sttNhom";
             this.sttNhom.Size = new System.Drawing.Size(45, 17);
             this.sttNhom.Text = "NHOM";
+            // 
+            // sttKhoa
+            // 
+            this.sttKhoa.Name = "sttKhoa";
+            this.sttKhoa.Size = new System.Drawing.Size(40, 17);
+            this.sttKhoa.Text = "KHOA";
             // 
             // FrmMain
             // 
@@ -210,19 +203,18 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupHT1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager;
         private System.Windows.Forms.StatusStrip statusStripThongTin;
-        private System.Windows.Forms.ToolStripStatusLabel sttMaNV;
-        private System.Windows.Forms.ToolStripStatusLabel sttHoTen;
-        private System.Windows.Forms.ToolStripStatusLabel sttNhom;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPagePGV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupPGV1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageGV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupGV1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageSV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupSV1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageBC;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupBC1;
         private DevExpress.XtraBars.BarButtonItem barBtnDangNhap;
         private DevExpress.XtraBars.BarButtonItem barBtnDangXuat;
+        public System.Windows.Forms.ToolStripStatusLabel sttKhoa;
+        public System.Windows.Forms.ToolStripStatusLabel sttMaNV;
+        public System.Windows.Forms.ToolStripStatusLabel sttHoTen;
+        public System.Windows.Forms.ToolStripStatusLabel sttNhom;
     }
 }
 
