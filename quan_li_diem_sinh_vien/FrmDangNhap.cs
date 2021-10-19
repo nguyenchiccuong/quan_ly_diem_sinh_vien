@@ -212,7 +212,21 @@ namespace quan_li_diem_sinh_vien
             Program.frmMain.sttNhom.Text = "Nhóm: " + Program.mGroup;
             Program.frmMain.sttKhoa.Text = "Khoa: " + Program.mChinhanh;
 
-            //Close();
+            Program.frmMain.barBtnDangNhap.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            Program.frmMain.barBtnDangXuat.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            if (Program.mGroup == "PGV")
+            {
+                Program.frmMain.ribbonPagePGV.Visible = true;
+            }
+            else if (Program.mGroup == "KHOA")
+            {
+                Program.frmMain.ribbonPageGV.Visible = true;
+            }
+            else
+            {
+                Program.frmMain.ribbonPageSV.Visible = true;
+            }
+            Close();
 
         }
     }

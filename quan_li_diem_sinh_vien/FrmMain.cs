@@ -34,6 +34,28 @@ namespace quan_li_diem_sinh_vien
                                        (this.ClientSize.Height - f.Height) / 2);
             }
         }
+
+        private void barBtnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            sttMaNV.Text = "";
+            sttHoTen.Text = "";
+            sttNhom.Text = "";
+            sttKhoa.Text = "";
+
+            Program.frmMain.barBtnDangNhap.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+            Program.frmMain.barBtnDangXuat.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+            Program.frmMain.ribbonPageGV.Visible = false;
+            Program.frmMain.ribbonPageGV.Visible = false;
+            Program.frmMain.ribbonPageSV.Visible = false;
+
+            Form[] childArray = this.MdiChildren;
+            foreach (Form childForm in childArray)
+            {
+                childForm.Close();
+            }
+            barBtnDangNhap.PerformClick();
+        }
     }
 
 

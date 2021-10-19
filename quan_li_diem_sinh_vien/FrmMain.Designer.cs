@@ -84,6 +84,7 @@
             this.barBtnDangXuat.ImageOptions.Image = global::quan_li_diem_sinh_vien.Properties.Resources.logout;
             this.barBtnDangXuat.Name = "barBtnDangXuat";
             this.barBtnDangXuat.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.barBtnDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDangXuat_ItemClick);
             // 
             // ribbonPageHeThong
             // 
@@ -203,18 +204,18 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupHT1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager;
         private System.Windows.Forms.StatusStrip statusStripThongTin;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPagePGV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupPGV1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageGV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupGV1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageSV;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupSV1;
-        private DevExpress.XtraBars.BarButtonItem barBtnDangNhap;
-        private DevExpress.XtraBars.BarButtonItem barBtnDangXuat;
         public System.Windows.Forms.ToolStripStatusLabel sttKhoa;
         public System.Windows.Forms.ToolStripStatusLabel sttMaNV;
         public System.Windows.Forms.ToolStripStatusLabel sttHoTen;
         public System.Windows.Forms.ToolStripStatusLabel sttNhom;
+        public DevExpress.XtraBars.BarButtonItem barBtnDangNhap;
+        public DevExpress.XtraBars.BarButtonItem barBtnDangXuat;
+        public DevExpress.XtraBars.Ribbon.RibbonPage ribbonPagePGV;
+        public DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageGV;
+        public DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageSV;
     }
 }
 
