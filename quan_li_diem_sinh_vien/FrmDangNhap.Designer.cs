@@ -51,7 +51,6 @@
             this.xtraScrollableControlDangNhap.Controls.Add(this.label2);
             this.xtraScrollableControlDangNhap.Controls.Add(this.label1);
             this.xtraScrollableControlDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraScrollableControlDangNhap.FireScrollEventOnMouseWheel = true;
             this.xtraScrollableControlDangNhap.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControlDangNhap.Name = "xtraScrollableControlDangNhap";
             this.xtraScrollableControlDangNhap.Size = new System.Drawing.Size(541, 322);
@@ -59,7 +58,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnThoat.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(300, 239);
             this.btnThoat.Name = "btnThoat";
@@ -71,7 +70,7 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangNhap.Location = new System.Drawing.Point(54, 239);
             this.btnDangNhap.Name = "btnDangNhap";
@@ -83,7 +82,7 @@
             // 
             // cboKhoa
             // 
-            this.cboKhoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cboKhoa.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cboKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboKhoa.FormattingEnabled = true;
@@ -96,7 +95,7 @@
             // 
             // txbMatKhau
             // 
-            this.txbMatKhau.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txbMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbMatKhau.Location = new System.Drawing.Point(202, 149);
             this.txbMatKhau.Name = "txbMatKhau";
@@ -106,7 +105,7 @@
             // 
             // txbTenDangNhap
             // 
-            this.txbTenDangNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbTenDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txbTenDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTenDangNhap.Location = new System.Drawing.Point(202, 97);
             this.txbTenDangNhap.Name = "txbTenDangNhap";
@@ -115,7 +114,7 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(110, 154);
@@ -126,7 +125,7 @@
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(50, 102);
@@ -137,7 +136,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(137, 51);
@@ -150,7 +149,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(541, 322);
             this.Controls.Add(this.xtraScrollableControlDangNhap);
             this.Name = "FrmDangNhap";

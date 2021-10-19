@@ -29,9 +29,9 @@ namespace quan_li_diem_sinh_vien
                 FrmDangNhap f = new FrmDangNhap();
                 f.MdiParent = this;
                 f.Show();
-                f.StartPosition = FormStartPosition.Manual;
-                f.Location = new Point((this.ClientSize.Width - f.Width) / 2,
-                                       (this.ClientSize.Height - f.Height) / 2);
+                //f.StartPosition = FormStartPosition.Manual;
+                //f.Location = new Point((this.ClientSize.Width - f.Width) / 2,
+                //                       (this.ClientSize.Height - f.Height) / 2);
             }
         }
 
