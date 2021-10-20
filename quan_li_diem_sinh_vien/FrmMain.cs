@@ -45,7 +45,7 @@ namespace quan_li_diem_sinh_vien
             Program.frmMain.barBtnDangNhap.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
             Program.frmMain.barBtnDangXuat.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
 
-            Program.frmMain.ribbonPageGV.Visible = false;
+            Program.frmMain.ribbonPagePGV.Visible = false;
             Program.frmMain.ribbonPageGV.Visible = false;
             Program.frmMain.ribbonPageSV.Visible = false;
 
