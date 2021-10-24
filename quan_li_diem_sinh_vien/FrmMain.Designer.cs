@@ -32,10 +32,26 @@
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barBtnDangNhap = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDangXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnLop = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnGiangVien = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnSinhVien = new DevExpress.XtraBars.BarButtonItem();
+            this.bartbnNienKhoaHocKy = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnLopTinChi = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnTaoTk = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnMocHoc = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnNhapDiemPGV = new DevExpress.XtraBars.BarButtonItem();
+            this.barbtnNhapDiemGV = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDangKy = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHT1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPagePGV = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupPGV1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupPGV2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupPGV3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupPGV4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupPGV5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupPGV6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupPGV7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGV = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupGV1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageSV = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -46,22 +62,6 @@
             this.sttHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttNhom = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttKhoa = new System.Windows.Forms.ToolStripStatusLabel();
-            this.barBtnLop = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroupPGV3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroupPGV5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroupPGV6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnGiangVien = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnSinhVien = new DevExpress.XtraBars.BarButtonItem();
-            this.bartbnNienKhoaHocKy = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnLopTinChi = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroupPGV4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnTaoTk = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroupPGV2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnMocHoc = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroupPGV7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnNhapDiemPGV = new DevExpress.XtraBars.BarButtonItem();
-            this.barbtnNhapDiemGV = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnDangKy = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
             this.statusStripThongTin.SuspendLayout();
@@ -112,6 +112,67 @@
             this.barBtnDangXuat.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barBtnDangXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDangXuat_ItemClick);
             // 
+            // barBtnLop
+            // 
+            this.barBtnLop.Caption = "Lớp";
+            this.barBtnLop.Id = 7;
+            this.barBtnLop.Name = "barBtnLop";
+            // 
+            // barBtnGiangVien
+            // 
+            this.barBtnGiangVien.Caption = "Giảng viên";
+            this.barBtnGiangVien.Id = 9;
+            this.barBtnGiangVien.Name = "barBtnGiangVien";
+            // 
+            // barBtnSinhVien
+            // 
+            this.barBtnSinhVien.Caption = "barButtonItem3";
+            this.barBtnSinhVien.Id = 10;
+            this.barBtnSinhVien.Name = "barBtnSinhVien";
+            // 
+            // bartbnNienKhoaHocKy
+            // 
+            this.bartbnNienKhoaHocKy.Caption = "Niên khóa - Học kỳ";
+            this.bartbnNienKhoaHocKy.Id = 11;
+            this.bartbnNienKhoaHocKy.Name = "bartbnNienKhoaHocKy";
+            // 
+            // barBtnLopTinChi
+            // 
+            this.barBtnLopTinChi.Caption = "Lớp tín chỉ";
+            this.barBtnLopTinChi.Id = 12;
+            this.barBtnLopTinChi.Name = "barBtnLopTinChi";
+            // 
+            // barBtnTaoTk
+            // 
+            this.barBtnTaoTk.Caption = "Tài khoản";
+            this.barBtnTaoTk.Id = 13;
+            this.barBtnTaoTk.Name = "barBtnTaoTk";
+            // 
+            // barBtnMocHoc
+            // 
+            this.barBtnMocHoc.Caption = "Môn học";
+            this.barBtnMocHoc.Id = 14;
+            this.barBtnMocHoc.Name = "barBtnMocHoc";
+            this.barBtnMocHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnMocHoc_ItemClick);
+            // 
+            // barBtnNhapDiemPGV
+            // 
+            this.barBtnNhapDiemPGV.Caption = "Nhập điểm";
+            this.barBtnNhapDiemPGV.Id = 15;
+            this.barBtnNhapDiemPGV.Name = "barBtnNhapDiemPGV";
+            // 
+            // barbtnNhapDiemGV
+            // 
+            this.barbtnNhapDiemGV.Caption = "Nhập điểm";
+            this.barbtnNhapDiemGV.Id = 16;
+            this.barbtnNhapDiemGV.Name = "barbtnNhapDiemGV";
+            // 
+            // barBtnDangKy
+            // 
+            this.barBtnDangKy.Caption = "Đăng ký";
+            this.barBtnDangKy.Id = 18;
+            this.barBtnDangKy.Name = "barBtnDangKy";
+            // 
             // ribbonPageHeThong
             // 
             this.ribbonPageHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -143,6 +204,36 @@
             // 
             this.ribbonPageGroupPGV1.ItemLinks.Add(this.barBtnLop);
             this.ribbonPageGroupPGV1.Name = "ribbonPageGroupPGV1";
+            // 
+            // ribbonPageGroupPGV2
+            // 
+            this.ribbonPageGroupPGV2.ItemLinks.Add(this.barBtnMocHoc);
+            this.ribbonPageGroupPGV2.Name = "ribbonPageGroupPGV2";
+            // 
+            // ribbonPageGroupPGV3
+            // 
+            this.ribbonPageGroupPGV3.ItemLinks.Add(this.barBtnGiangVien);
+            this.ribbonPageGroupPGV3.Name = "ribbonPageGroupPGV3";
+            // 
+            // ribbonPageGroupPGV4
+            // 
+            this.ribbonPageGroupPGV4.ItemLinks.Add(this.barBtnTaoTk);
+            this.ribbonPageGroupPGV4.Name = "ribbonPageGroupPGV4";
+            // 
+            // ribbonPageGroupPGV5
+            // 
+            this.ribbonPageGroupPGV5.ItemLinks.Add(this.bartbnNienKhoaHocKy);
+            this.ribbonPageGroupPGV5.Name = "ribbonPageGroupPGV5";
+            // 
+            // ribbonPageGroupPGV6
+            // 
+            this.ribbonPageGroupPGV6.ItemLinks.Add(this.barBtnLopTinChi);
+            this.ribbonPageGroupPGV6.Name = "ribbonPageGroupPGV6";
+            // 
+            // ribbonPageGroupPGV7
+            // 
+            this.ribbonPageGroupPGV7.ItemLinks.Add(this.barBtnNhapDiemPGV);
+            this.ribbonPageGroupPGV7.Name = "ribbonPageGroupPGV7";
             // 
             // ribbonPageGV
             // 
@@ -210,96 +301,6 @@
             this.sttKhoa.Name = "sttKhoa";
             this.sttKhoa.Size = new System.Drawing.Size(40, 17);
             this.sttKhoa.Text = "KHOA";
-            // 
-            // barBtnLop
-            // 
-            this.barBtnLop.Caption = "Lớp";
-            this.barBtnLop.Id = 7;
-            this.barBtnLop.Name = "barBtnLop";
-            // 
-            // ribbonPageGroupPGV3
-            // 
-            this.ribbonPageGroupPGV3.ItemLinks.Add(this.barBtnGiangVien);
-            this.ribbonPageGroupPGV3.Name = "ribbonPageGroupPGV3";
-            // 
-            // ribbonPageGroupPGV5
-            // 
-            this.ribbonPageGroupPGV5.ItemLinks.Add(this.bartbnNienKhoaHocKy);
-            this.ribbonPageGroupPGV5.Name = "ribbonPageGroupPGV5";
-            // 
-            // ribbonPageGroupPGV6
-            // 
-            this.ribbonPageGroupPGV6.ItemLinks.Add(this.barBtnLopTinChi);
-            this.ribbonPageGroupPGV6.Name = "ribbonPageGroupPGV6";
-            // 
-            // barBtnGiangVien
-            // 
-            this.barBtnGiangVien.Caption = "Giảng viên";
-            this.barBtnGiangVien.Id = 9;
-            this.barBtnGiangVien.Name = "barBtnGiangVien";
-            // 
-            // barBtnSinhVien
-            // 
-            this.barBtnSinhVien.Caption = "barButtonItem3";
-            this.barBtnSinhVien.Id = 10;
-            this.barBtnSinhVien.Name = "barBtnSinhVien";
-            // 
-            // bartbnNienKhoaHocKy
-            // 
-            this.bartbnNienKhoaHocKy.Caption = "Niên khóa - Học kỳ";
-            this.bartbnNienKhoaHocKy.Id = 11;
-            this.bartbnNienKhoaHocKy.Name = "bartbnNienKhoaHocKy";
-            // 
-            // barBtnLopTinChi
-            // 
-            this.barBtnLopTinChi.Caption = "Lớp tín chỉ";
-            this.barBtnLopTinChi.Id = 12;
-            this.barBtnLopTinChi.Name = "barBtnLopTinChi";
-            // 
-            // ribbonPageGroupPGV4
-            // 
-            this.ribbonPageGroupPGV4.ItemLinks.Add(this.barBtnTaoTk);
-            this.ribbonPageGroupPGV4.Name = "ribbonPageGroupPGV4";
-            // 
-            // barBtnTaoTk
-            // 
-            this.barBtnTaoTk.Caption = "Tài khoản";
-            this.barBtnTaoTk.Id = 13;
-            this.barBtnTaoTk.Name = "barBtnTaoTk";
-            // 
-            // ribbonPageGroupPGV2
-            // 
-            this.ribbonPageGroupPGV2.ItemLinks.Add(this.barBtnMocHoc);
-            this.ribbonPageGroupPGV2.Name = "ribbonPageGroupPGV2";
-            // 
-            // barBtnMocHoc
-            // 
-            this.barBtnMocHoc.Caption = "Môn học";
-            this.barBtnMocHoc.Id = 14;
-            this.barBtnMocHoc.Name = "barBtnMocHoc";
-            // 
-            // ribbonPageGroupPGV7
-            // 
-            this.ribbonPageGroupPGV7.ItemLinks.Add(this.barBtnNhapDiemPGV);
-            this.ribbonPageGroupPGV7.Name = "ribbonPageGroupPGV7";
-            // 
-            // barBtnNhapDiemPGV
-            // 
-            this.barBtnNhapDiemPGV.Caption = "Nhập điểm";
-            this.barBtnNhapDiemPGV.Id = 15;
-            this.barBtnNhapDiemPGV.Name = "barBtnNhapDiemPGV";
-            // 
-            // barbtnNhapDiemGV
-            // 
-            this.barbtnNhapDiemGV.Caption = "Nhập điểm";
-            this.barbtnNhapDiemGV.Id = 16;
-            this.barbtnNhapDiemGV.Name = "barbtnNhapDiemGV";
-            // 
-            // barBtnDangKy
-            // 
-            this.barBtnDangKy.Caption = "Đăng ký";
-            this.barBtnDangKy.Id = 18;
-            this.barBtnDangKy.Name = "barBtnDangKy";
             // 
             // FrmMain
             // 
