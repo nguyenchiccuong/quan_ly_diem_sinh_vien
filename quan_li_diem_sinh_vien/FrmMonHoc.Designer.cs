@@ -117,18 +117,18 @@
             lblSoTietLt.AutoSize = true;
             lblSoTietLt.Location = new System.Drawing.Point(38, 113);
             lblSoTietLt.Name = "lblSoTietLt";
-            lblSoTietLt.Size = new System.Drawing.Size(101, 15);
+            lblSoTietLt.Size = new System.Drawing.Size(95, 15);
             lblSoTietLt.TabIndex = 4;
-            lblSoTietLt.Text = "Số tiết thực hành:";
+            lblSoTietLt.Text = "Số tiết lý thuyết:";
             // 
             // lblSoTietThucHanh
             // 
             lblSoTietThucHanh.AutoSize = true;
             lblSoTietThucHanh.Location = new System.Drawing.Point(44, 157);
             lblSoTietThucHanh.Name = "lblSoTietThucHanh";
-            lblSoTietThucHanh.Size = new System.Drawing.Size(95, 15);
+            lblSoTietThucHanh.Size = new System.Drawing.Size(101, 15);
             lblSoTietThucHanh.TabIndex = 6;
-            lblSoTietThucHanh.Text = "Số tiết lý thuyết:";
+            lblSoTietThucHanh.Text = "Số tiết thực hành:";
             // 
             // xtraScrollableControlTong
             // 

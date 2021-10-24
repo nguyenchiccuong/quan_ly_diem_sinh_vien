@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 
@@ -8,6 +9,9 @@ namespace quan_li_diem_sinh_vien
     {
         int viTri = -1;
         String tenMHBanDau;
+        Stack<String> myStack = new Stack<String>();
+        String lenhUpdate;
+        String lenhThem;
 
         public FrmMonHoc()
         {
@@ -65,11 +69,20 @@ namespace quan_li_diem_sinh_vien
             maMHTextEdit.Enabled = tenMHTextEdit.Enabled = soTietLTSpinEdit.Enabled = soTietThucHanhSpinEdit.Enabled = false;
 
             monHocGridControl.Enabled = true;
+
+            if (myStack.Count > 0) barBtnPhucHoi.Enabled = true;
+            else barBtnPhucHoi.Enabled = false;
         }
 
         private void barBtnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (Program.KetNoi() == 0) return;
+            String lenh = myStack.Peek();
+            if (Program.ExecSqlNonQuery(lenh) == 0)
+            {
+                myStack.Pop();
+                barBtnTaiLai.PerformClick();
+            }
         }
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -81,8 +94,11 @@ namespace quan_li_diem_sinh_vien
                 {
                     monHocBDS.RemoveCurrent();
                     this.monHocTableAdapter.Update(this.DSMHC.MON_HOC);
+                    myStack.Push(lenhThem);
+                    viTri = -1;
                     barBtnTaiLai.PerformClick();
                     MessageBox.Show("Xóa môn học thành công", "Thông báo", MessageBoxButtons.OK);
+
                 }
                 catch (Exception ex)
                 {
@@ -104,9 +120,12 @@ namespace quan_li_diem_sinh_vien
                 {
                     this.monHocTableAdapter.Update(this.DSMHC);
                 }
-                MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK);
+
                 viTri = monHocBDS.Position;
+                String lenh = "DELETE FROM MON_HOC WHERE MA_MH = '" + maMHTextEdit.Text.Trim() + "'";
+                myStack.Push(lenh);
                 barBtnTaiLai.PerformClick();
+                MessageBox.Show("Thêm môn học thành công", "Thông báo", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
@@ -178,8 +197,10 @@ namespace quan_li_diem_sinh_vien
                 {
                     this.monHocTableAdapter.Update(this.DSMHC.MON_HOC);
                 }
-                MessageBox.Show("Sửa môn học thành công", "Thông báo", MessageBoxButtons.OK);
+                myStack.Push(lenhUpdate);
                 barBtnTaiLai.PerformClick();
+                MessageBox.Show("Sửa môn học thành công", "Thông báo", MessageBoxButtons.OK);
+
             }
             catch (Exception ex)
             {
@@ -228,6 +249,9 @@ namespace quan_li_diem_sinh_vien
             monHocGridControl.Enabled = false;
             tenMHBanDau = tenMHTextEdit.Text;
             viTri = monHocBDS.Position;
+
+            lenhThem = "INSERT INTO MON_HOC (MA_MH, TEN_MH, SO_TIET_LT, SO_TIET_TH) VALUES('" + maMHTextEdit.Text.Trim() + "', '" + tenMHTextEdit.Text.Trim() + "', " + soTietLTSpinEdit.Value + ", " + soTietThucHanhSpinEdit.Value + ") ";
+            lenhUpdate = "UPDATE MON_HOC SET TEN_MH = '" + tenMHTextEdit.Text.Trim() + "', SO_TIET_LT = " + soTietLTSpinEdit.Value + ", SO_TIET_TH = " + soTietThucHanhSpinEdit.Value + " WHERE MA_MH = '" + maMHTextEdit.Text.Trim() + "'";
         }
 
         public bool tonTaiXoaMonHoc()
