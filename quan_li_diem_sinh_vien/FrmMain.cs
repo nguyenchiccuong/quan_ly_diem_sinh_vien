@@ -56,6 +56,18 @@ namespace quan_li_diem_sinh_vien
             }
             barBtnDangNhap.PerformClick();
         }
+
+        private void barBtnMocHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FrmMonHoc));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmMonHoc f = new FrmMonHoc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 
 
