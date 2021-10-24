@@ -49,7 +49,6 @@
             this.colSO_TIET_TH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControlKhoa = new DevExpress.XtraEditors.PanelControl();
             this.lblKhoa = new System.Windows.Forms.Label();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.barManagerTong = new DevExpress.XtraBars.BarManager(this.components);
             this.barTong = new DevExpress.XtraBars.Bar();
             this.barBtnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -71,6 +70,7 @@
             this.lopTinChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.khaNangGiangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.keHoachGiangBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cboKhoa = new System.Windows.Forms.ComboBox();
             lblMaMonHoc = new System.Windows.Forms.Label();
             lblTenMonHoc = new System.Windows.Forms.Label();
             lblSoTietLt = new System.Windows.Forms.Label();
@@ -87,7 +87,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewMonHoc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlKhoa)).BeginInit();
             this.panelControlKhoa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManagerTong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopTinChiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khaNangGiangBindingSource)).BeginInit();
@@ -252,9 +251,14 @@
             this.colSO_TIET_TH});
             this.gridViewMonHoc.GridControl = this.monHocGridControl;
             this.gridViewMonHoc.Name = "gridViewMonHoc";
+            this.gridViewMonHoc.OptionsBehavior.Editable = false;
+            this.gridViewMonHoc.OptionsDetail.EnableMasterViewMode = false;
+            this.gridViewMonHoc.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewMonHoc.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never;
             // 
             // colMA_MH
             // 
+            this.colMA_MH.Caption = "Mã môn học";
             this.colMA_MH.FieldName = "MA_MH";
             this.colMA_MH.Name = "colMA_MH";
             this.colMA_MH.Visible = true;
@@ -262,6 +266,7 @@
             // 
             // colTEN_MH
             // 
+            this.colTEN_MH.Caption = "Tên môn học";
             this.colTEN_MH.FieldName = "TEN_MH";
             this.colTEN_MH.Name = "colTEN_MH";
             this.colTEN_MH.Visible = true;
@@ -269,6 +274,7 @@
             // 
             // colSO_TIET_LT
             // 
+            this.colSO_TIET_LT.Caption = "Số tiết lý thuyết";
             this.colSO_TIET_LT.FieldName = "SO_TIET_LT";
             this.colSO_TIET_LT.Name = "colSO_TIET_LT";
             this.colSO_TIET_LT.Visible = true;
@@ -276,6 +282,7 @@
             // 
             // colSO_TIET_TH
             // 
+            this.colSO_TIET_TH.Caption = "Số tiết thực hành";
             this.colSO_TIET_TH.FieldName = "SO_TIET_TH";
             this.colSO_TIET_TH.Name = "colSO_TIET_TH";
             this.colSO_TIET_TH.Visible = true;
@@ -283,8 +290,8 @@
             // 
             // panelControlKhoa
             // 
+            this.panelControlKhoa.Controls.Add(this.cboKhoa);
             this.panelControlKhoa.Controls.Add(this.lblKhoa);
-            this.panelControlKhoa.Controls.Add(this.comboBoxEdit1);
             this.panelControlKhoa.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlKhoa.Location = new System.Drawing.Point(0, 0);
             this.panelControlKhoa.Name = "panelControlKhoa";
@@ -299,16 +306,6 @@
             this.lblKhoa.Size = new System.Drawing.Size(35, 13);
             this.lblKhoa.TabIndex = 1;
             this.lblKhoa.Text = "Khoa:";
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(122, 18);
-            this.comboBoxEdit1.MenuManager = this.barManagerTong;
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(259, 20);
-            this.comboBoxEdit1.TabIndex = 0;
             // 
             // barManagerTong
             // 
@@ -469,6 +466,14 @@
             this.keHoachGiangBindingSource.DataMember = "FK_KE_HOACH_GIANG_MON_HOC";
             this.keHoachGiangBindingSource.DataSource = this.monHocBDS;
             // 
+            // cboKhoa
+            // 
+            this.cboKhoa.FormattingEnabled = true;
+            this.cboKhoa.Location = new System.Drawing.Point(114, 18);
+            this.cboKhoa.Name = "cboKhoa";
+            this.cboKhoa.Size = new System.Drawing.Size(255, 21);
+            this.cboKhoa.TabIndex = 2;
+            // 
             // FrmMonHoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -498,7 +503,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControlKhoa)).EndInit();
             this.panelControlKhoa.ResumeLayout(false);
             this.panelControlKhoa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManagerTong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopTinChiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khaNangGiangBindingSource)).EndInit();
@@ -517,7 +521,6 @@
         private DSMHCTableAdapters.MON_HOCTableAdapter monHocTableAdapter;
         private DSMHCTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl monHocGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewMonHoc;
         private DSMHCTableAdapters.LOP_TIN_CHITableAdapter LopTinChiTableAdapter;
         private System.Windows.Forms.BindingSource lopTinChiBindingSource;
         private DSMHCTableAdapters.KHA_NANG_GIANGTableAdapter khaNangGiangTableAdapter;
@@ -547,6 +550,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private System.Windows.Forms.Label lblKhoa;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewMonHoc;
+        private System.Windows.Forms.ComboBox cboKhoa;
     }
 }

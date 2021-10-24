@@ -24,6 +24,10 @@ namespace quan_li_diem_sinh_vien
             this.LopTinChiTableAdapter.Connection.ConnectionString = Program.connstr;
             this.LopTinChiTableAdapter.Fill(this.DSMHC.LOP_TIN_CHI);
             viTri = monHocBDS.Position;
+
+            cboKhoa.DataSource = Program.bdsDSPM;
+            cboKhoa.DisplayMember = "TENCN";
+            cboKhoa.ValueMember = "TENSERVER";
         }
 
 
