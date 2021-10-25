@@ -29,6 +29,13 @@ namespace quan_li_diem_sinh_vien
         {
             DSGVC.EnforceConstraints = false;
             this.giangVienTableAdapter.Connection.ConnectionString = Program.connstr;
+
+            if (Program.mChinhanh.Equals("Công Nghệ Thông Tin"))
+                giangVienBDS.Filter = "MA_KHOA = 'CNTT'";
+            else
+                giangVienBDS.Filter = "MA_KHOA = 'VT'";
+
+
             this.giangVienTableAdapter.Fill(this.DSGVC.GIANG_VIEN);
             this.giangTableAdapter.Connection.ConnectionString = Program.connstr;
             this.giangTableAdapter.Fill(this.DSGVC.GIANG);
@@ -70,6 +77,10 @@ namespace quan_li_diem_sinh_vien
                     this.giangTableAdapter.Connection.ConnectionString = Program.connstrConLai;
                     this.khaNangGiangTableAdapter.Connection.ConnectionString = Program.connstrConLai;
                     this.quanLyTableAdapter.Connection.ConnectionString = Program.connstrConLai;
+                    if (Program.mChinhanh.Equals("Công Nghệ Thông Tin"))
+                        giangVienBDS.Filter = "MA_KHOA = 'VT'";
+                    else
+                        giangVienBDS.Filter = "MA_KHOA = 'CNTT'";
                 }
                 else
                 {
@@ -77,6 +88,10 @@ namespace quan_li_diem_sinh_vien
                     this.giangTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.khaNangGiangTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.quanLyTableAdapter.Connection.ConnectionString = Program.connstr;
+                    if (Program.mChinhanh.Equals("Công Nghệ Thông Tin"))
+                        giangVienBDS.Filter = "MA_KHOA = 'CNTT'";
+                    else
+                        giangVienBDS.Filter = "MA_KHOA = 'VT'";
                 }
                 viTri = -1;
                 myStack = new Stack<String>();
@@ -107,7 +122,20 @@ namespace quan_li_diem_sinh_vien
 
         private void barBtnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (serverHienTai.Equals(Program.serverNameConLai))
+            {
+                if (Program.KetNoi(Program.connstrConLai) == 0) return;
+            }
+            else
+            {
+                if (Program.KetNoi(Program.connstr) == 0) return;
+            }
+            String lenh = myStack.Peek();
+            if (Program.ExecSqlNonQuery(lenh) == 0)
+            {
+                myStack.Pop();
+                barBtnTaiLai.PerformClick();
+            }
         }
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -140,7 +168,7 @@ namespace quan_li_diem_sinh_vien
                 giangVienBDS.ResetCurrentItem();
                 if (DSGVC.HasChanges())
                 {
-                    this.giangVienTableAdapter.Update(this.DSGVC);
+                    this.giangVienTableAdapter.Update(this.DSGVC.GIANG_VIEN);
                 }
 
                 viTri = giangVienBDS.Position;
@@ -179,7 +207,29 @@ namespace quan_li_diem_sinh_vien
 
         private void barBtnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (kiemTraRong()) return;
+            try
+            {
+                giangVienBDS.EndEdit();
+                giangVienBDS.ResetCurrentItem();
+                if (DSGVC.HasChanges())
+                {
+                    this.giangVienTableAdapter.Update(this.DSGVC.GIANG_VIEN);
+                }
+                myStack.Push(lenhUpdate);
+                barBtnTaiLai.PerformClick();
+                MessageBox.Show("Sửa giảng viên thành công", "Thông báo", MessageBoxButtons.OK);
 
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("PRIMARY"))
+                {
+                    MessageBox.Show("Mã giảng viên trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                }
+                else
+                    MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+            }
         }
 
         private void barBtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -205,6 +255,21 @@ namespace quan_li_diem_sinh_vien
                 else
                     lblMaKhoa1.Text = "VT";
             }
+        }
+
+        private void giangVienGridControl_DoubleClick(object sender, EventArgs e)
+        {
+            hoTextEdit.Enabled = tenTextEdit.Enabled = hocViTextEdit.Enabled = hocHamTextEdit.Enabled = chuyenMonTextEdit.Enabled = true;
+            barBtnThem.Enabled = false;
+            barBtnHieuChinh.Enabled = true;
+            //if (!tonTaiXoaMonHoc()) barBtnXoa.Enabled = true;
+            giangVienGridControl.Enabled = false;
+            viTri = giangVienBDS.Position;
+
+            lenhThem = "INSERT INTO GIANG_VIEN (MA_GV, HO, TEN, HOC_VI, HOC_HAM, CHUYEN_MON, MA_KHOA) VALUES('" + lblMaGiangVien1.Text.Trim() + "', '" + hoTextEdit.Text.Trim() + "', '" + tenTextEdit.Text.Trim() + "', '" + hocViTextEdit.Text.Trim() + "', '" + hocHamTextEdit.Text.Trim() + "', '" + chuyenMonTextEdit.Text.Trim() + "', '" + lblMaKhoa1.Text.Trim() + "') ";
+            lenhUpdate = "UPDATE GIANG_VIEN SET HO = '" + hoTextEdit.Text.Trim() + "', TEN = '" + tenTextEdit.Text.Trim() + "', HOC_VI = '" + hocViTextEdit.Text.Trim() + "', HOC_HAM = '" + hocHamTextEdit.Text.Trim() + "', CHUYEN_MON = '" + chuyenMonTextEdit.Text.Trim() + "' WHERE MA_GV = '" + lblMaGiangVien1.Text + "'";
+            Console.WriteLine(lenhThem);
+            Console.WriteLine(lenhUpdate);
         }
     }
 }

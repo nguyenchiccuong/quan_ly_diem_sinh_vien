@@ -112,7 +112,7 @@ namespace quan_li_diem_sinh_vien
                 monHocBDS.ResetCurrentItem();
                 if (DSMHC.HasChanges())
                 {
-                    this.monHocTableAdapter.Update(this.DSMHC);
+                    this.monHocTableAdapter.Update(this.DSMHC.MON_HOC);
                 }
 
                 viTri = monHocBDS.Position;

@@ -434,6 +434,7 @@
             this.giangVienGridControl.TabIndex = 1;
             this.giangVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGiangVien});
+            this.giangVienGridControl.DoubleClick += new System.EventHandler(this.giangVienGridControl_DoubleClick);
             // 
             // gridViewGiangVien
             // 
