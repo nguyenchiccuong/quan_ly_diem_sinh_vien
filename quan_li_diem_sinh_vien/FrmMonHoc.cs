@@ -49,20 +49,14 @@ namespace quan_li_diem_sinh_vien
 
         private void barBtnTaiLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            this.monHocTableAdapter.Connection.ConnectionString = Program.connstr;
             this.monHocTableAdapter.Fill(this.DSMHC.MON_HOC);
-            this.keHoachGiangTableAdapter.Connection.ConnectionString = Program.connstr;
             this.keHoachGiangTableAdapter.Fill(this.DSMHC.KE_HOACH_GIANG);
-            this.khaNangGiangTableAdapter.Connection.ConnectionString = Program.connstr;
             this.khaNangGiangTableAdapter.Fill(this.DSMHC.KHA_NANG_GIANG);
-            this.LopTinChiTableAdapter.Connection.ConnectionString = Program.connstr;
             this.LopTinChiTableAdapter.Fill(this.DSMHC.LOP_TIN_CHI);
             if (viTri != -1)
                 monHocBDS.Position = viTri;
             else
                 viTri = monHocBDS.Position;
-
-            maMHTextEdit.Enabled = false;
 
             barBtnHieuChinh.Enabled = barBtnGhi.Enabled = barBtnXoa.Enabled = barBtnPhucHoi.Enabled = false;
             barBtnThem.Enabled = true;
