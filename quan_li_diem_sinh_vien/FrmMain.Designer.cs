@@ -123,6 +123,7 @@
             this.barBtnGiangVien.Caption = "Giảng viên";
             this.barBtnGiangVien.Id = 9;
             this.barBtnGiangVien.Name = "barBtnGiangVien";
+            this.barBtnGiangVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnGiangVien_ItemClick);
             // 
             // barBtnSinhVien
             // 

@@ -69,6 +69,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DSGVC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSGVC.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSMHC.cs">
       <DependentUpon>DSMHC.xsd</DependentUpon>
     </Compile>
@@ -82,6 +87,12 @@
     </Compile>
     <Compile Include="FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGiangVien.Designer.cs">
+      <DependentUpon>FrmGiangVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -99,6 +110,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGiangVien.resx">
+      <DependentUpon>FrmGiangVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -118,6 +132,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="DSGVC.xsc">
+      <DependentUpon>DSGVC.xsd</DependentUpon>
+    </None>
+    <None Include="DSGVC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSGVC.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSGVC.xss">
+      <DependentUpon>DSGVC.xsd</DependentUpon>
+    </None>
     <None Include="DSMHC.xsc">
       <DependentUpon>DSMHC.xsd</DependentUpon>
     </None>
