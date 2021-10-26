@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace quan_li_diem_sinh_vien
@@ -27,9 +20,15 @@ namespace quan_li_diem_sinh_vien
 
         private void FrmDkiGiangVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dSGVDKC.GIANG_VIEN' table. You can move, or remove it, as needed.
+            DSGVDKC.EnforceConstraints = false;
+            this.giangVienTableAdapter.Connection.ConnectionString = Program.connstr;
             this.giangVienTableAdapter.Fill(this.DSGVDKC.GIANG_VIEN);
 
+        }
+
+        private void barBtnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Close();
         }
     }
 }

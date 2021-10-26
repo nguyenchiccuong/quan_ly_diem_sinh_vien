@@ -148,6 +148,7 @@
             this.barBtnTaoTk.Caption = "Tài khoản";
             this.barBtnTaoTk.Id = 13;
             this.barBtnTaoTk.Name = "barBtnTaoTk";
+            this.barBtnTaoTk.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTaoTk_ItemClick);
             // 
             // barBtnMocHoc
             // 
