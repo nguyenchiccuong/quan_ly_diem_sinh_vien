@@ -284,10 +284,8 @@ namespace quan_li_diem_sinh_vien
             giangVienGridControl.Enabled = false;
             viTri = giangVienBDS.Position;
 
-            lenhThem = "INSERT INTO GIANG_VIEN (MA_GV, HO, TEN, HOC_VI, HOC_HAM, CHUYEN_MON, MA_KHOA) VALUES('" + lblMaGiangVien1.Text.Trim() + "', '" + hoTextEdit.Text.Trim() + "', '" + tenTextEdit.Text.Trim() + "', '" + hocViTextEdit.Text.Trim() + "', '" + hocHamTextEdit.Text.Trim() + "', '" + chuyenMonTextEdit.Text.Trim() + "', '" + lblMaKhoa1.Text.Trim() + "') ";
-            lenhUpdate = "UPDATE GIANG_VIEN SET HO = '" + hoTextEdit.Text.Trim() + "', TEN = '" + tenTextEdit.Text.Trim() + "', HOC_VI = '" + hocViTextEdit.Text.Trim() + "', HOC_HAM = '" + hocHamTextEdit.Text.Trim() + "', CHUYEN_MON = '" + chuyenMonTextEdit.Text.Trim() + "' WHERE MA_GV = '" + lblMaGiangVien1.Text.Trim() + "'";
-            Console.WriteLine(lenhThem);
-            Console.WriteLine(lenhUpdate);
+            lenhThem = "INSERT INTO GIANG_VIEN (MA_GV, HO, TEN, HOC_VI, HOC_HAM, CHUYEN_MON, MA_KHOA) VALUES('" + lblMaGiangVien1.Text.Trim() + "', N'" + hoTextEdit.Text.Trim() + "', N'" + tenTextEdit.Text.Trim() + "', N'" + hocViTextEdit.Text.Trim() + "', N'" + hocHamTextEdit.Text.Trim() + "', N'" + chuyenMonTextEdit.Text.Trim() + "', '" + lblMaKhoa1.Text.Trim() + "') ";
+            lenhUpdate = "UPDATE GIANG_VIEN SET HO = N'" + hoTextEdit.Text.Trim() + "', TEN = N'" + tenTextEdit.Text.Trim() + "', HOC_VI = N'" + hocViTextEdit.Text.Trim() + "', HOC_HAM = N'" + hocHamTextEdit.Text.Trim() + "', CHUYEN_MON = N'" + chuyenMonTextEdit.Text.Trim() + "' WHERE MA_GV = '" + lblMaGiangVien1.Text.Trim() + "'";
         }
 
         public bool tonTaiXoaMonHoc()

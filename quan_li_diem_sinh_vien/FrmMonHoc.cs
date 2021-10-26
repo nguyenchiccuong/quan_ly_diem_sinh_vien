@@ -245,8 +245,8 @@ namespace quan_li_diem_sinh_vien
             tenMHBanDau = tenMHTextEdit.Text.Trim();
             viTri = monHocBDS.Position;
 
-            lenhThem = "INSERT INTO MON_HOC (MA_MH, TEN_MH, SO_TIET_LT, SO_TIET_TH) VALUES('" + maMHTextEdit.Text.Trim() + "', '" + tenMHTextEdit.Text.Trim() + "', " + soTietLTSpinEdit.Value + ", " + soTietThucHanhSpinEdit.Value + ") ";
-            lenhUpdate = "UPDATE MON_HOC SET TEN_MH = '" + tenMHTextEdit.Text.Trim() + "', SO_TIET_LT = " + soTietLTSpinEdit.Value + ", SO_TIET_TH = " + soTietThucHanhSpinEdit.Value + " WHERE MA_MH = '" + maMHTextEdit.Text.Trim() + "'";
+            lenhThem = "INSERT INTO MON_HOC (MA_MH, TEN_MH, SO_TIET_LT, SO_TIET_TH) VALUES('" + maMHTextEdit.Text.Trim() + "', N'" + tenMHTextEdit.Text.Trim() + "', " + soTietLTSpinEdit.Value + ", " + soTietThucHanhSpinEdit.Value + ") ";
+            lenhUpdate = "UPDATE MON_HOC SET TEN_MH = N'" + tenMHTextEdit.Text.Trim() + "', SO_TIET_LT = " + soTietLTSpinEdit.Value + ", SO_TIET_TH = " + soTietThucHanhSpinEdit.Value + " WHERE MA_MH = '" + maMHTextEdit.Text.Trim() + "'";
         }
 
         public bool tonTaiXoaMonHoc()
