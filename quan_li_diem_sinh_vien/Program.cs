@@ -56,6 +56,23 @@ namespace quan_li_diem_sinh_vien
                 return 0;
             }
         }
+        public static int KetNoi(String connstr)
+        {
+            if (Program.conn != null && Program.conn.State == ConnectionState.Open)
+                Program.conn.Close();
+            try
+            {
+                Program.conn.ConnectionString = connstr;
+                Program.conn.Open();
+                return 1;
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu.\nBạn xem lại user name và password.\n " + e.Message, "", MessageBoxButtons.OK);
+                return 0;
+            }
+        }
         public static SqlDataReader ExecSqlDataReader(String strLenh) // exec sp, select, view, truy vấn nhanh, chỉ dc xem, có nhiều dòng chỉ cho phép di xuống
         {
             SqlDataReader myreader;
