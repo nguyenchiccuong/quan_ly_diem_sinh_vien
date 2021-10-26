@@ -77,11 +77,12 @@ namespace quan_li_diem_sinh_vien
                 myStack.Pop();
                 barBtnTaiLai.PerformClick();
             }
+            Program.conn.Close();
         }
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Bạn thực sự muốn xóa môn học " + tenMHTextEdit.Text + " (mã: " + maMHTextEdit.Text.Trim() + ")", "Xác nhận xóa", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Bạn thực sự muốn xóa môn học " + tenMHTextEdit.Text.Trim() + " (mã: " + maMHTextEdit.Text.Trim() + ")", "Xác nhận xóa", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -163,14 +164,14 @@ namespace quan_li_diem_sinh_vien
             BindingSource bdsMonHocTemp = new BindingSource(monHocBDS.DataSource, monHocBDS.DataMember);
             DataView dt = (DataView)bdsMonHocTemp.List;
             dt.Sort = "MA_MH";
-            if (dt.FindRows(maMHTextEdit.Text).Length != 0)
+            if (dt.FindRows(maMHTextEdit.Text.Trim()).Length != 0)
             {
                 MessageBox.Show("Mã môn học trùng", "Báo lỗi", MessageBoxButtons.OK);
                 maMHTextEdit.Focus();
                 return true; //da ton tai
             }
             dt.Sort = "TEN_MH";
-            if (dt.FindRows(tenMHTextEdit.Text).Length != 0)
+            if (dt.FindRows(tenMHTextEdit.Text.Trim()).Length != 0)
             {
                 MessageBox.Show("Tên môn học trùng", "Báo lỗi", MessageBoxButtons.OK);
                 tenMHTextEdit.Focus();
@@ -214,7 +215,7 @@ namespace quan_li_diem_sinh_vien
             BindingSource bdsMonHocTemp = new BindingSource(monHocBDS.DataSource, monHocBDS.DataMember);
             DataView dt = (DataView)bdsMonHocTemp.List;
             dt.Sort = "TEN_MH";
-            if (dt.FindRows(tenMHTextEdit.Text).Length == 1 && !tenMHTextEdit.Text.Equals(tenMHBanDau))
+            if (dt.FindRows(tenMHTextEdit.Text.Trim()).Length == 1 && !tenMHTextEdit.Text.Trim().Equals(tenMHBanDau))
             {
                 MessageBox.Show("Tên môn học trùng", "Báo lỗi", MessageBoxButtons.OK);
                 tenMHTextEdit.Focus();
@@ -241,7 +242,7 @@ namespace quan_li_diem_sinh_vien
             barBtnHieuChinh.Enabled = true;
             if (!tonTaiXoaMonHoc()) barBtnXoa.Enabled = true;
             monHocGridControl.Enabled = false;
-            tenMHBanDau = tenMHTextEdit.Text;
+            tenMHBanDau = tenMHTextEdit.Text.Trim();
             viTri = monHocBDS.Position;
 
             lenhThem = "INSERT INTO MON_HOC (MA_MH, TEN_MH, SO_TIET_LT, SO_TIET_TH) VALUES('" + maMHTextEdit.Text.Trim() + "', '" + tenMHTextEdit.Text.Trim() + "', " + soTietLTSpinEdit.Value + ", " + soTietThucHanhSpinEdit.Value + ") ";

@@ -136,11 +136,28 @@ namespace quan_li_diem_sinh_vien
                 myStack.Pop();
                 barBtnTaiLai.PerformClick();
             }
+            Program.conn.Close();
         }
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show("Bạn thực sự muốn xóa giáo viên " + hoTextEdit.Text.Trim() + " " + tenTextEdit.Text.Trim() + " (mã: " + lblMaGiangVien1.Text.Trim() + ")", "Xác nhận xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    giangVienBDS.RemoveCurrent();
+                    this.giangVienTableAdapter.Update(this.DSGVC.GIANG_VIEN);
+                    myStack.Push(lenhThem);
+                    viTri = -1;
+                    barBtnTaiLai.PerformClick();
+                    MessageBox.Show("Xóa giảng viên thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi xóa, vui lòng thử lại sau.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void barBtnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -160,6 +177,7 @@ namespace quan_li_diem_sinh_vien
             Program.myReader.Read();
             int maGV = Program.myReader.GetInt16(0);
             Program.myReader.Close();
+            Program.conn.Close();
             lblMaGiangVien1.Text = "TH" + maGV.ToString("D4");
 
             try
@@ -262,14 +280,39 @@ namespace quan_li_diem_sinh_vien
             hoTextEdit.Enabled = tenTextEdit.Enabled = hocViTextEdit.Enabled = hocHamTextEdit.Enabled = chuyenMonTextEdit.Enabled = true;
             barBtnThem.Enabled = false;
             barBtnHieuChinh.Enabled = true;
-            //if (!tonTaiXoaMonHoc()) barBtnXoa.Enabled = true;
+            if (!tonTaiXoaMonHoc()) barBtnXoa.Enabled = true;
             giangVienGridControl.Enabled = false;
             viTri = giangVienBDS.Position;
 
             lenhThem = "INSERT INTO GIANG_VIEN (MA_GV, HO, TEN, HOC_VI, HOC_HAM, CHUYEN_MON, MA_KHOA) VALUES('" + lblMaGiangVien1.Text.Trim() + "', '" + hoTextEdit.Text.Trim() + "', '" + tenTextEdit.Text.Trim() + "', '" + hocViTextEdit.Text.Trim() + "', '" + hocHamTextEdit.Text.Trim() + "', '" + chuyenMonTextEdit.Text.Trim() + "', '" + lblMaKhoa1.Text.Trim() + "') ";
-            lenhUpdate = "UPDATE GIANG_VIEN SET HO = '" + hoTextEdit.Text.Trim() + "', TEN = '" + tenTextEdit.Text.Trim() + "', HOC_VI = '" + hocViTextEdit.Text.Trim() + "', HOC_HAM = '" + hocHamTextEdit.Text.Trim() + "', CHUYEN_MON = '" + chuyenMonTextEdit.Text.Trim() + "' WHERE MA_GV = '" + lblMaGiangVien1.Text + "'";
+            lenhUpdate = "UPDATE GIANG_VIEN SET HO = '" + hoTextEdit.Text.Trim() + "', TEN = '" + tenTextEdit.Text.Trim() + "', HOC_VI = '" + hocViTextEdit.Text.Trim() + "', HOC_HAM = '" + hocHamTextEdit.Text.Trim() + "', CHUYEN_MON = '" + chuyenMonTextEdit.Text.Trim() + "' WHERE MA_GV = '" + lblMaGiangVien1.Text.Trim() + "'";
             Console.WriteLine(lenhThem);
             Console.WriteLine(lenhUpdate);
+        }
+
+        public bool tonTaiXoaMonHoc()
+        {
+            if (giangBDS.Count > 0 || khaNangGiangBDS.Count > 0 || quanLyBDS.Count > 0) return true; //da ton tai
+
+            if (serverHienTai.Equals(Program.serverNameConLai))
+            {
+                if (Program.KetNoi(Program.connstrConLai) == 0) return true;
+            }
+            else
+            {
+                if (Program.KetNoi(Program.connstr) == 0) return true;
+            }
+            string strLenh = "EXEC SP_KIEMTRAXOAGIANGVIEN @MA_GV = '" + lblMaGiangVien1.Text.Trim() + "'";
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            Program.myReader.Read();
+            int ketQua = Program.myReader.GetInt32(0);
+            Program.myReader.Close();
+            Program.conn.Close();
+            Console.WriteLine(ketQua);
+            if (ketQua != 0) return true;
+
+
+            return false; // chua ton tai
         }
     }
 }
