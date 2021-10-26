@@ -220,6 +220,18 @@ namespace quan_li_diem_sinh_vien
                 tenTextEdit.Focus(); // dua con tro ve vi tri form dang nhap
                 return true;
             }
+            if (!Program.kiemTraChuoi(hoTextEdit.Text.Trim()))
+            {
+                MessageBox.Show("Họ không hợp lệ", "Báo lỗi", MessageBoxButtons.OK);
+                hoTextEdit.Focus(); // dua con tro ve vi tri form dang nhap
+                return true;
+            }
+            if (!Program.kiemTraChuoi(tenTextEdit.Text.Trim()))
+            {
+                MessageBox.Show("Tên không hợp lệ", "Báo lỗi", MessageBoxButtons.OK);
+                tenTextEdit.Focus(); // dua con tro ve vi tri form dang nhap
+                return true;
+            }
             return false;
         }
 
