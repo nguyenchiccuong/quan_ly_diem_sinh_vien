@@ -17,14 +17,6 @@ namespace quan_li_diem_sinh_vien
             InitializeComponent();
         }
 
-        private void gIANG_VIENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.giangVienBDS.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.DSGVC);
-
-        }
-
         private void FrmGiangVien_Load(object sender, EventArgs e)
         {
             DSGVC.EnforceConstraints = false;

@@ -36,6 +36,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDkiGiangVien));
             this.xtraScrollableControlTong = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControlThuocTinh = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.lapLaiMatKhauTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.barManagerTong = new DevExpress.XtraBars.BarManager(this.components);
+            this.barTong = new DevExpress.XtraBars.Bar();
+            this.barBtnTaoTk = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnTaiLai = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnThoat = new DevExpress.XtraBars.BarButtonItem();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.matKhauTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.lblLapLaiMatKhau = new System.Windows.Forms.Label();
+            this.lblMatKhau = new System.Windows.Forms.Label();
             this.lblMakhoa1 = new System.Windows.Forms.Label();
             this.giangVienBDS = new System.Windows.Forms.BindingSource(this.components);
             this.DSGVDKC = new quan_li_diem_sinh_vien.DSGVDKC();
@@ -51,39 +64,26 @@
             this.colHOC_HAM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCHUYEN_MON = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMA_KHOA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.barManagerTong = new DevExpress.XtraBars.BarManager(this.components);
-            this.barTong = new DevExpress.XtraBars.Bar();
-            this.barBtnTaoTk = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnTaiLai = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnThoat = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.panelControlKhoa = new DevExpress.XtraEditors.PanelControl();
             this.cboKhoa = new System.Windows.Forms.ComboBox();
             this.lblKhoa = new System.Windows.Forms.Label();
             this.giangVienTableAdapter = new quan_li_diem_sinh_vien.DSGVDKCTableAdapters.GIANG_VIENTableAdapter();
             this.tableAdapterManager = new quan_li_diem_sinh_vien.DSGVDKCTableAdapters.TableAdapterManager();
-            this.lblMatKhau = new System.Windows.Forms.Label();
-            this.lblLapLaiMatKhau = new System.Windows.Forms.Label();
-            this.matKhauTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.lapLaiMatKhauTextEdit = new DevExpress.XtraEditors.TextEdit();
             lblMaGiangVien = new System.Windows.Forms.Label();
             lblHo = new System.Windows.Forms.Label();
             lblTen = new System.Windows.Forms.Label();
             lblMaKhoa = new System.Windows.Forms.Label();
             this.xtraScrollableControlTong.SuspendLayout();
             this.xtraScrollableControlThuocTinh.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lapLaiMatKhauTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManagerTong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matKhauTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giangVienBDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVDKC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giangVienGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGiangVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManagerTong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlKhoa)).BeginInit();
             this.panelControlKhoa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.matKhauTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lapLaiMatKhauTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMaGiangVien
@@ -153,6 +153,140 @@
             this.xtraScrollableControlThuocTinh.Size = new System.Drawing.Size(933, 221);
             this.xtraScrollableControlThuocTinh.TabIndex = 3;
             // 
+            // lapLaiMatKhauTextEdit
+            // 
+            this.lapLaiMatKhauTextEdit.Location = new System.Drawing.Point(637, 59);
+            this.lapLaiMatKhauTextEdit.MenuManager = this.barManagerTong;
+            this.lapLaiMatKhauTextEdit.Name = "lapLaiMatKhauTextEdit";
+            this.lapLaiMatKhauTextEdit.Properties.UseSystemPasswordChar = true;
+            this.lapLaiMatKhauTextEdit.Size = new System.Drawing.Size(154, 20);
+            this.lapLaiMatKhauTextEdit.TabIndex = 11;
+            // 
+            // barManagerTong
+            // 
+            this.barManagerTong.AllowCustomization = false;
+            this.barManagerTong.AllowMoveBarOnToolbar = false;
+            this.barManagerTong.AllowQuickCustomization = false;
+            this.barManagerTong.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.barTong});
+            this.barManagerTong.DockControls.Add(this.barDockControlTop);
+            this.barManagerTong.DockControls.Add(this.barDockControlBottom);
+            this.barManagerTong.DockControls.Add(this.barDockControlLeft);
+            this.barManagerTong.DockControls.Add(this.barDockControlRight);
+            this.barManagerTong.Form = this;
+            this.barManagerTong.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barBtnTaoTk,
+            this.barBtnTaiLai,
+            this.barBtnThoat});
+            this.barManagerTong.MainMenu = this.barTong;
+            this.barManagerTong.MaxItemId = 9;
+            this.barManagerTong.OptionsLayout.AllowAddNewItems = false;
+            // 
+            // barTong
+            // 
+            this.barTong.BarName = "Main menu";
+            this.barTong.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
+            this.barTong.DockCol = 0;
+            this.barTong.DockRow = 0;
+            this.barTong.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.barTong.FloatLocation = new System.Drawing.Point(133, 247);
+            this.barTong.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnTaoTk),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnTaiLai),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnThoat)});
+            this.barTong.OptionsBar.MultiLine = true;
+            this.barTong.OptionsBar.UseWholeRow = true;
+            this.barTong.Text = "Main menu";
+            // 
+            // barBtnTaoTk
+            // 
+            this.barBtnTaoTk.Caption = "Tạo tài khoản";
+            this.barBtnTaoTk.Id = 4;
+            this.barBtnTaoTk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnTaoTk.ImageOptions.Image")));
+            this.barBtnTaoTk.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnTaoTk.ImageOptions.LargeImage")));
+            this.barBtnTaoTk.Name = "barBtnTaoTk";
+            this.barBtnTaoTk.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnTaoTk.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTaoTk_ItemClick);
+            // 
+            // barBtnTaiLai
+            // 
+            this.barBtnTaiLai.Caption = "Tải lại";
+            this.barBtnTaiLai.Id = 7;
+            this.barBtnTaiLai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnTaiLai.ImageOptions.Image")));
+            this.barBtnTaiLai.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnTaiLai.ImageOptions.LargeImage")));
+            this.barBtnTaiLai.Name = "barBtnTaiLai";
+            this.barBtnTaiLai.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnTaiLai.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTaiLai_ItemClick);
+            // 
+            // barBtnThoat
+            // 
+            this.barBtnThoat.Caption = "Thoát";
+            this.barBtnThoat.Id = 8;
+            this.barBtnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnThoat.ImageOptions.Image")));
+            this.barBtnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnThoat.ImageOptions.LargeImage")));
+            this.barBtnThoat.Name = "barBtnThoat";
+            this.barBtnThoat.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThoat_ItemClick);
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManagerTong;
+            this.barDockControlTop.Size = new System.Drawing.Size(933, 24);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 519);
+            this.barDockControlBottom.Manager = this.barManagerTong;
+            this.barDockControlBottom.Size = new System.Drawing.Size(933, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Manager = this.barManagerTong;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 495);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(933, 24);
+            this.barDockControlRight.Manager = this.barManagerTong;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 495);
+            // 
+            // matKhauTextEdit
+            // 
+            this.matKhauTextEdit.Location = new System.Drawing.Point(637, 21);
+            this.matKhauTextEdit.MenuManager = this.barManagerTong;
+            this.matKhauTextEdit.Name = "matKhauTextEdit";
+            this.matKhauTextEdit.Properties.UseSystemPasswordChar = true;
+            this.matKhauTextEdit.Size = new System.Drawing.Size(154, 20);
+            this.matKhauTextEdit.TabIndex = 10;
+            // 
+            // lblLapLaiMatKhau
+            // 
+            this.lblLapLaiMatKhau.AutoSize = true;
+            this.lblLapLaiMatKhau.Location = new System.Drawing.Point(502, 61);
+            this.lblLapLaiMatKhau.Name = "lblLapLaiMatKhau";
+            this.lblLapLaiMatKhau.Size = new System.Drawing.Size(96, 15);
+            this.lblLapLaiMatKhau.TabIndex = 9;
+            this.lblLapLaiMatKhau.Text = "Lặp lại mật khẩu:";
+            // 
+            // lblMatKhau
+            // 
+            this.lblMatKhau.AutoSize = true;
+            this.lblMatKhau.Location = new System.Drawing.Point(537, 23);
+            this.lblMatKhau.Name = "lblMatKhau";
+            this.lblMatKhau.Size = new System.Drawing.Size(61, 15);
+            this.lblMatKhau.TabIndex = 8;
+            this.lblMatKhau.Text = "Mật khẩu:";
+            // 
             // lblMakhoa1
             // 
             this.lblMakhoa1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.giangVienBDS, "MA_KHOA", true));
@@ -211,6 +345,7 @@
             this.giangVienGridControl.TabIndex = 2;
             this.giangVienGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGiangVien});
+            this.giangVienGridControl.DoubleClick += new System.EventHandler(this.giangVienGridControl_DoubleClick);
             // 
             // gridViewGiangVien
             // 
@@ -225,6 +360,7 @@
             this.gridViewGiangVien.GridControl = this.giangVienGridControl;
             this.gridViewGiangVien.Name = "gridViewGiangVien";
             this.gridViewGiangVien.OptionsBehavior.Editable = false;
+            this.gridViewGiangVien.OptionsDetail.EnableMasterViewMode = false;
             this.gridViewGiangVien.OptionsView.ShowAutoFilterRow = true;
             // 
             // colMA_GV
@@ -283,102 +419,6 @@
             this.colMA_KHOA.Visible = true;
             this.colMA_KHOA.VisibleIndex = 6;
             // 
-            // barManagerTong
-            // 
-            this.barManagerTong.AllowCustomization = false;
-            this.barManagerTong.AllowMoveBarOnToolbar = false;
-            this.barManagerTong.AllowQuickCustomization = false;
-            this.barManagerTong.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.barTong});
-            this.barManagerTong.DockControls.Add(this.barDockControlTop);
-            this.barManagerTong.DockControls.Add(this.barDockControlBottom);
-            this.barManagerTong.DockControls.Add(this.barDockControlLeft);
-            this.barManagerTong.DockControls.Add(this.barDockControlRight);
-            this.barManagerTong.Form = this;
-            this.barManagerTong.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barBtnTaoTk,
-            this.barBtnTaiLai,
-            this.barBtnThoat});
-            this.barManagerTong.MainMenu = this.barTong;
-            this.barManagerTong.MaxItemId = 9;
-            this.barManagerTong.OptionsLayout.AllowAddNewItems = false;
-            // 
-            // barTong
-            // 
-            this.barTong.BarName = "Main menu";
-            this.barTong.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Top;
-            this.barTong.DockCol = 0;
-            this.barTong.DockRow = 0;
-            this.barTong.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.barTong.FloatLocation = new System.Drawing.Point(133, 247);
-            this.barTong.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnTaoTk),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnTaiLai),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnThoat)});
-            this.barTong.OptionsBar.MultiLine = true;
-            this.barTong.OptionsBar.UseWholeRow = true;
-            this.barTong.Text = "Main menu";
-            // 
-            // barBtnTaoTk
-            // 
-            this.barBtnTaoTk.Caption = "Tạo tài khoản";
-            this.barBtnTaoTk.Id = 4;
-            this.barBtnTaoTk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnGhi.ImageOptions.Image")));
-            this.barBtnTaoTk.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnGhi.ImageOptions.LargeImage")));
-            this.barBtnTaoTk.Name = "barBtnTaoTk";
-            this.barBtnTaoTk.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barBtnTaiLai
-            // 
-            this.barBtnTaiLai.Caption = "Tải lại";
-            this.barBtnTaiLai.Id = 7;
-            this.barBtnTaiLai.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnTaiLai.ImageOptions.Image")));
-            this.barBtnTaiLai.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnTaiLai.ImageOptions.LargeImage")));
-            this.barBtnTaiLai.Name = "barBtnTaiLai";
-            this.barBtnTaiLai.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barBtnThoat
-            // 
-            this.barBtnThoat.Caption = "Thoát";
-            this.barBtnThoat.Id = 8;
-            this.barBtnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnThoat.ImageOptions.Image")));
-            this.barBtnThoat.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnThoat.ImageOptions.LargeImage")));
-            this.barBtnThoat.Name = "barBtnThoat";
-            this.barBtnThoat.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.barBtnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThoat_ItemClick);
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManagerTong;
-            this.barDockControlTop.Size = new System.Drawing.Size(933, 24);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 519);
-            this.barDockControlBottom.Manager = this.barManagerTong;
-            this.barDockControlBottom.Size = new System.Drawing.Size(933, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Manager = this.barManagerTong;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 495);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(933, 24);
-            this.barDockControlRight.Manager = this.barManagerTong;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 495);
-            // 
             // panelControlKhoa
             // 
             this.panelControlKhoa.Controls.Add(this.cboKhoa);
@@ -397,6 +437,7 @@
             this.cboKhoa.Name = "cboKhoa";
             this.cboKhoa.Size = new System.Drawing.Size(255, 21);
             this.cboKhoa.TabIndex = 2;
+            this.cboKhoa.SelectedIndexChanged += new System.EventHandler(this.cboKhoa_SelectedIndexChanged);
             // 
             // lblKhoa
             // 
@@ -417,42 +458,6 @@
             this.tableAdapterManager.GIANG_VIENTableAdapter = this.giangVienTableAdapter;
             this.tableAdapterManager.UpdateOrder = quan_li_diem_sinh_vien.DSGVDKCTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // lblMatKhau
-            // 
-            this.lblMatKhau.AutoSize = true;
-            this.lblMatKhau.Location = new System.Drawing.Point(537, 23);
-            this.lblMatKhau.Name = "lblMatKhau";
-            this.lblMatKhau.Size = new System.Drawing.Size(61, 15);
-            this.lblMatKhau.TabIndex = 8;
-            this.lblMatKhau.Text = "Mật khẩu:";
-            // 
-            // lblLapLaiMatKhau
-            // 
-            this.lblLapLaiMatKhau.AutoSize = true;
-            this.lblLapLaiMatKhau.Location = new System.Drawing.Point(502, 61);
-            this.lblLapLaiMatKhau.Name = "lblLapLaiMatKhau";
-            this.lblLapLaiMatKhau.Size = new System.Drawing.Size(96, 15);
-            this.lblLapLaiMatKhau.TabIndex = 9;
-            this.lblLapLaiMatKhau.Text = "Lặp lại mật khẩu:";
-            // 
-            // matKhauTextEdit
-            // 
-            this.matKhauTextEdit.Location = new System.Drawing.Point(637, 21);
-            this.matKhauTextEdit.MenuManager = this.barManagerTong;
-            this.matKhauTextEdit.Name = "matKhauTextEdit";
-            this.matKhauTextEdit.Properties.UseSystemPasswordChar = true;
-            this.matKhauTextEdit.Size = new System.Drawing.Size(154, 20);
-            this.matKhauTextEdit.TabIndex = 10;
-            // 
-            // lapLaiMatKhauTextEdit
-            // 
-            this.lapLaiMatKhauTextEdit.Location = new System.Drawing.Point(637, 59);
-            this.lapLaiMatKhauTextEdit.MenuManager = this.barManagerTong;
-            this.lapLaiMatKhauTextEdit.Name = "lapLaiMatKhauTextEdit";
-            this.lapLaiMatKhauTextEdit.Properties.UseSystemPasswordChar = true;
-            this.lapLaiMatKhauTextEdit.Size = new System.Drawing.Size(154, 20);
-            this.lapLaiMatKhauTextEdit.TabIndex = 11;
-            // 
             // FrmDkiGiangVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -471,16 +476,16 @@
             this.xtraScrollableControlTong.ResumeLayout(false);
             this.xtraScrollableControlThuocTinh.ResumeLayout(false);
             this.xtraScrollableControlThuocTinh.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lapLaiMatKhauTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManagerTong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matKhauTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.giangVienBDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSGVDKC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.giangVienGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewGiangVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManagerTong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlKhoa)).EndInit();
             this.panelControlKhoa.ResumeLayout(false);
             this.panelControlKhoa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.matKhauTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lapLaiMatKhauTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
