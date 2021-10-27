@@ -17,14 +17,6 @@ namespace quan_li_diem_sinh_vien
             InitializeComponent();
         }
 
-        private void gIANG_VIENBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.giangVienBDS.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.DSGVC);
-
-        }
-
         private void FrmGiangVien_Load(object sender, EventArgs e)
         {
             DSGVC.EnforceConstraints = false;
@@ -217,6 +209,18 @@ namespace quan_li_diem_sinh_vien
             if (tenTextEdit.Text.Trim().Equals(String.Empty))
             {
                 MessageBox.Show("Không để tên rỗng", "Báo lỗi", MessageBoxButtons.OK);
+                tenTextEdit.Focus(); // dua con tro ve vi tri form dang nhap
+                return true;
+            }
+            if (!Program.kiemTraChuoi(hoTextEdit.Text.Trim()))
+            {
+                MessageBox.Show("Họ không hợp lệ", "Báo lỗi", MessageBoxButtons.OK);
+                hoTextEdit.Focus(); // dua con tro ve vi tri form dang nhap
+                return true;
+            }
+            if (!Program.kiemTraChuoi(tenTextEdit.Text.Trim()))
+            {
+                MessageBox.Show("Tên không hợp lệ", "Báo lỗi", MessageBoxButtons.OK);
                 tenTextEdit.Focus(); // dua con tro ve vi tri form dang nhap
                 return true;
             }
