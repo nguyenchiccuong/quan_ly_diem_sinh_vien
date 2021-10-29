@@ -35,6 +35,7 @@ namespace quan_li_diem_sinh_vien
         public static BindingSource bdsDSPM = new BindingSource();  // giữ bdsPM khi đăng nhập
         public static FrmMain frmMain;
 
+        public static String servernameRoot = ""; // luu ten server ket noi thoi diem dang nhap
 
         public static int KetNoi()
         {
