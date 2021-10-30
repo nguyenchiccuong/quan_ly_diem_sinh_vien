@@ -42,13 +42,6 @@ namespace quan_li_diem_sinh_vien
 
         private void FrmLop_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'DS.CHUYEN_NGANH' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'DS.CHUYEN_NGANH' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'DS.CHUYEN_NGANH' table. You can move, or remove it, as needed.
-
-
             DS.EnforceConstraints = false;
             this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.LOPTableAdapter.Fill(this.DS.LOP);
@@ -70,12 +63,8 @@ namespace quan_li_diem_sinh_vien
             cboKhoa.DisplayMember = "TENCN";
             cboKhoa.ValueMember = "TENSERVER";
             cboKhoa.SelectedText = Program.mChinhanh.ToString();
-
-
             int index = cboKhoa.FindStringExact(Program.mChinhanh);
             cboKhoa.SelectedIndex = index;
-
-
             while (year >= 2000)
             {
                 cboNamNhapHoc.Items.Add(year.ToString());
@@ -109,16 +98,6 @@ namespace quan_li_diem_sinh_vien
                         Program.password = Program.passwordDN;
                         Program.servername = Program.servernameRoot;
                         Program.mChinhanh = cboKhoa.Text.Trim();
-                        /*
-                       int temp = cboKhoa.SelectedIndex;
-                       if (temp == 0)
-                       {
-                           Program.mChinhanh = "Công Nghệ Thông Tin";
-                       }
-                       else if (temp == 1)
-                       {
-                           Program.mChinhanh = "Viễn Thông";
-                       }*/
                         if (Program.KetNoi() == 0)
                         {
                             //MessageBox.Show("Tài khoản không tồn tại", "Báo lỗi đăng nhập", MessageBoxButtons.OK);
@@ -141,13 +120,11 @@ namespace quan_li_diem_sinh_vien
                     }
                     else
                     {
-
-
                         Program.mlogin = Program.remotelogin;
                         Program.password = Program.remotepassword;
                         Program.servername = cboKhoa.SelectedValue.ToString();
                         Program.mChinhanh = cboKhoa.Text.Trim();
-                    
+
                         if (Program.KetNoi() == 0)
                         {
                             //MessageBox.Show("Tài khoản không tồn tại", "Báo lỗi đăng nhập", MessageBoxButtons.OK);
@@ -287,11 +264,6 @@ namespace quan_li_diem_sinh_vien
                         myStack.Push(lenhUpdate);
 
                     }
-
-
-
-
-
                     bdsLop.EndEdit();
                     bdsLop.ResetCurrentItem();
                     this.LOPTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -306,6 +278,7 @@ namespace quan_li_diem_sinh_vien
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                    btnLoad.PerformClick();
                 }
                 finally
                 {
@@ -362,7 +335,7 @@ namespace quan_li_diem_sinh_vien
                         else if (temp < 10000 && temp > 999) str = "0" + temp;
                         tbMaSV.Text = cboNamNhapHoc.Text.Trim() + "S" + str;
 
-                        String lenh = "DELETE FROM SINHVIEN_VIEN WHERE MA_SV = '" + tbMaSV.Text.Trim() + "'";
+                        String lenh = "DELETE FROM SINH_VIEN WHERE MA_SV = '" + tbMaSV.Text.Trim() + "'";
                         myStack.Push(lenh);
 
 
@@ -388,6 +361,7 @@ namespace quan_li_diem_sinh_vien
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                    btnLoad.PerformClick();
                 }
                 finally
                 {
@@ -464,15 +438,22 @@ namespace quan_li_diem_sinh_vien
                 this.LOPTableAdapter.Fill(this.DS.LOP);
                 this.SINH_VIENTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.SINH_VIENTableAdapter.Fill(this.DS.SINH_VIEN);
-
-
                 if (myStack.Count > 0) btnPhucHoi.Enabled = true;
                 else btnPhucHoi.Enabled = false;
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+                btnThem.Enabled = false;
+                btnGhi.Enabled = false;
+                btnLop.Enabled = true;
+                btnSV.Enabled = true;
+                panelLop.Enabled = false;
+                panelSV.Enabled = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
             }
+
         }
 
         private void btnLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -549,6 +530,7 @@ namespace quan_li_diem_sinh_vien
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                    btnLoad.PerformClick();
                 }
                 finally
                 {
@@ -586,6 +568,7 @@ namespace quan_li_diem_sinh_vien
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                    btnLoad.PerformClick();
                 }
                 finally
                 {
@@ -597,11 +580,24 @@ namespace quan_li_diem_sinh_vien
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            String lenh = myStack.Peek();
-            if (Program.ExecSqlNonQuery(lenh) == 0)
+            try
             {
-                myStack.Pop();
+                String lenh = myStack.Peek();
+                if (Program.ExecSqlNonQuery(lenh) == 0)
+                {
+                    myStack.Pop();
+                    btnLoad.PerformClick();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
                 btnLoad.PerformClick();
+            }
+            finally
+            {
+
+                Program.conn.Close();
             }
         }
 
