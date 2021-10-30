@@ -147,15 +147,7 @@ namespace quan_li_diem_sinh_vien
                         Program.password = Program.remotepassword;
                         Program.servername = cboKhoa.SelectedValue.ToString();
                         Program.mChinhanh = cboKhoa.Text.Trim();
-                        /*int temp = cboKhoa.SelectedIndex;
-                        if (temp == 0)
-                        {
-                            Program.mChinhanh = "Công Nghệ Thông Tin";
-                        }
-                        else if (temp == 1)
-                        {
-                            Program.mChinhanh = "Viễn Thông";
-                        }*/
+                    
                         if (Program.KetNoi() == 0)
                         {
                             //MessageBox.Show("Tài khoản không tồn tại", "Báo lỗi đăng nhập", MessageBoxButtons.OK);
