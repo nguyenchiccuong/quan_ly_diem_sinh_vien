@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace quan_li_diem_sinh_vien
@@ -88,6 +87,18 @@ namespace quan_li_diem_sinh_vien
             else
             {
                 FrmDkiGiangVien f = new FrmDkiGiangVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barBtnLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FrmLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmLop f = new FrmLop();
                 f.MdiParent = this;
                 f.Show();
             }

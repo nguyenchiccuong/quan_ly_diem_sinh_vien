@@ -117,6 +117,7 @@
             this.barBtnLop.Caption = "Lớp";
             this.barBtnLop.Id = 7;
             this.barBtnLop.Name = "barBtnLop";
+            this.barBtnLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLop_ItemClick);
             // 
             // barBtnGiangVien
             // 
