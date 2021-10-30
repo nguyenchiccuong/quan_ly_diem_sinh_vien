@@ -2424,7 +2424,7 @@ SELECT MA_CH_NGANH, MA_MH, HOC_KY, NGAY_AP_DUNG, rowguid FROM KE_HOACH_GIANG WHE
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-BR976AR\\MSSQLSERVER_1;Initial Catalog=QLDSV_TC;User ID=HTKN";
+            this._connection.ConnectionString = global::quan_li_diem_sinh_vien.Properties.Settings.Default.QLDSV_TCConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2781,7 +2781,7 @@ SELECT MA_MH, MA_GV, rowguid FROM KHA_NANG_GIANG WHERE (MA_GV = @MA_GV) AND (MA_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-BR976AR\\MSSQLSERVER_1;Initial Catalog=QLDSV_TC;User ID=HTKN";
+            this._connection.ConnectionString = global::quan_li_diem_sinh_vien.Properties.Settings.Default.QLDSV_TCConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3162,7 +3162,7 @@ SELECT MA_LOP_TC, MA_KHOA, MA_MH, MA_NK_HK, NHOM, HE_SO_CC, HE_SO_GK, HE_SO_CK, 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-BR976AR\\MSSQLSERVER_1;Initial Catalog=QLDSV_TC;User ID=HTKN";
+            this._connection.ConnectionString = global::quan_li_diem_sinh_vien.Properties.Settings.Default.QLDSV_TCConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3584,7 +3584,7 @@ SELECT MA_MH, TEN_MH, SO_TIET_LT, SO_TIET_TH FROM MON_HOC WHERE (MA_MH = @MA_MH)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-BR976AR\\MSSQLSERVER_1;Initial Catalog=QLDSV_TC;User ID=HTKN";
+            this._connection.ConnectionString = global::quan_li_diem_sinh_vien.Properties.Settings.Default.QLDSV_TCConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
