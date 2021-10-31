@@ -103,6 +103,18 @@ namespace quan_li_diem_sinh_vien
                 f.Show();
             }
         }
+
+        private void barBtnLopTinChi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FrmMoLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmMoLop f = new FrmMoLop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 
 

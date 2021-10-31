@@ -143,6 +143,7 @@
             this.barBtnLopTinChi.Caption = "Lớp tín chỉ";
             this.barBtnLopTinChi.Id = 12;
             this.barBtnLopTinChi.Name = "barBtnLopTinChi";
+            this.barBtnLopTinChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLopTinChi_ItemClick);
             // 
             // barBtnTaoTk
             // 
