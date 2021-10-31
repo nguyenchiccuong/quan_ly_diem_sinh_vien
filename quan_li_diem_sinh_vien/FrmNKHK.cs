@@ -40,7 +40,7 @@ namespace quan_li_diem_sinh_vien
             DS.EnforceConstraints = false;
             this.NIEN_KHOA_HOC_KYTableAdapter.Connection.ConnectionString = Program.connstr;
             this.NIEN_KHOA_HOC_KYTableAdapter.Fill(this.DS.NIEN_KHOA_HOC_KY);
-            
+
             while (nienkhoa >= DateTime.Now.Year - sonienkhoa)
             {
                 cboNK.Items.Add(nienkhoa.ToString());
@@ -79,9 +79,6 @@ namespace quan_li_diem_sinh_vien
             catch (Exception)
             { }
         }
-
-        
-
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             panelNKHK.Enabled = true;
@@ -124,7 +121,7 @@ namespace quan_li_diem_sinh_vien
                     dateKT.Focus(); // dua con tro ve vi tri form dang nhap
                     return;
                 }
-                if(DateTime.Parse(dateBD.Text)>= DateTime.Parse(dateKT.Text))
+                if (DateTime.Parse(dateBD.Text) >= DateTime.Parse(dateKT.Text))
                 {
                     MessageBox.Show("Ngày kết thúc đăng ký phải lớn hơn ngày bắt đầu đăng ký", "", MessageBoxButtons.OK);
                     dateKT.Focus(); // dua con tro ve vi tri form dang nhap
@@ -134,12 +131,18 @@ namespace quan_li_diem_sinh_vien
                 {
                     string lenh = "INSERT INTO NIEN_KHOA_HOC_KY(NIEN_KHOA , HOC_KY,NGAY_BDAU_DKI,NGAY_KTHUC_DKI)VALUES (" +
                     cboNK.Text.Trim() + "," + cboHK.Text.Trim() + ",'" + dateBD.Text.Trim() + "','" + dateKT.Text.Trim() + "')";
-                    Program.ExecSqlNonQuery(lenh);
+                    if (Program.ExecSqlNonQuery(lenh) != 0)
+                    {
+                        MessageBox.Show("Thêm Thất Bại \n ", "", MessageBoxButtons.OK);
+                    }
                 }
-                else if(thuchien==2)
-                 {
-                    string lenh = "UPDATE NIEN_KHOA_HOC_KY SET NGAY_BDAU_DKI='" + dateBD.Text.Trim()+"', NGAY_KTHUC_DKI= '"  + dateKT.Text.Trim() + "' WHERE MA_NK_HK="+tbMaNKHK.Text.Trim();
-                    Program.ExecSqlNonQuery(lenh);
+                else if (thuchien == 2)
+                {
+                    string lenh = "UPDATE NIEN_KHOA_HOC_KY SET NGAY_BDAU_DKI='" + dateBD.Text.Trim() + "', NGAY_KTHUC_DKI= '" + dateKT.Text.Trim() + "' WHERE MA_NK_HK=" + tbMaNKHK.Text.Trim();
+                    if (Program.ExecSqlNonQuery(lenh) != 0)
+                    {
+                        MessageBox.Show("Sửa Thất Bại \n ", "", MessageBoxButtons.OK);
+                    }
                 }
                 btnSua.Enabled = true;
                 btnXoa.Enabled = true;
@@ -164,7 +167,6 @@ namespace quan_li_diem_sinh_vien
         {
             thuchien = 2;
             panelNKHK.Enabled = true;
-            
             btnSua.Enabled = false;
             btnXoa.Enabled = true;
             btnThem.Enabled = false;
@@ -186,7 +188,7 @@ namespace quan_li_diem_sinh_vien
                         this.NIEN_KHOA_HOC_KYTableAdapter.Connection.ConnectionString = Program.connstr;
                         this.NIEN_KHOA_HOC_KYTableAdapter.Update(this.DS.NIEN_KHOA_HOC_KY);
                         thuchien = 3;
-                        
+
                     }
                     catch (Exception ex)
                     {
