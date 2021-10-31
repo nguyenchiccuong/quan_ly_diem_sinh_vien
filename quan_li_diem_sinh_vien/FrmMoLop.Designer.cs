@@ -627,7 +627,7 @@
             this.lblMaLopTinChi.Name = "lblMaLopTinChi";
             this.lblMaLopTinChi.Size = new System.Drawing.Size(100, 23);
             this.lblMaLopTinChi.TabIndex = 1;
-            this.lblMaLopTinChi.Text = "label2";
+            this.lblMaLopTinChi.Text = "Mã lớp tín chỉ";
             // 
             // mA_KHOALabel
             // 
@@ -645,7 +645,7 @@
             this.lblMaKhoa.Name = "lblMaKhoa";
             this.lblMaKhoa.Size = new System.Drawing.Size(100, 23);
             this.lblMaKhoa.TabIndex = 3;
-            this.lblMaKhoa.Text = "label2";
+            this.lblMaKhoa.Text = "Mã khoa";
             // 
             // mA_MHLabel
             // 
@@ -682,7 +682,7 @@
             this.lblNienKhoaHocKy.Name = "lblNienKhoaHocKy";
             this.lblNienKhoaHocKy.Size = new System.Drawing.Size(90, 23);
             this.lblNienKhoaHocKy.TabIndex = 7;
-            this.lblNienKhoaHocKy.Text = "label2";
+            this.lblNienKhoaHocKy.Text = "Mã niên khóa học kỳ";
             // 
             // nHOMLabel
             // 
@@ -700,7 +700,7 @@
             this.lblNhom.Name = "lblNhom";
             this.lblNhom.Size = new System.Drawing.Size(100, 23);
             this.lblNhom.TabIndex = 9;
-            this.lblNhom.Text = "label2";
+            this.lblNhom.Text = "Nhóm";
             // 
             // mA_NVLabel
             // 
@@ -718,7 +718,7 @@
             this.lblMaNhanVien.Name = "lblMaNhanVien";
             this.lblMaNhanVien.Size = new System.Drawing.Size(100, 23);
             this.lblMaNhanVien.TabIndex = 11;
-            this.lblMaNhanVien.Text = "label2";
+            this.lblMaNhanVien.Text = "Mã nhân viên";
             // 
             // hUYLabel
             // 
@@ -735,7 +735,7 @@
             this.huyCheckEdit.Location = new System.Drawing.Point(438, 158);
             this.huyCheckEdit.MenuManager = this.barManagerTong;
             this.huyCheckEdit.Name = "huyCheckEdit";
-            this.huyCheckEdit.Properties.Caption = "checkEdit1";
+            this.huyCheckEdit.Properties.Caption = "";
             this.huyCheckEdit.Size = new System.Drawing.Size(75, 20);
             this.huyCheckEdit.TabIndex = 13;
             // 
@@ -875,7 +875,7 @@
             this.lblMaLopTinChi2.Name = "lblMaLopTinChi2";
             this.lblMaLopTinChi2.Size = new System.Drawing.Size(100, 23);
             this.lblMaLopTinChi2.TabIndex = 1;
-            this.lblMaLopTinChi2.Text = "label2";
+            this.lblMaLopTinChi2.Text = "Mã lớp tín chỉ";
             // 
             // mA_GVLabel
             // 
