@@ -10,12 +10,11 @@ namespace quan_li_diem_sinh_vien
 
         int viTriLop = -1;
         int viTriGiang = -1;
-        int NKHK = -1;
+        String NKHK = "";
         BindingSource nienKhoaHocKyBDS = new BindingSource();
         BindingSource giangVienBDS = new BindingSource();
         BindingSource monHocBDS = new BindingSource();
         String serverHienTai = "";
-        Boolean flag = true;
 
         public FrmMoLop()
         {
@@ -54,18 +53,13 @@ namespace quan_li_diem_sinh_vien
             cboKhoa.SelectedIndex = index;
 
             layDSNKHK("SELECT * FROM V_DS_NK_HK");
-            if (nienKhoaHocKyBDS.Count > 0)
-            {
-                lopTinChiBDS.Filter = "MA_NK_HK = " + cboNienKhoaHocKy.SelectedValue;
-                this.lopTinChiTableAdapter.Fill(this.DSMLC.LOP_TIN_CHI);
-                NKHK = int.Parse(cboNienKhoaHocKy.SelectedValue.ToString());
-            }
 
             layDSMH("SELECT * FROM V_DS_MH");
             if (lopTinChiBDS.Count > 0)
             {
                 viTriLop = lopTinChiBDS.Position;
                 cboMaMonHoc.SelectedValue = ((DataRowView)lopTinChiBDS[viTriLop])["MA_MH"].ToString();
+                cboNienKhoaHocKy.SelectedValue = ((DataRowView)lopTinChiBDS[viTriLop])["MA_NK_HK"].ToString();
             }
             layDSGV("SELECT * FROM V_DS_GV");
             if (giangBDS.Count > 0)
@@ -75,7 +69,7 @@ namespace quan_li_diem_sinh_vien
             }
 
             barBtnThemGiang.Enabled = barBtnHieuChinh.Enabled = barBtnGhi.Enabled = barBtnXoa.Enabled = false;
-            cboMaMonHoc.Enabled = heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = false;
+            cboNienKhoaHocKy.Enabled = cboMaMonHoc.Enabled = heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = false;
 
         }
 
@@ -129,13 +123,21 @@ namespace quan_li_diem_sinh_vien
         private void lopTinChiGridControl_Click(object sender, EventArgs e)
         {
             if (lopTinChiBDS.Count > 0)
+            {
                 cboMaMonHoc.SelectedValue = ((DataRowView)lopTinChiBDS[lopTinChiBDS.Position])["MA_MH"].ToString();
+                cboNienKhoaHocKy.SelectedValue = ((DataRowView)lopTinChiBDS[lopTinChiBDS.Position])["MA_NK_HK"].ToString();
+                viTriLop = lopTinChiBDS.Position;
+
+            }
         }
 
         private void giangGridControl_Click(object sender, EventArgs e)
         {
             if (giangBDS.Count > 0)
+            {
                 cboMaGiangVien.SelectedValue = ((DataRowView)giangBDS[giangBDS.Position])["MA_GV"].ToString();
+                viTriGiang = giangBDS.Position;
+            }
         }
 
         private void cboMaMonHoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,13 +154,9 @@ namespace quan_li_diem_sinh_vien
         }
 
         private void cboNienKhoaHocKy_SelectedIndexChanged(object sender, EventArgs e)
-        {//nho reset vitri =-1
-            viTriLop = -1;
-            viTriGiang = -1;
-            if (nienKhoaHocKyBDS.Count > 0 && cboNienKhoaHocKy.SelectedIndex >= 0)
-                NKHK = int.Parse(cboNienKhoaHocKy.SelectedValue.ToString());
-            if (flag)
-                barBtnTaiLai.PerformClick();
+        {
+            if (viTriLop != -1)
+                lblMaNienKhoaHocKy.Text = cboNienKhoaHocKy.SelectedValue.ToString();
         }
 
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
@@ -197,23 +195,17 @@ namespace quan_li_diem_sinh_vien
                 viTriLop = lopTinChiBDS.Position;
 
             if (viTriGiang != -1)
-                giangBDS.Position = viTriLop;
+                giangBDS.Position = viTriGiang;
             else
-                viTriLop = giangBDS.Position;
+                viTriGiang = giangBDS.Position;
 
             layDSNKHK("SELECT * FROM V_DS_NK_HK");
-            flag = false;
-            cboNienKhoaHocKy.SelectedValue = NKHK;
-            flag = true;
-            if (nienKhoaHocKyBDS.Count > 0)
-            {
-                lopTinChiBDS.Filter = "MA_NK_HK = " + cboNienKhoaHocKy.SelectedValue;
-                this.lopTinChiTableAdapter.Fill(this.DSMLC.LOP_TIN_CHI);
-            }
+
             layDSMH("SELECT * FROM V_DS_MH");
             if (lopTinChiBDS.Count > 0)
             {
                 cboMaMonHoc.SelectedValue = ((DataRowView)lopTinChiBDS[viTriLop])["MA_MH"].ToString();
+                cboNienKhoaHocKy.SelectedValue = ((DataRowView)lopTinChiBDS[viTriLop])["MA_NK_HK"].ToString();
             }
             layDSGV("SELECT * FROM V_DS_GV");
             if (giangBDS.Count > 0)

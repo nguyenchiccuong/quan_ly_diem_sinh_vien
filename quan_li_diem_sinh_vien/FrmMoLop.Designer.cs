@@ -60,13 +60,17 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.xtraScrollableControlTong = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.tietBatDauSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.lblMaGiangVien = new System.Windows.Forms.Label();
             this.giangBDS = new System.Windows.Forms.BindingSource(this.components);
             this.lopTinChiBDS = new System.Windows.Forms.BindingSource(this.components);
             this.DSMLC = new quan_li_diem_sinh_vien.DSMLC();
+            this.cboMaGiangVien = new System.Windows.Forms.ComboBox();
+            this.tietBatDauSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.thuSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.lblMaLopTinChi2 = new System.Windows.Forms.Label();
             this.xtraScrollableControlThuocTinhLop = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.cboMaMonHoc = new System.Windows.Forms.ComboBox();
+            this.lblMaMonHoc = new System.Windows.Forms.Label();
             this.heSoCcSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.heSoGkSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.heSoCkSpinEdit = new DevExpress.XtraEditors.SpinEdit();
@@ -74,7 +78,7 @@
             this.huyCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.lblMaNhanVien = new System.Windows.Forms.Label();
             this.lblNhom = new System.Windows.Forms.Label();
-            this.lblNienKhoaHocKy = new System.Windows.Forms.Label();
+            this.lblMaNienKhoaHocKy = new System.Windows.Forms.Label();
             this.lblMaKhoa = new System.Windows.Forms.Label();
             this.lblMaLopTinChi = new System.Windows.Forms.Label();
             this.giangGridControl = new DevExpress.XtraGrid.GridControl();
@@ -97,8 +101,6 @@
             this.colHUY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMA_NV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControlKhoa = new DevExpress.XtraEditors.PanelControl();
-            this.cboNienKhoaHocKy = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.cboKhoa = new System.Windows.Forms.ComboBox();
             this.lblKhoa = new System.Windows.Forms.Label();
             this.lopTinChiTableAdapter = new quan_li_diem_sinh_vien.DSMLCTableAdapters.LOP_TIN_CHITableAdapter();
@@ -106,10 +108,7 @@
             this.dangKyTableAdapter = new quan_li_diem_sinh_vien.DSMLCTableAdapters.DANG_KITableAdapter();
             this.giangTableAdapter = new quan_li_diem_sinh_vien.DSMLCTableAdapters.GIANGTableAdapter();
             this.dangKyBDS = new System.Windows.Forms.BindingSource(this.components);
-            this.lblMaMonHoc = new System.Windows.Forms.Label();
-            this.cboMaMonHoc = new System.Windows.Forms.ComboBox();
-            this.cboMaGiangVien = new System.Windows.Forms.ComboBox();
-            this.lblMaGiangVien = new System.Windows.Forms.Label();
+            this.cboNienKhoaHocKy = new System.Windows.Forms.ComboBox();
             mA_LOP_TCLabel = new System.Windows.Forms.Label();
             mA_KHOALabel = new System.Windows.Forms.Label();
             mA_MHLabel = new System.Windows.Forms.Label();
@@ -128,10 +127,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManagerTong)).BeginInit();
             this.xtraScrollableControlTong.SuspendLayout();
             this.xtraScrollableControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tietBatDauSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.giangBDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopTinChiBDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSMLC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tietBatDauSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuSpinEdit.Properties)).BeginInit();
             this.xtraScrollableControlThuocTinhLop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heSoCcSpinEdit.Properties)).BeginInit();
@@ -169,7 +168,7 @@
             // mA_MHLabel
             // 
             mA_MHLabel.AutoSize = true;
-            mA_MHLabel.Location = new System.Drawing.Point(88, 80);
+            mA_MHLabel.Location = new System.Drawing.Point(88, 92);
             mA_MHLabel.Name = "mA_MHLabel";
             mA_MHLabel.Size = new System.Drawing.Size(77, 15);
             mA_MHLabel.TabIndex = 4;
@@ -196,7 +195,7 @@
             // mA_NVLabel
             // 
             mA_NVLabel.AutoSize = true;
-            mA_NVLabel.Location = new System.Drawing.Point(330, 49);
+            mA_NVLabel.Location = new System.Drawing.Point(330, 160);
             mA_NVLabel.Name = "mA_NVLabel";
             mA_NVLabel.Size = new System.Drawing.Size(84, 15);
             mA_NVLabel.TabIndex = 10;
@@ -205,7 +204,7 @@
             // hUYLabel
             // 
             hUYLabel.AutoSize = true;
-            hUYLabel.Location = new System.Drawing.Point(381, 160);
+            hUYLabel.Location = new System.Drawing.Point(381, 189);
             hUYLabel.Name = "hUYLabel";
             hUYLabel.Size = new System.Drawing.Size(33, 15);
             hUYLabel.TabIndex = 12;
@@ -404,7 +403,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 756);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 790);
             this.barDockControlBottom.Manager = this.barManagerTong;
             this.barDockControlBottom.Size = new System.Drawing.Size(1124, 0);
             // 
@@ -414,7 +413,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManagerTong;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 732);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 766);
             // 
             // barDockControlRight
             // 
@@ -422,7 +421,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1124, 24);
             this.barDockControlRight.Manager = this.barManagerTong;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 732);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 766);
             // 
             // xtraScrollableControlTong
             // 
@@ -434,7 +433,7 @@
             this.xtraScrollableControlTong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControlTong.Location = new System.Drawing.Point(0, 24);
             this.xtraScrollableControlTong.Name = "xtraScrollableControlTong";
-            this.xtraScrollableControlTong.Size = new System.Drawing.Size(1124, 732);
+            this.xtraScrollableControlTong.Size = new System.Drawing.Size(1124, 766);
             this.xtraScrollableControlTong.TabIndex = 4;
             // 
             // xtraScrollableControl1
@@ -451,8 +450,42 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(600, 451);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(524, 281);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(524, 315);
             this.xtraScrollableControl1.TabIndex = 5;
+            // 
+            // lblMaGiangVien
+            // 
+            this.lblMaGiangVien.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.giangBDS, "MA_GV", true));
+            this.lblMaGiangVien.Location = new System.Drawing.Point(130, 57);
+            this.lblMaGiangVien.Name = "lblMaGiangVien";
+            this.lblMaGiangVien.Size = new System.Drawing.Size(100, 23);
+            this.lblMaGiangVien.TabIndex = 9;
+            this.lblMaGiangVien.Text = "Mã giảng viên";
+            // 
+            // giangBDS
+            // 
+            this.giangBDS.DataMember = "FK_GIANG_LOP_TIN_CHI";
+            this.giangBDS.DataSource = this.lopTinChiBDS;
+            // 
+            // lopTinChiBDS
+            // 
+            this.lopTinChiBDS.DataMember = "LOP_TIN_CHI";
+            this.lopTinChiBDS.DataSource = this.DSMLC;
+            // 
+            // DSMLC
+            // 
+            this.DSMLC.DataSetName = "DSMLC";
+            this.DSMLC.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cboMaGiangVien
+            // 
+            this.cboMaGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMaGiangVien.FormattingEnabled = true;
+            this.cboMaGiangVien.Location = new System.Drawing.Point(255, 54);
+            this.cboMaGiangVien.Name = "cboMaGiangVien";
+            this.cboMaGiangVien.Size = new System.Drawing.Size(200, 23);
+            this.cboMaGiangVien.TabIndex = 8;
+            this.cboMaGiangVien.SelectedIndexChanged += new System.EventHandler(this.cboMaGiangVien_SelectedIndexChanged);
             // 
             // tietBatDauSpinEdit
             // 
@@ -479,21 +512,6 @@
             0});
             this.tietBatDauSpinEdit.Size = new System.Drawing.Size(100, 20);
             this.tietBatDauSpinEdit.TabIndex = 7;
-            // 
-            // giangBDS
-            // 
-            this.giangBDS.DataMember = "FK_GIANG_LOP_TIN_CHI";
-            this.giangBDS.DataSource = this.lopTinChiBDS;
-            // 
-            // lopTinChiBDS
-            // 
-            this.lopTinChiBDS.DataMember = "LOP_TIN_CHI";
-            this.lopTinChiBDS.DataSource = this.DSMLC;
-            // 
-            // DSMLC
-            // 
-            this.DSMLC.DataSetName = "DSMLC";
-            this.DSMLC.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // thuSpinEdit
             // 
@@ -532,6 +550,7 @@
             // 
             // xtraScrollableControlThuocTinhLop
             // 
+            this.xtraScrollableControlThuocTinhLop.Controls.Add(this.cboNienKhoaHocKy);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(this.cboMaMonHoc);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(this.lblMaMonHoc);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(hE_SO_CCLabel);
@@ -549,7 +568,7 @@
             this.xtraScrollableControlThuocTinhLop.Controls.Add(nHOMLabel);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(this.lblNhom);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(mA_NK_HKLabel);
-            this.xtraScrollableControlThuocTinhLop.Controls.Add(this.lblNienKhoaHocKy);
+            this.xtraScrollableControlThuocTinhLop.Controls.Add(this.lblMaNienKhoaHocKy);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(mA_MHLabel);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(mA_KHOALabel);
             this.xtraScrollableControlThuocTinhLop.Controls.Add(this.lblMaKhoa);
@@ -558,8 +577,27 @@
             this.xtraScrollableControlThuocTinhLop.Dock = System.Windows.Forms.DockStyle.Left;
             this.xtraScrollableControlThuocTinhLop.Location = new System.Drawing.Point(0, 451);
             this.xtraScrollableControlThuocTinhLop.Name = "xtraScrollableControlThuocTinhLop";
-            this.xtraScrollableControlThuocTinhLop.Size = new System.Drawing.Size(600, 281);
+            this.xtraScrollableControlThuocTinhLop.Size = new System.Drawing.Size(600, 315);
             this.xtraScrollableControlThuocTinhLop.TabIndex = 4;
+            // 
+            // cboMaMonHoc
+            // 
+            this.cboMaMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMaMonHoc.FormattingEnabled = true;
+            this.cboMaMonHoc.Location = new System.Drawing.Point(313, 89);
+            this.cboMaMonHoc.Name = "cboMaMonHoc";
+            this.cboMaMonHoc.Size = new System.Drawing.Size(255, 23);
+            this.cboMaMonHoc.TabIndex = 24;
+            this.cboMaMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboMaMonHoc_SelectedIndexChanged);
+            // 
+            // lblMaMonHoc
+            // 
+            this.lblMaMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lopTinChiBDS, "MA_MH", true));
+            this.lblMaMonHoc.Location = new System.Drawing.Point(192, 92);
+            this.lblMaMonHoc.Name = "lblMaMonHoc";
+            this.lblMaMonHoc.Size = new System.Drawing.Size(100, 23);
+            this.lblMaMonHoc.TabIndex = 23;
+            this.lblMaMonHoc.Text = "Mã môn học";
             // 
             // heSoCcSpinEdit
             // 
@@ -648,7 +686,7 @@
             // huyCheckEdit
             // 
             this.huyCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lopTinChiBDS, "HUY", true));
-            this.huyCheckEdit.Location = new System.Drawing.Point(438, 158);
+            this.huyCheckEdit.Location = new System.Drawing.Point(438, 187);
             this.huyCheckEdit.MenuManager = this.barManagerTong;
             this.huyCheckEdit.Name = "huyCheckEdit";
             this.huyCheckEdit.Properties.Caption = "";
@@ -658,7 +696,7 @@
             // lblMaNhanVien
             // 
             this.lblMaNhanVien.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lopTinChiBDS, "MA_NV", true));
-            this.lblMaNhanVien.Location = new System.Drawing.Point(435, 49);
+            this.lblMaNhanVien.Location = new System.Drawing.Point(435, 160);
             this.lblMaNhanVien.Name = "lblMaNhanVien";
             this.lblMaNhanVien.Size = new System.Drawing.Size(100, 23);
             this.lblMaNhanVien.TabIndex = 11;
@@ -673,14 +711,14 @@
             this.lblNhom.TabIndex = 9;
             this.lblNhom.Text = "Nhóm";
             // 
-            // lblNienKhoaHocKy
+            // lblMaNienKhoaHocKy
             // 
-            this.lblNienKhoaHocKy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lopTinChiBDS, "MA_NK_HK", true));
-            this.lblNienKhoaHocKy.Location = new System.Drawing.Point(192, 49);
-            this.lblNienKhoaHocKy.Name = "lblNienKhoaHocKy";
-            this.lblNienKhoaHocKy.Size = new System.Drawing.Size(90, 23);
-            this.lblNienKhoaHocKy.TabIndex = 7;
-            this.lblNienKhoaHocKy.Text = "Mã niên khóa học kỳ";
+            this.lblMaNienKhoaHocKy.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lopTinChiBDS, "MA_NK_HK", true));
+            this.lblMaNienKhoaHocKy.Location = new System.Drawing.Point(192, 49);
+            this.lblMaNienKhoaHocKy.Name = "lblMaNienKhoaHocKy";
+            this.lblMaNienKhoaHocKy.Size = new System.Drawing.Size(90, 23);
+            this.lblMaNienKhoaHocKy.TabIndex = 7;
+            this.lblMaNienKhoaHocKy.Text = "Mã niên khóa học kỳ";
             // 
             // lblMaKhoa
             // 
@@ -882,8 +920,6 @@
             // 
             // panelControlKhoa
             // 
-            this.panelControlKhoa.Controls.Add(this.cboNienKhoaHocKy);
-            this.panelControlKhoa.Controls.Add(this.label1);
             this.panelControlKhoa.Controls.Add(this.cboKhoa);
             this.panelControlKhoa.Controls.Add(this.lblKhoa);
             this.panelControlKhoa.Dock = System.Windows.Forms.DockStyle.Top;
@@ -891,25 +927,6 @@
             this.panelControlKhoa.Name = "panelControlKhoa";
             this.panelControlKhoa.Size = new System.Drawing.Size(1124, 54);
             this.panelControlKhoa.TabIndex = 3;
-            // 
-            // cboNienKhoaHocKy
-            // 
-            this.cboNienKhoaHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNienKhoaHocKy.FormattingEnabled = true;
-            this.cboNienKhoaHocKy.Location = new System.Drawing.Point(594, 18);
-            this.cboNienKhoaHocKy.Name = "cboNienKhoaHocKy";
-            this.cboNienKhoaHocKy.Size = new System.Drawing.Size(255, 21);
-            this.cboNienKhoaHocKy.TabIndex = 4;
-            this.cboNienKhoaHocKy.SelectedIndexChanged += new System.EventHandler(this.cboNienKhoaHocKy_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(449, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Niên khóa - Học kỳ:";
             // 
             // cboKhoa
             // 
@@ -955,49 +972,20 @@
             this.dangKyBDS.DataMember = "FK_DANG_KI_LOP_TIN_CHI";
             this.dangKyBDS.DataSource = this.lopTinChiBDS;
             // 
-            // lblMaMonHoc
+            // cboNienKhoaHocKy
             // 
-            this.lblMaMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lopTinChiBDS, "MA_MH", true));
-            this.lblMaMonHoc.Location = new System.Drawing.Point(192, 80);
-            this.lblMaMonHoc.Name = "lblMaMonHoc";
-            this.lblMaMonHoc.Size = new System.Drawing.Size(100, 23);
-            this.lblMaMonHoc.TabIndex = 23;
-            this.lblMaMonHoc.Text = "Mã môn học";
-            // 
-            // cboMaMonHoc
-            // 
-            this.cboMaMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMaMonHoc.FormattingEnabled = true;
-            this.cboMaMonHoc.Location = new System.Drawing.Point(313, 77);
-            this.cboMaMonHoc.Name = "cboMaMonHoc";
-            this.cboMaMonHoc.Size = new System.Drawing.Size(222, 23);
-            this.cboMaMonHoc.TabIndex = 24;
-            this.cboMaMonHoc.SelectedIndexChanged += new System.EventHandler(this.cboMaMonHoc_SelectedIndexChanged);
-            // 
-            // cboMaGiangVien
-            // 
-            this.cboMaGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMaGiangVien.FormattingEnabled = true;
-            this.cboMaGiangVien.Location = new System.Drawing.Point(255, 54);
-            this.cboMaGiangVien.Name = "cboMaGiangVien";
-            this.cboMaGiangVien.Size = new System.Drawing.Size(200, 23);
-            this.cboMaGiangVien.TabIndex = 8;
-            this.cboMaGiangVien.SelectedIndexChanged += new System.EventHandler(this.cboMaGiangVien_SelectedIndexChanged);
-            // 
-            // lblMaGiangVien
-            // 
-            this.lblMaGiangVien.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.giangBDS, "MA_GV", true));
-            this.lblMaGiangVien.Location = new System.Drawing.Point(130, 57);
-            this.lblMaGiangVien.Name = "lblMaGiangVien";
-            this.lblMaGiangVien.Size = new System.Drawing.Size(100, 23);
-            this.lblMaGiangVien.TabIndex = 9;
-            this.lblMaGiangVien.Text = "Mã giảng viên";
+            this.cboNienKhoaHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNienKhoaHocKy.FormattingEnabled = true;
+            this.cboNienKhoaHocKy.Location = new System.Drawing.Point(313, 46);
+            this.cboNienKhoaHocKy.Name = "cboNienKhoaHocKy";
+            this.cboNienKhoaHocKy.Size = new System.Drawing.Size(255, 23);
+            this.cboNienKhoaHocKy.TabIndex = 25;
             // 
             // FrmMoLop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1124, 756);
+            this.ClientSize = new System.Drawing.Size(1124, 790);
             this.Controls.Add(this.xtraScrollableControlTong);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -1012,10 +1000,10 @@
             this.xtraScrollableControlTong.ResumeLayout(false);
             this.xtraScrollableControl1.ResumeLayout(false);
             this.xtraScrollableControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tietBatDauSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.giangBDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopTinChiBDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSMLC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tietBatDauSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuSpinEdit.Properties)).EndInit();
             this.xtraScrollableControlThuocTinhLop.ResumeLayout(false);
             this.xtraScrollableControlThuocTinhLop.PerformLayout();
@@ -1054,8 +1042,6 @@
         private System.Windows.Forms.Label lblKhoa;
         private System.Windows.Forms.BindingSource lopTinChiBDS;
         private DSMLC DSMLC;
-        private System.Windows.Forms.ComboBox cboNienKhoaHocKy;
-        private System.Windows.Forms.Label label1;
         private DSMLCTableAdapters.LOP_TIN_CHITableAdapter lopTinChiTableAdapter;
         private DSMLCTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraGrid.GridControl lopTinChiGridControl;
@@ -1094,7 +1080,7 @@
         private DevExpress.XtraEditors.CheckEdit huyCheckEdit;
         private System.Windows.Forms.Label lblMaNhanVien;
         private System.Windows.Forms.Label lblNhom;
-        private System.Windows.Forms.Label lblNienKhoaHocKy;
+        private System.Windows.Forms.Label lblMaNienKhoaHocKy;
         private System.Windows.Forms.Label lblMaKhoa;
         private System.Windows.Forms.Label lblMaLopTinChi;
         private DevExpress.XtraEditors.SpinEdit tietBatDauSpinEdit;
@@ -1104,5 +1090,6 @@
         private System.Windows.Forms.Label lblMaMonHoc;
         private System.Windows.Forms.ComboBox cboMaGiangVien;
         private System.Windows.Forms.Label lblMaGiangVien;
+        private System.Windows.Forms.ComboBox cboNienKhoaHocKy;
     }
 }
