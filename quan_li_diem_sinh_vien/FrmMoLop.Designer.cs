@@ -51,7 +51,6 @@
             this.barBtnThemGiang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnHieuChinh = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnGhi = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnTaiLai = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -69,6 +68,7 @@
             this.thuSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.lblMaLopTinChi2 = new System.Windows.Forms.Label();
             this.xtraScrollableControlThuocTinhLop = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.cboNienKhoaHocKy = new System.Windows.Forms.ComboBox();
             this.cboMaMonHoc = new System.Windows.Forms.ComboBox();
             this.lblMaMonHoc = new System.Windows.Forms.Label();
             this.heSoCcSpinEdit = new DevExpress.XtraEditors.SpinEdit();
@@ -108,7 +108,7 @@
             this.dangKyTableAdapter = new quan_li_diem_sinh_vien.DSMLCTableAdapters.DANG_KITableAdapter();
             this.giangTableAdapter = new quan_li_diem_sinh_vien.DSMLCTableAdapters.GIANGTableAdapter();
             this.dangKyBDS = new System.Windows.Forms.BindingSource(this.components);
-            this.cboNienKhoaHocKy = new System.Windows.Forms.ComboBox();
+            this.barBtnXoa = new DevExpress.XtraBars.BarButtonItem();
             mA_LOP_TCLabel = new System.Windows.Forms.Label();
             mA_KHOALabel = new System.Windows.Forms.Label();
             mA_MHLabel = new System.Windows.Forms.Label();
@@ -300,10 +300,10 @@
             this.barBtnThoat,
             this.barBtnThemLop,
             this.barBtnThemGiang,
-            this.barBtnXoa,
-            this.barBtnGhi});
+            this.barBtnGhi,
+            this.barBtnXoa});
             this.barManagerTong.MainMenu = this.barTong;
-            this.barManagerTong.MaxItemId = 13;
+            this.barManagerTong.MaxItemId = 14;
             this.barManagerTong.OptionsLayout.AllowAddNewItems = false;
             // 
             // barTong
@@ -361,15 +361,6 @@
             this.barBtnGhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnGhi.ImageOptions.LargeImage")));
             this.barBtnGhi.Name = "barBtnGhi";
             this.barBtnGhi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barBtnXoa
-            // 
-            this.barBtnXoa.Caption = "Xóa";
-            this.barBtnXoa.Id = 11;
-            this.barBtnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.Image")));
-            this.barBtnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.LargeImage")));
-            this.barBtnXoa.Name = "barBtnXoa";
-            this.barBtnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barBtnTaiLai
             // 
@@ -580,6 +571,15 @@
             this.xtraScrollableControlThuocTinhLop.Size = new System.Drawing.Size(600, 315);
             this.xtraScrollableControlThuocTinhLop.TabIndex = 4;
             // 
+            // cboNienKhoaHocKy
+            // 
+            this.cboNienKhoaHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboNienKhoaHocKy.FormattingEnabled = true;
+            this.cboNienKhoaHocKy.Location = new System.Drawing.Point(313, 46);
+            this.cboNienKhoaHocKy.Name = "cboNienKhoaHocKy";
+            this.cboNienKhoaHocKy.Size = new System.Drawing.Size(255, 23);
+            this.cboNienKhoaHocKy.TabIndex = 25;
+            // 
             // cboMaMonHoc
             // 
             this.cboMaMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -751,6 +751,7 @@
             this.giangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGiang});
             this.giangGridControl.Click += new System.EventHandler(this.giangGridControl_Click);
+            this.giangGridControl.DoubleClick += new System.EventHandler(this.giangGridControl_DoubleClick);
             // 
             // gridViewGiang
             // 
@@ -809,6 +810,7 @@
             this.lopTinChiGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLopTinChi});
             this.lopTinChiGridControl.Click += new System.EventHandler(this.lopTinChiGridControl_Click);
+            this.lopTinChiGridControl.DoubleClick += new System.EventHandler(this.lopTinChiGridControl_DoubleClick);
             // 
             // gridViewLopTinChi
             // 
@@ -972,14 +974,14 @@
             this.dangKyBDS.DataMember = "FK_DANG_KI_LOP_TIN_CHI";
             this.dangKyBDS.DataSource = this.lopTinChiBDS;
             // 
-            // cboNienKhoaHocKy
+            // barBtnXoa
             // 
-            this.cboNienKhoaHocKy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNienKhoaHocKy.FormattingEnabled = true;
-            this.cboNienKhoaHocKy.Location = new System.Drawing.Point(313, 46);
-            this.cboNienKhoaHocKy.Name = "cboNienKhoaHocKy";
-            this.cboNienKhoaHocKy.Size = new System.Drawing.Size(255, 23);
-            this.cboNienKhoaHocKy.TabIndex = 25;
+            this.barBtnXoa.Caption = "Xóa";
+            this.barBtnXoa.Id = 13;
+            this.barBtnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.Image")));
+            this.barBtnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.LargeImage")));
+            this.barBtnXoa.Name = "barBtnXoa";
+            this.barBtnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // FrmMoLop
             // 
@@ -1071,7 +1073,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMA_NV;
         private DevExpress.XtraBars.BarButtonItem barBtnThemLop;
         private DevExpress.XtraBars.BarButtonItem barBtnThemGiang;
-        private DevExpress.XtraBars.BarButtonItem barBtnXoa;
         private DevExpress.XtraBars.BarButtonItem barBtnGhi;
         private DevExpress.XtraEditors.SpinEdit heSoCcSpinEdit;
         private DevExpress.XtraEditors.SpinEdit heSoGkSpinEdit;
@@ -1091,5 +1092,6 @@
         private System.Windows.Forms.ComboBox cboMaGiangVien;
         private System.Windows.Forms.Label lblMaGiangVien;
         private System.Windows.Forms.ComboBox cboNienKhoaHocKy;
+        private DevExpress.XtraBars.BarButtonItem barBtnXoa;
     }
 }

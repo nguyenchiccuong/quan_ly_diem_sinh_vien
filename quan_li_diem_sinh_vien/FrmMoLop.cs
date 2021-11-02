@@ -10,7 +10,6 @@ namespace quan_li_diem_sinh_vien
 
         int viTriLop = -1;
         int viTriGiang = -1;
-        String NKHK = "";
         BindingSource nienKhoaHocKyBDS = new BindingSource();
         BindingSource giangVienBDS = new BindingSource();
         BindingSource monHocBDS = new BindingSource();
@@ -216,6 +215,106 @@ namespace quan_li_diem_sinh_vien
             barBtnThemGiang.Enabled = barBtnHieuChinh.Enabled = barBtnGhi.Enabled = barBtnXoa.Enabled = false;
             cboMaMonHoc.Enabled = heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = false;
             lopTinChiGridControl.Enabled = giangGridControl.Enabled = true;
+        }
+
+        private void lopTinChiGridControl_DoubleClick(object sender, EventArgs e)
+        {
+            if (lopTinChiBDS.Count > 0 && viTriLop >= 0)
+            {
+                int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
+                if (ketQuaHieuChinh == -1)// truoc ngày dki
+                {
+                    barBtnThemGiang.Enabled = barBtnHieuChinh.Enabled = true;
+                    heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = true;
+                    lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
+                    barBtnThemLop.Enabled = false;
+                }
+                else if (ketQuaHieuChinh == 1) // sau thoi gian dki
+                {
+                    if (serverHienTai.Equals(Program.serverNameConLai))
+                    {
+                        if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                    }
+                    else
+                    {
+                        if (Program.KetNoi(Program.connstr) == 0) return;
+                    }
+                    string strLenh = "EXEC SP_CHECKCHOPHEPHIEUCHINHLOPTC @maLop = " + lblMaLopTinChi.Text.Trim();
+                    Program.myReader = Program.ExecSqlDataReader(strLenh);
+                    Program.myReader.Read();
+                    int ketQua = Program.myReader.GetInt32(0);
+                    Program.myReader.Close();
+                    Program.conn.Close();
+                    //neu chua nhap diem
+                    if (ketQua == 1)
+                    {
+                        barBtnThemGiang.Enabled = barBtnHieuChinh.Enabled = true;
+                        heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = true;
+                        lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
+                        barBtnThemLop.Enabled = false;
+                    }
+                }
+
+            }
+        }
+
+        private void giangGridControl_DoubleClick(object sender, EventArgs e)
+        {
+            if (giangBDS.Count > 0 && viTriGiang >= 0)
+            {
+               
+                int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
+                if (ketQuaHieuChinh == -1)
+                {
+                    lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
+                    barBtnThemLop.Enabled = false;
+                    barBtnHieuChinh.Enabled = barBtnXoa.Enabled = true;
+                    cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = true;
+                }
+                else if (ketQuaHieuChinh == 1)
+                {
+                    if (serverHienTai.Equals(Program.serverNameConLai))
+                    {
+                        if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                    }
+                    else
+                    {
+                        if (Program.KetNoi(Program.connstr) == 0) return;
+                    }
+                    string strLenh = "EXEC SP_CHECKCHOPHEPHIEUCHINHLOPTC @maLop = " + lblMaLopTinChi.Text.Trim();
+                    Program.myReader = Program.ExecSqlDataReader(strLenh);
+                    Program.myReader.Read();
+                    int ketQua = Program.myReader.GetInt32(0);
+                    Program.myReader.Close();
+                    Program.conn.Close();
+                    //neu chua nhap diem
+                    if (ketQua == 1)
+                    {
+                        lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
+                        barBtnThemLop.Enabled = false;
+                        barBtnHieuChinh.Enabled = barBtnXoa.Enabled = true;
+                        cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = true;
+                    }
+                }
+            }
+        }
+
+        private int kiemTraChoPhepHieuChinh()
+        {
+            DateTime ngayBatDau = Convert.ToDateTime(((DataRowView)nienKhoaHocKyBDS[nienKhoaHocKyBDS.Position])["NGAY_BDAU_DKI"].ToString());
+            DateTime ngayKetThuc = Convert.ToDateTime(((DataRowView)nienKhoaHocKyBDS[nienKhoaHocKyBDS.Position])["NGAY_KTHUC_DKI"].ToString());
+            if ((DateTime.Compare(DateTime.Now, ngayBatDau) < 0))
+            {
+                return -1;
+            }
+            else if ((DateTime.Compare(ngayBatDau, DateTime.Now) <= 0) && (DateTime.Compare(DateTime.Now, ngayKetThuc) < 0))
+            {
+                return 0;
+            }
+            else
+            {
+                return 1;
+            }
         }
     }
 }
