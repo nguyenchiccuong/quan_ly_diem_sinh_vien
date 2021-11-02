@@ -213,7 +213,8 @@ namespace quan_li_diem_sinh_vien
             }
 
             barBtnThemGiang.Enabled = barBtnHieuChinh.Enabled = barBtnGhi.Enabled = barBtnXoa.Enabled = false;
-            cboMaMonHoc.Enabled = heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = false;
+            barBtnThemLop.Enabled = true;
+            cboNienKhoaHocKy.Enabled = cboMaMonHoc.Enabled = heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = false;
             lopTinChiGridControl.Enabled = giangGridControl.Enabled = true;
         }
 
@@ -262,7 +263,7 @@ namespace quan_li_diem_sinh_vien
         {
             if (giangBDS.Count > 0 && viTriGiang >= 0)
             {
-               
+
                 int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
                 if (ketQuaHieuChinh == -1)
                 {
@@ -316,5 +317,114 @@ namespace quan_li_diem_sinh_vien
                 return 1;
             }
         }
+
+        private void barBtnThemLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (nienKhoaHocKyBDS.Count > 0 && monHocBDS.Count > 0)
+            {
+                lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
+                barBtnThemLop.Enabled = false;
+                barBtnGhi.Enabled = true;
+                cboNienKhoaHocKy.Enabled = cboMaMonHoc.Enabled = heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = true;
+
+                lopTinChiBDS.AddNew();
+
+                lblMaNienKhoaHocKy.Text = cboNienKhoaHocKy.SelectedValue.ToString();
+                lblMaMonHoc.Text = cboMaMonHoc.SelectedValue.ToString();
+                lblMaLopTinChi.Text = null;
+                if (serverHienTai.Equals(Program.serverNameConLai))
+                {
+                    if (Program.mChinhanh.Equals("Công Nghệ Thông Tin"))
+                        lblMaKhoa.Text = "VT";
+                    else
+                        lblMaKhoa.Text = "CNTT";
+                }
+                else
+                {
+                    if (Program.mChinhanh.Equals("Công Nghệ Thông Tin"))
+                        lblMaKhoa.Text = "CNTT";
+                    else
+                        lblMaKhoa.Text = "VT";
+                }
+                lblMaNhanVien.Text = Program.mloginDN;
+                heSoCcSpinEdit.Value = heSoGkSpinEdit.Value = heSoCkSpinEdit.Value = 0;
+            }
+        }
+
+        private void barBtnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (cboMaGiangVien.Enabled == true) //them giang vien
+            {
+
+            }
+            else //them lop
+            {
+                if (kiemThemTraLopTinChi()) return;
+
+                int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
+                if (ketQuaHieuChinh != -1)
+                {
+                    MessageBox.Show("Ngoài thời gian cho phép mở lớp của niên khóa học kỳ", "Báo lỗi niên khóa học kỳ", MessageBoxButtons.OK);
+                    return;
+                }
+
+                if (serverHienTai.Equals(Program.serverNameConLai))
+                {
+                    if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                }
+                else
+                {
+                    if (Program.KetNoi(Program.connstr) == 0) return;
+                }
+                string strLenh = "EXEC SP_XINMANHOM @maNKHK = " + lblMaNienKhoaHocKy.Text.Trim() + ", @maMH = '" + lblMaMonHoc.Text.Trim() + "'";
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                Program.myReader.Read();
+                int ketQua = Program.myReader.GetInt16(0);
+                Program.myReader.Close();
+                Program.conn.Close();
+                lblNhom.Text = ketQua.ToString();
+
+                huyCheckEdit.Checked = false;
+                try
+                {
+                    lopTinChiBDS.EndEdit();
+                    lopTinChiBDS.ResetCurrentItem();
+                    if (DSMLC.HasChanges())
+                    {
+                        this.lopTinChiTableAdapter.Update(this.DSMLC.LOP_TIN_CHI);
+                    }
+
+                    viTriLop = lopTinChiBDS.Position;
+                    barBtnTaiLai.PerformClick();
+                    MessageBox.Show("Mở lớp thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("PRIMARY"))
+                    {
+                        MessageBox.Show("Mãlớp tín chỉ trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                    }
+                    else
+                        MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private Boolean kiemThemTraLopTinChi()
+        {
+            if (soSvToiThieuSpinEdit.Value == 0)
+            {
+                MessageBox.Show("Lớp cần ít nhất 1 sinh viên", "Báo lỗi số sinh viên tối thiểu", MessageBoxButtons.OK);
+                soSvToiThieuSpinEdit.Focus();
+                return true;
+            }
+            if (heSoCcSpinEdit.Value % 10 != 0 || heSoGkSpinEdit.Value % 10 != 0 || heSoCkSpinEdit.Value % 10 != 0 || heSoCcSpinEdit.Value + heSoGkSpinEdit.Value + heSoCkSpinEdit.Value != 100)
+            {
+                MessageBox.Show("Hệ số cần chia hết cho 10 và tổng của 3 hệ số bé hơn 100", "Báo lỗi hệ số", MessageBoxButtons.OK);
+                return true;
+            }
+            return false;
+        }
+
     }
 }

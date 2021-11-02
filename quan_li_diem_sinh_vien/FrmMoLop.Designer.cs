@@ -51,6 +51,7 @@
             this.barBtnThemGiang = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnHieuChinh = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnGhi = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnTaiLai = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -108,7 +109,6 @@
             this.dangKyTableAdapter = new quan_li_diem_sinh_vien.DSMLCTableAdapters.DANG_KITableAdapter();
             this.giangTableAdapter = new quan_li_diem_sinh_vien.DSMLCTableAdapters.GIANGTableAdapter();
             this.dangKyBDS = new System.Windows.Forms.BindingSource(this.components);
-            this.barBtnXoa = new DevExpress.XtraBars.BarButtonItem();
             mA_LOP_TCLabel = new System.Windows.Forms.Label();
             mA_KHOALabel = new System.Windows.Forms.Label();
             mA_MHLabel = new System.Windows.Forms.Label();
@@ -334,6 +334,7 @@
             this.barBtnThemLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnThemLop.ImageOptions.LargeImage")));
             this.barBtnThemLop.Name = "barBtnThemLop";
             this.barBtnThemLop.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnThemLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemLop_ItemClick);
             // 
             // barBtnThemGiang
             // 
@@ -361,6 +362,16 @@
             this.barBtnGhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnGhi.ImageOptions.LargeImage")));
             this.barBtnGhi.Name = "barBtnGhi";
             this.barBtnGhi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnGhi_ItemClick);
+            // 
+            // barBtnXoa
+            // 
+            this.barBtnXoa.Caption = "Xóa";
+            this.barBtnXoa.Id = 13;
+            this.barBtnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.Image")));
+            this.barBtnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.LargeImage")));
+            this.barBtnXoa.Name = "barBtnXoa";
+            this.barBtnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barBtnTaiLai
             // 
@@ -491,6 +502,9 @@
             this.tietBatDauSpinEdit.Name = "tietBatDauSpinEdit";
             this.tietBatDauSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tietBatDauSpinEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tietBatDauSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tietBatDauSpinEdit.Properties.Mask.EditMask = "d";
             this.tietBatDauSpinEdit.Properties.MaxValue = new decimal(new int[] {
             16,
             0,
@@ -517,6 +531,9 @@
             this.thuSpinEdit.Name = "thuSpinEdit";
             this.thuSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.thuSpinEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.thuSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.thuSpinEdit.Properties.Mask.EditMask = "d";
             this.thuSpinEdit.Properties.MaxValue = new decimal(new int[] {
             7,
             0,
@@ -579,6 +596,7 @@
             this.cboNienKhoaHocKy.Name = "cboNienKhoaHocKy";
             this.cboNienKhoaHocKy.Size = new System.Drawing.Size(255, 23);
             this.cboNienKhoaHocKy.TabIndex = 25;
+            this.cboNienKhoaHocKy.SelectedIndexChanged += new System.EventHandler(this.cboNienKhoaHocKy_SelectedIndexChanged);
             // 
             // cboMaMonHoc
             // 
@@ -612,6 +630,14 @@
             this.heSoCcSpinEdit.Name = "heSoCcSpinEdit";
             this.heSoCcSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.heSoCcSpinEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.heSoCcSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.heSoCcSpinEdit.Properties.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.heSoCcSpinEdit.Properties.Mask.EditMask = "d";
             this.heSoCcSpinEdit.Properties.MaxValue = new decimal(new int[] {
             100,
             0,
@@ -633,6 +659,14 @@
             this.heSoGkSpinEdit.Name = "heSoGkSpinEdit";
             this.heSoGkSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.heSoGkSpinEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.heSoGkSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.heSoGkSpinEdit.Properties.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.heSoGkSpinEdit.Properties.Mask.EditMask = "d";
             this.heSoGkSpinEdit.Properties.MaxValue = new decimal(new int[] {
             100,
             0,
@@ -654,6 +688,14 @@
             this.heSoCkSpinEdit.Name = "heSoCkSpinEdit";
             this.heSoCkSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.heSoCkSpinEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.heSoCkSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.heSoCkSpinEdit.Properties.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.heSoCkSpinEdit.Properties.Mask.EditMask = "d";
             this.heSoCkSpinEdit.Properties.MaxValue = new decimal(new int[] {
             100,
             0,
@@ -675,6 +717,9 @@
             this.soSvToiThieuSpinEdit.Name = "soSvToiThieuSpinEdit";
             this.soSvToiThieuSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.soSvToiThieuSpinEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.soSvToiThieuSpinEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.soSvToiThieuSpinEdit.Properties.Mask.EditMask = "d";
             this.soSvToiThieuSpinEdit.Properties.MaxValue = new decimal(new int[] {
             500,
             0,
@@ -973,15 +1018,6 @@
             // 
             this.dangKyBDS.DataMember = "FK_DANG_KI_LOP_TIN_CHI";
             this.dangKyBDS.DataSource = this.lopTinChiBDS;
-            // 
-            // barBtnXoa
-            // 
-            this.barBtnXoa.Caption = "Xóa";
-            this.barBtnXoa.Id = 13;
-            this.barBtnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.Image")));
-            this.barBtnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.LargeImage")));
-            this.barBtnXoa.Name = "barBtnXoa";
-            this.barBtnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // FrmMoLop
             // 
