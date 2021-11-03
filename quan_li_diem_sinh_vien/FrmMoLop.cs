@@ -359,7 +359,7 @@ namespace quan_li_diem_sinh_vien
             }
             else //them lop
             {
-                if (kiemThemTraLopTinChi()) return;
+                if (kiemTraThemLopTinChi()) return;
 
                 int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
                 if (ketQuaHieuChinh != -1)
@@ -410,7 +410,7 @@ namespace quan_li_diem_sinh_vien
             }
         }
 
-        private Boolean kiemThemTraLopTinChi()
+        private Boolean kiemTraThemLopTinChi()
         {
             if (soSvToiThieuSpinEdit.Value == 0)
             {
@@ -426,5 +426,127 @@ namespace quan_li_diem_sinh_vien
             return false;
         }
 
+        private void barBtnHieuChinh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
+            if (ketQuaHieuChinh == -1)// truoc ngày dki
+            {
+                if (heSoCcSpinEdit.Enabled == true)
+                {
+                    if (kiemTraThemLopTinChi()) return;
+                    lblMaNhanVien.Text = Program.mloginDN;
+                    try
+                    {
+                        lopTinChiBDS.EndEdit();
+                        lopTinChiBDS.ResetCurrentItem();
+                        if (DSMLC.HasChanges())
+                        {
+                            this.lopTinChiTableAdapter.Update(this.DSMLC.LOP_TIN_CHI);
+                        }
+
+                        barBtnTaiLai.PerformClick();
+                        MessageBox.Show("Sửa lớp thành công", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.Message.Contains("PRIMARY"))
+                        {
+                            MessageBox.Show("Mãlớp tín chỉ trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                        }
+                        else
+                            MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            else if (ketQuaHieuChinh == 1) // sau thoi gian dki
+            {
+                if (serverHienTai.Equals(Program.serverNameConLai))
+                {
+                    if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                }
+                else
+                {
+                    if (Program.KetNoi(Program.connstr) == 0) return;
+                }
+                string strLenh = "EXEC SP_CHECKCHOPHEPHIEUCHINHLOPTC @maLop = " + lblMaLopTinChi.Text.Trim();
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                Program.myReader.Read();
+                int ketQua = Program.myReader.GetInt32(0);
+                Program.myReader.Close();
+                Program.conn.Close();
+                //neu chua nhap diem
+                if (ketQua == 1)
+                {
+                    if (heSoCcSpinEdit.Enabled == true)
+                    {
+                        if (kiemTraThemLopTinChi()) return;
+
+                        if (serverHienTai.Equals(Program.serverNameConLai))
+                        {
+                            if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                        }
+                        else
+                        {
+                            if (Program.KetNoi(Program.connstr) == 0) return;
+                        }
+                        strLenh = "EXEC SP_DEMSODKI @maLop = " + lblMaLopTinChi.Text.Trim();
+                        Program.myReader = Program.ExecSqlDataReader(strLenh);
+                        Program.myReader.Read();
+                        ketQua = Program.myReader.GetInt32(0);
+                        Program.myReader.Close();
+                        Program.conn.Close();
+
+                        if (ketQua <= soSvToiThieuSpinEdit.Value)
+                        {
+                            lblMaNhanVien.Text = Program.mloginDN;
+                            try
+                            {
+                                lopTinChiBDS.EndEdit();
+                                lopTinChiBDS.ResetCurrentItem();
+                                if (DSMLC.HasChanges())
+                                {
+                                    this.lopTinChiTableAdapter.Update(this.DSMLC.LOP_TIN_CHI);
+                                }
+
+                                barBtnTaiLai.PerformClick();
+                                MessageBox.Show("Sửa lớp thành công", "Thông báo", MessageBoxButtons.OK);
+                            }
+                            catch (Exception ex)
+                            {
+                                if (ex.Message.Contains("PRIMARY"))
+                                {
+                                    MessageBox.Show("Mãlớp tín chỉ trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                                }
+                                else
+                                    MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Số sinh viên tối thiểu chưa đủ so với số lượng đã đăng kí: " + ketQua + " sinh viên", "Báo lỗi", MessageBoxButtons.OK);
+                            return;
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Đã nhập điểm, không thể chỉnh sửa", "Báo lỗi niên khóa học kỳ", MessageBoxButtons.OK);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ngoài thời gian cho phép chỉnh sửa lớp của niên khóa học kỳ", "Báo lỗi niên khóa học kỳ", MessageBoxButtons.OK);
+                return;
+            }
+        }
     }
 }
