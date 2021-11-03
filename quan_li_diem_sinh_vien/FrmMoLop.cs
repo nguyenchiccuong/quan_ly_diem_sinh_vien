@@ -294,7 +294,7 @@ namespace quan_li_diem_sinh_vien
                         lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
                         barBtnThemLop.Enabled = false;
                         barBtnHieuChinh.Enabled = barBtnXoa.Enabled = true;
-                        cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = true;
+                        cboMaGiangVien.Enabled = true;
                     }
                 }
             }
@@ -547,6 +547,38 @@ namespace quan_li_diem_sinh_vien
                 MessageBox.Show("Ngoài thời gian cho phép chỉnh sửa lớp của niên khóa học kỳ", "Báo lỗi niên khóa học kỳ", MessageBoxButtons.OK);
                 return;
             }
+        }
+
+        private void barBtnThemGiang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
+            if (ketQuaHieuChinh == -1)// truoc ngày dki
+            {
+                if (giangVienBDS.Count > 0)
+                {
+                    barBtnHieuChinh.Enabled = barBtnThemGiang.Enabled = false;
+                    barBtnGhi.Enabled = true;
+                    heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = false;
+                    cboMaGiangVien.Enabled = thuSpinEdit.Enabled = tietBatDauSpinEdit.Enabled = true;
+
+
+                    giangBDS.AddNew();
+                    lblMaLopTinChi2.Text = lblMaLopTinChi.Text.Trim();
+                    thuSpinEdit.Value = 2;
+                    tietBatDauSpinEdit.Value = 1;
+                    lblMaGiangVien.Text = cboMaGiangVien.SelectedValue.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ngoài thời gian cho phép thêm giảng của niên khóa học kỳ", "Báo lỗi niên khóa học kỳ", MessageBoxButtons.OK);
+                return;
+            }
+        }
+
+        private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

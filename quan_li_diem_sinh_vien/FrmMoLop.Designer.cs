@@ -344,6 +344,7 @@
             this.barBtnThemGiang.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnThemGiang.ImageOptions.LargeImage")));
             this.barBtnThemGiang.Name = "barBtnThemGiang";
             this.barBtnThemGiang.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnThemGiang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnThemGiang_ItemClick);
             // 
             // barBtnHieuChinh
             // 
@@ -373,6 +374,7 @@
             this.barBtnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barBtnXoa.ImageOptions.LargeImage")));
             this.barBtnXoa.Name = "barBtnXoa";
             this.barBtnXoa.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barBtnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoa_ItemClick);
             // 
             // barBtnTaiLai
             // 
