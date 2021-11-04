@@ -711,7 +711,7 @@
             // 
             this.soSvToiThieuSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.lopTinChiBDS, "SO_SV_TTHIEU", true));
             this.soSvToiThieuSpinEdit.EditValue = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -725,6 +725,11 @@
             this.soSvToiThieuSpinEdit.Properties.Mask.EditMask = "d";
             this.soSvToiThieuSpinEdit.Properties.MaxValue = new decimal(new int[] {
             500,
+            0,
+            0,
+            0});
+            this.soSvToiThieuSpinEdit.Properties.MinValue = new decimal(new int[] {
+            1,
             0,
             0,
             0});

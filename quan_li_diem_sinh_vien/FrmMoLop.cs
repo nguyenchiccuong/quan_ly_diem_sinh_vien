@@ -249,7 +249,7 @@ namespace quan_li_diem_sinh_vien
                     //neu chua nhap diem
                     if (ketQua == 1)
                     {
-                        barBtnThemGiang.Enabled = barBtnHieuChinh.Enabled = true;
+                        barBtnHieuChinh.Enabled = true;
                         heSoCcSpinEdit.Enabled = heSoCkSpinEdit.Enabled = heSoGkSpinEdit.Enabled = soSvToiThieuSpinEdit.Enabled = huyCheckEdit.Enabled = true;
                         lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
                         barBtnThemLop.Enabled = false;
@@ -263,7 +263,6 @@ namespace quan_li_diem_sinh_vien
         {
             if (giangBDS.Count > 0 && viTriGiang >= 0)
             {
-
                 int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
                 if (ketQuaHieuChinh == -1)
                 {
@@ -293,7 +292,7 @@ namespace quan_li_diem_sinh_vien
                     {
                         lopTinChiGridControl.Enabled = giangGridControl.Enabled = false;
                         barBtnThemLop.Enabled = false;
-                        barBtnHieuChinh.Enabled = barBtnXoa.Enabled = true;
+                        barBtnHieuChinh.Enabled = true;
                         cboMaGiangVien.Enabled = true;
                     }
                 }
@@ -332,6 +331,7 @@ namespace quan_li_diem_sinh_vien
                 lblMaNienKhoaHocKy.Text = cboNienKhoaHocKy.SelectedValue.ToString();
                 lblMaMonHoc.Text = cboMaMonHoc.SelectedValue.ToString();
                 lblMaLopTinChi.Text = null;
+                soSvToiThieuSpinEdit.Value = 1;
                 if (serverHienTai.Equals(Program.serverNameConLai))
                 {
                     if (Program.mChinhanh.Equals("Công Nghệ Thông Tin"))
@@ -515,7 +515,52 @@ namespace quan_li_diem_sinh_vien
                 }
                 else
                 {
+                    if (serverHienTai.Equals(Program.serverNameConLai))
+                    {
+                        if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                    }
+                    else
+                    {
+                        if (Program.KetNoi(Program.connstr) == 0) return;
+                    }
 
+                    string strLenh = String.Format("EXEC SP_CHECKTRUNGLICHDAY @maNKHK = {0}, @maGV = N'{1}', @thu = {2}, @tietBD = {3}", lblMaNienKhoaHocKy.Text.Trim(), lblMaGiangVien.Text.Trim(), thuSpinEdit.Value, tietBatDauSpinEdit.Value);
+                    Program.myReader = Program.ExecSqlDataReader(strLenh);
+                    Program.myReader.Read();
+                    int ketQua = Program.myReader.GetInt32(0);
+                    Program.myReader.Close();
+                    Program.conn.Close();
+
+                    if (ketQua == 1)
+                    {
+                        MessageBox.Show("Trùng lịch dạy", "Báo lỗi trùng lịch", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            giangBDS.EndEdit();
+                            giangBDS.ResetCurrentItem();
+                            if (DSMLC.HasChanges())
+                            {
+                                this.giangTableAdapter.Update(this.DSMLC.GIANG);
+                            }
+                            barBtnTaiLai.PerformClick();
+                            MessageBox.Show("Sửa giảng thành công", "Thông báo", MessageBoxButtons.OK);
+                        }
+                        catch (Exception ex)
+                        {
+                            if (ex.Message.Contains("PRIMARY"))
+                            {
+                                MessageBox.Show("Mã giảng trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                            }
+                        }
+                    }
                 }
             }
             else if (ketQuaHieuChinh == 1) // sau thoi gian dki
@@ -589,7 +634,52 @@ namespace quan_li_diem_sinh_vien
                     }
                     else
                     {
+                        if (serverHienTai.Equals(Program.serverNameConLai))
+                        {
+                            if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                        }
+                        else
+                        {
+                            if (Program.KetNoi(Program.connstr) == 0) return;
+                        }
 
+                        strLenh = String.Format("EXEC SP_CHECKTRUNGLICHDAY @maNKHK = {0}, @maGV = N'{1}', @thu = {2}, @tietBD = {3}", lblMaNienKhoaHocKy.Text.Trim(), lblMaGiangVien.Text.Trim(), thuSpinEdit.Value, tietBatDauSpinEdit.Value);
+                        Program.myReader = Program.ExecSqlDataReader(strLenh);
+                        Program.myReader.Read();
+                        ketQua = Program.myReader.GetInt32(0);
+                        Program.myReader.Close();
+                        Program.conn.Close();
+
+                        if (ketQua == 1)
+                        {
+                            MessageBox.Show("Trùng lịch dạy", "Báo lỗi trùng lịch", MessageBoxButtons.OK);
+                            return;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                giangBDS.EndEdit();
+                                giangBDS.ResetCurrentItem();
+                                if (DSMLC.HasChanges())
+                                {
+                                    this.giangTableAdapter.Update(this.DSMLC.GIANG);
+                                }
+                                barBtnTaiLai.PerformClick();
+                                MessageBox.Show("Sửa giảng thành công", "Thông báo", MessageBoxButtons.OK);
+                            }
+                            catch (Exception ex)
+                            {
+                                if (ex.Message.Contains("PRIMARY"))
+                                {
+                                    MessageBox.Show("Mã giảng trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                                }
+                            }
+                        }
                     }
                 }
                 else
