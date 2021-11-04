@@ -31,6 +31,11 @@ namespace quan_li_diem_sinh_vien
             int index = cboKhoa.FindStringExact(Program.mChinhanh);
             cboKhoa.SelectedIndex = index;
 
+            if (Program.mGroup.Equals("KHOA"))
+            {
+                cboKhoa.Enabled = false;
+            }
+
             barBtnTaoTk.Enabled = false;
             matKhauTextEdit.Enabled = lapLaiMatKhauTextEdit.Enabled = false;
 
