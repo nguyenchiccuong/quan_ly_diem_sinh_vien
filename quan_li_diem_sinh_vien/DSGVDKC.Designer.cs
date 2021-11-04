@@ -988,7 +988,7 @@ SELECT MA_GV, HO, TEN, HOC_VI, HOC_HAM, CHUYEN_MON, MA_KHOA FROM GIANG_VIEN WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=DESKTOP-BR976AR\\MSSQLSERVER_1;Initial Catalog=QLDSV_TC;User ID=HTKN";
+            this._connection.ConnectionString = global::quan_li_diem_sinh_vien.Properties.Settings.Default.QLDSV_TCConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
