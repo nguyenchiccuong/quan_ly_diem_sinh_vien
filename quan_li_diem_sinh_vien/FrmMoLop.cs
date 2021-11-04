@@ -724,7 +724,24 @@ namespace quan_li_diem_sinh_vien
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            DialogResult dialogResult = MessageBox.Show(String.Format("Bạn có thật sự muốn xóa giảng"), "Xác nhận xóa", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
+                if (ketQuaHieuChinh == -1)// truoc ngày dki
+                {
+                    giangBDS.RemoveCurrent();
+                    this.giangTableAdapter.Update(this.DSMLC.GIANG);
+                    viTriGiang = -1;
+                    barBtnTaiLai.PerformClick();
+                    MessageBox.Show("Xóa giảng thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Ngoài thời gian cho phép xóa giảng", "Báo lỗi", MessageBoxButtons.OK);
+                    return;
+                }
+            }
         }
     }
 }
