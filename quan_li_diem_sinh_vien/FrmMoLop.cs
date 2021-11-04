@@ -355,7 +355,61 @@ namespace quan_li_diem_sinh_vien
         {
             if (cboMaGiangVien.Enabled == true) //them giang vien
             {
+                int ketQuaHieuChinh = kiemTraChoPhepHieuChinh();
+                if (ketQuaHieuChinh != -1)
+                {
+                    MessageBox.Show("Ngoài thời gian cho phép thêm giảng vào lớp của niên khóa học kỳ", "Báo lỗi niên khóa học kỳ", MessageBoxButtons.OK);
+                    return;
+                }
+                if (serverHienTai.Equals(Program.serverNameConLai))
+                {
+                    if (Program.KetNoi(Program.connstrConLai) == 0) return;
+                }
+                else
+                {
+                    if (Program.KetNoi(Program.connstr) == 0) return;
+                }
 
+                string strLenh = String.Format("EXEC SP_CHECKTRUNGLICHDAY @maNKHK = {0}, @maGV = N'{1}', @thu = {2}, @tietBD = {3}", lblMaNienKhoaHocKy.Text.Trim(), lblMaGiangVien.Text.Trim(), thuSpinEdit.Value, tietBatDauSpinEdit.Value);
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                Program.myReader.Read();
+                int ketQua = Program.myReader.GetInt32(0);
+                Program.myReader.Close();
+                Program.conn.Close();
+
+                if (ketQua == 1)
+                {
+                    MessageBox.Show("Trùng lịch dạy", "Báo lỗi trùng lịch", MessageBoxButtons.OK);
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        giangBDS.EndEdit();
+                        giangBDS.ResetCurrentItem();
+                        if (DSMLC.HasChanges())
+                        {
+                            this.giangTableAdapter.Update(this.DSMLC.GIANG);
+                        }
+
+                        viTriGiang = giangBDS.Position;
+                        barBtnTaiLai.PerformClick();
+                        lopTinChiGridControl_DoubleClick(new object(), new EventArgs());
+                        MessageBox.Show("Thêm giảng thành công", "Thông báo", MessageBoxButtons.OK);
+                    }
+                    catch (Exception ex)
+                    {
+                        if (ex.Message.Contains("PRIMARY"))
+                        {
+                            MessageBox.Show("Mã giảng trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                        }
+                    }
+                }
             }
             else //them lop
             {
@@ -402,10 +456,12 @@ namespace quan_li_diem_sinh_vien
                 {
                     if (ex.Message.Contains("PRIMARY"))
                     {
-                        MessageBox.Show("Mãlớp tín chỉ trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                        MessageBox.Show("Mã lớp tín chỉ trùng.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
                     }
                     else
+                    {
                         MessageBox.Show("Lỗi Ghi. Bạn kiểm tra lại thông tin trứơc khi ghi.\n" + ex.Message, "Báo lỗi", MessageBoxButtons.OK);
+                    }
                 }
             }
         }
