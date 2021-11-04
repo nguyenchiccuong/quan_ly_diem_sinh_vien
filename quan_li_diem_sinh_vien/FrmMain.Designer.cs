@@ -137,6 +137,7 @@
             this.bartbnNienKhoaHocKy.Caption = "Niên khóa - Học kỳ";
             this.bartbnNienKhoaHocKy.Id = 11;
             this.bartbnNienKhoaHocKy.Name = "bartbnNienKhoaHocKy";
+            this.bartbnNienKhoaHocKy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bartbnNienKhoaHocKy_ItemClick);
             // 
             // barBtnLopTinChi
             // 
