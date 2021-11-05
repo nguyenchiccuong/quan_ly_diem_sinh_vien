@@ -20,7 +20,7 @@ namespace quan_li_diem_sinh_vien
         int hocky = 1;
         string maltc = "";
         DataTable dt = new DataTable();
-        
+
         public FrmNhapDiem()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace quan_li_diem_sinh_vien
             }
             col_MA_SV.OptionsColumn.ReadOnly = true;
             colHOTEN.OptionsColumn.ReadOnly = true;
-            col_DIEM_CC.M
+
         }
 
         private void btnLopTC_Click(object sender, EventArgs e)
@@ -74,9 +74,9 @@ namespace quan_li_diem_sinh_vien
             try
             {
                 maltc = ((DataRowView)bdsDSLTC[bdsDSLTC.Position])["MA_LOP_TC"].ToString();
-            string lenh = "EXEC SP_LAY_DSSV_DANGKY " + maltc;
-            dt = Program.ExecSqlDataTable(lenh);
-            gcDSSV.DataSource = dt;
+                string lenh = "EXEC SP_LAY_DSSV_DANGKY " + maltc;
+                dt = Program.ExecSqlDataTable(lenh);
+                gcDSSV.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -85,7 +85,7 @@ namespace quan_li_diem_sinh_vien
             finally
             {
                 Program.conn.Close();
-                
+
             }
         }
 
@@ -116,7 +116,7 @@ namespace quan_li_diem_sinh_vien
                 Sqlcmd.Parameters.Add(para);
                 Sqlcmd.ExecuteNonQuery();
                 Program.conn.Close();
-                MessageBox.Show("Ghi Thành Công \n " , "", MessageBoxButtons.OK);
+                MessageBox.Show("Ghi Thành Công \n ", "", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
@@ -126,6 +126,52 @@ namespace quan_li_diem_sinh_vien
             {
                 Program.conn.Close();
                 btnNhapDiem.PerformClick();
+            }
+        }
+        private void gridView2_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
+        {
+
+            if (gridView2.FocusedColumn.FieldName == "DIEM_CC")
+            {
+                double diemcc = 0;
+                if (!Double.TryParse(e.Value as String, out diemcc))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Không được để trống.";
+                }
+                else if (diemcc > 10 || diemcc < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Giá trị nhập 0-10.";
+                }
+            }
+            if (gridView2.FocusedColumn.FieldName == "DIEM_GK")
+            {
+                double diemgk = 0;
+                if (!Double.TryParse(e.Value as String, out diemgk))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Không được để trống.";
+                }
+                else if (diemgk > 10 || diemgk < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Giá trị nhập 0-10.";
+                }
+            }
+            if (gridView2.FocusedColumn.FieldName == "DIEM_CK")
+            {
+                double diemck = 0;
+                if (!Double.TryParse(e.Value as String, out diemck))
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Không được để trống.";
+                }
+                else if (diemck > 10 || diemck < 0)
+                {
+                    e.Valid = false;
+                    e.ErrorText = "Giá trị nhập 0-10.";
+                }
             }
         }
     }
