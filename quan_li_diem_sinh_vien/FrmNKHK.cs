@@ -178,7 +178,7 @@ namespace quan_li_diem_sinh_vien
         {
             try
             {
-                if (MessageBox.Show("Bạn có muốn xóa lớp này không ??", "Xác Nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Bạn có muốn xóa niên khóa-học kỳ này không ??", "Xác Nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     try
                     {
