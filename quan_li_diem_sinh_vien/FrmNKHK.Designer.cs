@@ -141,7 +141,7 @@ namespace quan_li_diem_sinh_vien
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 45);
             this.barDockControlTop.Manager = null;
-            this.barDockControlTop.Size = new System.Drawing.Size(903, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(940, 0);
             // 
             // barManager1
             // 
@@ -269,7 +269,7 @@ namespace quan_li_diem_sinh_vien
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager1;
-            this.barDockControl1.Size = new System.Drawing.Size(903, 45);
+            this.barDockControl1.Size = new System.Drawing.Size(940, 45);
             // 
             // barDockControlBottom
             // 
@@ -277,7 +277,7 @@ namespace quan_li_diem_sinh_vien
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 736);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(903, 20);
+            this.barDockControlBottom.Size = new System.Drawing.Size(940, 20);
             // 
             // barDockControlLeft
             // 
@@ -291,7 +291,7 @@ namespace quan_li_diem_sinh_vien
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(903, 45);
+            this.barDockControlRight.Location = new System.Drawing.Point(940, 45);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 691);
             // 
@@ -344,7 +344,7 @@ namespace quan_li_diem_sinh_vien
             this.nIEN_KHOA_HOC_KYGridControl.MainView = this.gridView1;
             this.nIEN_KHOA_HOC_KYGridControl.MenuManager = this.barManager1;
             this.nIEN_KHOA_HOC_KYGridControl.Name = "nIEN_KHOA_HOC_KYGridControl";
-            this.nIEN_KHOA_HOC_KYGridControl.Size = new System.Drawing.Size(903, 691);
+            this.nIEN_KHOA_HOC_KYGridControl.Size = new System.Drawing.Size(940, 691);
             this.nIEN_KHOA_HOC_KYGridControl.TabIndex = 7;
             this.nIEN_KHOA_HOC_KYGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -426,7 +426,7 @@ namespace quan_li_diem_sinh_vien
             this.panelNKHK.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelNKHK.Location = new System.Drawing.Point(0, 590);
             this.panelNKHK.Name = "panelNKHK";
-            this.panelNKHK.Size = new System.Drawing.Size(903, 146);
+            this.panelNKHK.Size = new System.Drawing.Size(940, 146);
             this.panelNKHK.TabIndex = 8;
             // 
             // cboHK
@@ -491,7 +491,7 @@ namespace quan_li_diem_sinh_vien
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(903, 756);
+            this.ClientSize = new System.Drawing.Size(940, 756);
             this.Controls.Add(this.panelNKHK);
             this.Controls.Add(this.nIEN_KHOA_HOC_KYGridControl);
             this.Controls.Add(this.barDockControlTop);

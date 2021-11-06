@@ -174,7 +174,6 @@ namespace quan_li_diem_sinh_vien
             cboHK.Enabled = false;
             cboNK.Enabled = false;
         }
-
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             try
