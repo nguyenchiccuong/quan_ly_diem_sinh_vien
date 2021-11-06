@@ -168,6 +168,7 @@ namespace quan_li_diem_sinh_vien
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             thuchien = 2;
+            thuchien = 2;
             panelNKHK.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = true;
@@ -178,41 +179,31 @@ namespace quan_li_diem_sinh_vien
         }
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            try
+
+
+            if (MessageBox.Show("Bạn có muốn xóa niên khóa-học kỳ này không ??", "Xác Nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                if (MessageBox.Show("Bạn có muốn xóa niên khóa-học kỳ này không ??", "Xác Nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                try
                 {
-                    try
-                    {
-                        mankhk = ((DataRowView)bdsNKHK[bdsNKHK.Position])["MA_NK_HK"].ToString();
-                        bdsNKHK.RemoveCurrent();
-                        this.NIEN_KHOA_HOC_KYTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.NIEN_KHOA_HOC_KYTableAdapter.Update(this.DS.NIEN_KHOA_HOC_KY);
-                        thuchien = 3;
+                    mankhk = ((DataRowView)bdsNKHK[bdsNKHK.Position])["MA_NK_HK"].ToString();
+                    bdsNKHK.RemoveCurrent();
+                    this.NIEN_KHOA_HOC_KYTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.NIEN_KHOA_HOC_KYTableAdapter.Update(this.DS.NIEN_KHOA_HOC_KY);
+                    thuchien = 3;
 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Xóa thất bại. Vui lòng kiểm tra lại khóa ngoại " + ex.Message, "", MessageBoxButtons.OK);
-                    }
-                    finally
-                    {
-                        btnLoad.PerformClick();
-                        Program.conn.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xóa thất bại. Vui lòng kiểm tra lại khóa ngoại " + ex.Message, "", MessageBoxButtons.OK);
+                }
+                finally
+                {
+                    btnLoad.PerformClick();
+                    Program.conn.Close();
 
-                    }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
-                btnLoad.PerformClick();
-            }
-            finally
-            {
-                btnLoad.PerformClick();
-                Program.conn.Close();
-            }
+
         }
     }
 }
