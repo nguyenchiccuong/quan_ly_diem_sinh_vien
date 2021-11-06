@@ -55,6 +55,8 @@ namespace quan_li_diem_sinh_vien
             this.col_DIEM_GK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_DIEM_CK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_DIEMHETMON = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
@@ -68,6 +70,8 @@ namespace quan_li_diem_sinh_vien
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.label2);
+            this.panelControl1.Controls.Add(this.label1);
             this.panelControl1.Controls.Add(this.btnGhiDiem);
             this.panelControl1.Controls.Add(this.btnNhapDiem);
             this.panelControl1.Controls.Add(this.btnLopTC);
@@ -81,9 +85,9 @@ namespace quan_li_diem_sinh_vien
             // 
             // btnGhiDiem
             // 
-            this.btnGhiDiem.Location = new System.Drawing.Point(660, 12);
+            this.btnGhiDiem.Location = new System.Drawing.Point(661, 6);
             this.btnGhiDiem.Name = "btnGhiDiem";
-            this.btnGhiDiem.Size = new System.Drawing.Size(75, 23);
+            this.btnGhiDiem.Size = new System.Drawing.Size(75, 40);
             this.btnGhiDiem.TabIndex = 1;
             this.btnGhiDiem.Text = "Ghi Điểm";
             this.btnGhiDiem.UseVisualStyleBackColor = true;
@@ -91,9 +95,9 @@ namespace quan_li_diem_sinh_vien
             // 
             // btnNhapDiem
             // 
-            this.btnNhapDiem.Location = new System.Drawing.Point(555, 10);
+            this.btnNhapDiem.Location = new System.Drawing.Point(557, 5);
             this.btnNhapDiem.Name = "btnNhapDiem";
-            this.btnNhapDiem.Size = new System.Drawing.Size(75, 23);
+            this.btnNhapDiem.Size = new System.Drawing.Size(75, 42);
             this.btnNhapDiem.TabIndex = 1;
             this.btnNhapDiem.Text = "Nhập Điểm";
             this.btnNhapDiem.UseVisualStyleBackColor = true;
@@ -101,9 +105,9 @@ namespace quan_li_diem_sinh_vien
             // 
             // btnLopTC
             // 
-            this.btnLopTC.Location = new System.Drawing.Point(445, 12);
+            this.btnLopTC.Location = new System.Drawing.Point(446, 6);
             this.btnLopTC.Name = "btnLopTC";
-            this.btnLopTC.Size = new System.Drawing.Size(75, 23);
+            this.btnLopTC.Size = new System.Drawing.Size(88, 40);
             this.btnLopTC.TabIndex = 1;
             this.btnLopTC.Text = "Tìm Lớp Tín Chỉ";
             this.btnLopTC.UseVisualStyleBackColor = true;
@@ -113,7 +117,7 @@ namespace quan_li_diem_sinh_vien
             // 
             this.cboHK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHK.FormattingEnabled = true;
-            this.cboHK.Location = new System.Drawing.Point(205, 12);
+            this.cboHK.Location = new System.Drawing.Point(271, 12);
             this.cboHK.Name = "cboHK";
             this.cboHK.Size = new System.Drawing.Size(121, 21);
             this.cboHK.TabIndex = 0;
@@ -122,7 +126,7 @@ namespace quan_li_diem_sinh_vien
             // 
             this.cboNK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNK.FormattingEnabled = true;
-            this.cboNK.Location = new System.Drawing.Point(40, 12);
+            this.cboNK.Location = new System.Drawing.Point(77, 12);
             this.cboNK.Name = "cboNK";
             this.cboNK.Size = new System.Drawing.Size(121, 21);
             this.cboNK.TabIndex = 0;
@@ -232,7 +236,6 @@ namespace quan_li_diem_sinh_vien
             this.gcDSSV.TabIndex = 3;
             this.gcDSSV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            
             // 
             // gridView2
             // 
@@ -247,7 +250,6 @@ namespace quan_li_diem_sinh_vien
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsDetail.EnableMasterViewMode = false;
             this.gridView2.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView2_ValidatingEditor);
-            
             // 
             // col_MA_SV
             // 
@@ -301,6 +303,24 @@ namespace quan_li_diem_sinh_vien
             this.col_DIEMHETMON.Visible = true;
             this.col_DIEMHETMON.VisibleIndex = 5;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Niên Khóa :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(218, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Học Kỳ :";
+            // 
             // FrmNhapDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +335,7 @@ namespace quan_li_diem_sinh_vien
             this.Load += new System.EventHandler(this.FrmNhapDiem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sP_DSLTCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSLTC)).EndInit();
@@ -353,5 +374,7 @@ namespace quan_li_diem_sinh_vien
         private DevExpress.XtraGrid.Columns.GridColumn col_DIEM_GK;
         private DevExpress.XtraGrid.Columns.GridColumn col_DIEM_CK;
         private DevExpress.XtraGrid.Columns.GridColumn col_DIEMHETMON;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
