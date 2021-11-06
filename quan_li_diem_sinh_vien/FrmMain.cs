@@ -116,6 +116,30 @@ namespace quan_li_diem_sinh_vien
             }
         }
 
+        private void barBtnLopTinChi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FrmMoLop));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmMoLop f = new FrmMoLop();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barBtnTaoTkGv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FrmDkiGiangVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmDkiGiangVien f = new FrmDkiGiangVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
         private void barBtnNhapDiemPGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(FrmNhapDiem));

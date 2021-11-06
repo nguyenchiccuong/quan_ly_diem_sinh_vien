@@ -62,6 +62,8 @@
             this.sttHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttNhom = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttKhoa = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ribbonPageGroupGV2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnTaoTkGv = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
             this.statusStripThongTin.SuspendLayout();
@@ -84,9 +86,10 @@
             this.barBtnMocHoc,
             this.barBtnNhapDiemPGV,
             this.barbtnNhapDiemGV,
-            this.barBtnDangKy});
+            this.barBtnDangKy,
+            this.barBtnTaoTkGv});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 19;
+            this.ribbonControl1.MaxItemId = 20;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageHeThong,
@@ -144,6 +147,7 @@
             this.barBtnLopTinChi.Caption = "Lớp tín chỉ";
             this.barBtnLopTinChi.Id = 12;
             this.barBtnLopTinChi.Name = "barBtnLopTinChi";
+            this.barBtnLopTinChi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnLopTinChi_ItemClick);
             // 
             // barBtnTaoTk
             // 
@@ -243,7 +247,8 @@
             // ribbonPageGV
             // 
             this.ribbonPageGV.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroupGV1});
+            this.ribbonPageGroupGV1,
+            this.ribbonPageGroupGV2});
             this.ribbonPageGV.Name = "ribbonPageGV";
             this.ribbonPageGV.Text = "Giảng viên";
             this.ribbonPageGV.Visible = false;
@@ -307,6 +312,18 @@
             this.sttKhoa.Size = new System.Drawing.Size(40, 17);
             this.sttKhoa.Text = "KHOA";
             // 
+            // ribbonPageGroupGV2
+            // 
+            this.ribbonPageGroupGV2.ItemLinks.Add(this.barBtnTaoTkGv);
+            this.ribbonPageGroupGV2.Name = "ribbonPageGroupGV2";
+            // 
+            // barBtnTaoTkGv
+            // 
+            this.barBtnTaoTkGv.Caption = "Tài khoản";
+            this.barBtnTaoTkGv.Id = 19;
+            this.barBtnTaoTkGv.Name = "barBtnTaoTkGv";
+            this.barBtnTaoTkGv.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTaoTkGv_ItemClick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,6 +380,8 @@
         private DevExpress.XtraBars.BarButtonItem barbtnNhapDiemGV;
         private DevExpress.XtraBars.BarButtonItem barBtnDangKy;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupPGV7;
+        private DevExpress.XtraBars.BarButtonItem barBtnTaoTkGv;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroupGV2;
     }
 }
 

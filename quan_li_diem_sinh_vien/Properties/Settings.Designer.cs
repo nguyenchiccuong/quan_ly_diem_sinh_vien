@@ -12,7 +12,7 @@ namespace quan_li_diem_sinh_vien.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,8 +26,8 @@ namespace quan_li_diem_sinh_vien.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-IO7NSFT\\SERVER1;Initial Catalog=QLDSV_TC;Persist Security Inf" +
-            "o=True;User ID=sa")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BR976AR\\MSSQLSERVER_1;Initial Catalog=QLDSV_TC;Persist Securi" +
+            "ty Info=True;User ID=sa")]
         public string QLDSV_TCConnectionString {
             get {
                 return ((string)(this["QLDSV_TCConnectionString"]));
