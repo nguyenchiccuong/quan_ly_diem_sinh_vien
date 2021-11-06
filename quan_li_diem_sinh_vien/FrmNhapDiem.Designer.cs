@@ -232,7 +232,7 @@ namespace quan_li_diem_sinh_vien
             this.gcDSSV.TabIndex = 3;
             this.gcDSSV.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            this.gcDSSV.TextChanged += new System.EventHandler(this.gcDSSV_TextChanged);
+            
             // 
             // gridView2
             // 
@@ -247,7 +247,7 @@ namespace quan_li_diem_sinh_vien
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsDetail.EnableMasterViewMode = false;
             this.gridView2.ValidatingEditor += new DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventHandler(this.gridView2_ValidatingEditor);
-            this.gridView2.InvalidValueException += new DevExpress.XtraEditors.Controls.InvalidValueExceptionEventHandler(this.gridView2_InvalidValueException);
+            
             // 
             // col_MA_SV
             // 
