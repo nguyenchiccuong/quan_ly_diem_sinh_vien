@@ -153,7 +153,7 @@ namespace quan_li_diem_sinh_vien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Niên Khóa - Học Kỳ đã tồn tại không thể thêm \n " + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Niên Khóa - Học Kỳ đã tồn tại không thể ghi \n " + ex.Message, "", MessageBoxButtons.OK);
                 btnLoad.PerformClick();
             }
             finally
@@ -203,7 +203,7 @@ namespace quan_li_diem_sinh_vien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Niên Khóa đã tồn tại không thể thêm \n " + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
                 btnLoad.PerformClick();
             }
             finally
