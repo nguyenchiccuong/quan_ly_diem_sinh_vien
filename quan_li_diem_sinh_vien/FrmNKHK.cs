@@ -134,6 +134,7 @@ namespace quan_li_diem_sinh_vien
                     if (Program.ExecSqlNonQuery(lenh) != 0)
                     {
                         MessageBox.Show("Thêm Thất Bại \n ", "", MessageBoxButtons.OK);
+                        return;
                     }
                 }
                 else if (thuchien == 2)
@@ -142,6 +143,7 @@ namespace quan_li_diem_sinh_vien
                     if (Program.ExecSqlNonQuery(lenh) != 0)
                     {
                         MessageBox.Show("Sửa Thất Bại \n ", "", MessageBoxButtons.OK);
+                        return;
                     }
                 }
                 btnSua.Enabled = true;
