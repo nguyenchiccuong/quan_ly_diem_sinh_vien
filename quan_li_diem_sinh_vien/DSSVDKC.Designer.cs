@@ -390,8 +390,6 @@ namespace quan_li_diem_sinh_vien {
             
             private global::System.Data.DataColumn columnHUY;
             
-            private global::System.Data.DataColumn columnrowguid;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public DANG_KIDataTable() {
@@ -475,14 +473,6 @@ namespace quan_li_diem_sinh_vien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn rowguidColumn {
-                get {
-                    return this.columnrowguid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -518,7 +508,7 @@ namespace quan_li_diem_sinh_vien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DANG_KIRow AddDANG_KIRow(LOP_TIN_CHIRow parentLOP_TIN_CHIRowByFK_DANG_KI_LOP_TIN_CHI, string MA_SV, double DIEM_CC, double DIEM_GK, double DIEM_CK, bool HUY, System.Guid rowguid) {
+            public DANG_KIRow AddDANG_KIRow(LOP_TIN_CHIRow parentLOP_TIN_CHIRowByFK_DANG_KI_LOP_TIN_CHI, string MA_SV, double DIEM_CC, double DIEM_GK, double DIEM_CK, bool HUY) {
                 DANG_KIRow rowDANG_KIRow = ((DANG_KIRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -526,8 +516,7 @@ namespace quan_li_diem_sinh_vien {
                         DIEM_CC,
                         DIEM_GK,
                         DIEM_CK,
-                        HUY,
-                        rowguid};
+                        HUY};
                 if ((parentLOP_TIN_CHIRowByFK_DANG_KI_LOP_TIN_CHI != null)) {
                     columnValuesArray[0] = parentLOP_TIN_CHIRowByFK_DANG_KI_LOP_TIN_CHI[0];
                 }
@@ -567,7 +556,6 @@ namespace quan_li_diem_sinh_vien {
                 this.columnDIEM_GK = base.Columns["DIEM_GK"];
                 this.columnDIEM_CK = base.Columns["DIEM_CK"];
                 this.columnHUY = base.Columns["HUY"];
-                this.columnrowguid = base.Columns["rowguid"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -585,8 +573,6 @@ namespace quan_li_diem_sinh_vien {
                 base.Columns.Add(this.columnDIEM_CK);
                 this.columnHUY = new global::System.Data.DataColumn("HUY", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHUY);
-                this.columnrowguid = new global::System.Data.DataColumn("rowguid", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnrowguid);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMA_LOP_TC,
                                 this.columnMA_SV}, true));
@@ -594,7 +580,6 @@ namespace quan_li_diem_sinh_vien {
                 this.columnMA_SV.AllowDBNull = false;
                 this.columnMA_SV.MaxLength = 20;
                 this.columnHUY.AllowDBNull = false;
-                this.columnrowguid.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1575,17 +1560,6 @@ namespace quan_li_diem_sinh_vien {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.Guid rowguid {
-                get {
-                    return ((global::System.Guid)(this[this.tableDANG_KI.rowguidColumn]));
-                }
-                set {
-                    this[this.tableDANG_KI.rowguidColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public LOP_TIN_CHIRow LOP_TIN_CHIRow {
                 get {
                     return ((LOP_TIN_CHIRow)(this.GetParentRow(this.Table.ParentRelations["FK_DANG_KI_LOP_TIN_CHI"])));
@@ -2115,11 +2089,10 @@ namespace quan_li_diem_sinh_vien.DSSVDKCTableAdapters {
             tableMapping.ColumnMappings.Add("DIEM_GK", "DIEM_GK");
             tableMapping.ColumnMappings.Add("DIEM_CK", "DIEM_CK");
             tableMapping.ColumnMappings.Add("HUY", "HUY");
-            tableMapping.ColumnMappings.Add("rowguid", "rowguid");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[DANG_KI] WHERE (([MA_LOP_TC] = @Original_MA_LOP_TC) AND ([MA_SV] = @Original_MA_SV) AND ((@IsNull_DIEM_CC = 1 AND [DIEM_CC] IS NULL) OR ([DIEM_CC] = @Original_DIEM_CC)) AND ((@IsNull_DIEM_GK = 1 AND [DIEM_GK] IS NULL) OR ([DIEM_GK] = @Original_DIEM_GK)) AND ((@IsNull_DIEM_CK = 1 AND [DIEM_CK] IS NULL) OR ([DIEM_CK] = @Original_DIEM_CK)) AND ([HUY] = @Original_HUY) AND ([rowguid] = @Original_rowguid))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [DANG_KI] WHERE (([MA_LOP_TC] = @Original_MA_LOP_TC) AND ([MA_SV] = @Original_MA_SV) AND ((@IsNull_DIEM_CC = 1 AND [DIEM_CC] IS NULL) OR ([DIEM_CC] = @Original_DIEM_CC)) AND ((@IsNull_DIEM_GK = 1 AND [DIEM_GK] IS NULL) OR ([DIEM_GK] = @Original_DIEM_GK)) AND ((@IsNull_DIEM_CK = 1 AND [DIEM_CK] IS NULL) OR ([DIEM_CK] = @Original_DIEM_CK)) AND ([HUY] = @Original_HUY))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_LOP_TC", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_LOP_TC", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_SV", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_SV", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2130,11 +2103,10 @@ namespace quan_li_diem_sinh_vien.DSSVDKCTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DIEM_CK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_CK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DIEM_CK", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_CK", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HUY", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HUY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rowguid", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rowguid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[DANG_KI] ([MA_LOP_TC], [MA_SV], [DIEM_CC], [DIEM_GK], [DIEM_CK], [HUY], [rowguid]) VALUES (@MA_LOP_TC, @MA_SV, @DIEM_CC, @DIEM_GK, @DIEM_CK, @HUY, @rowguid);
-SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WHERE (MA_LOP_TC = @MA_LOP_TC) AND (MA_SV = @MA_SV)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [DANG_KI] ([MA_LOP_TC], [MA_SV], [DIEM_CC], [DIEM_GK], [DIEM_CK], [HUY]) VALUES (@MA_LOP_TC, @MA_SV, @DIEM_CC, @DIEM_GK, @DIEM_CK, @HUY);
+SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY FROM DANG_KI WHERE (MA_LOP_TC = @MA_LOP_TC) AND (MA_SV = @MA_SV)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_LOP_TC", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_LOP_TC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_SV", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_SV", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2142,11 +2114,10 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIEM_GK", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_GK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIEM_CK", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_CK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HUY", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HUY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rowguid", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rowguid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[DANG_KI] SET [MA_LOP_TC] = @MA_LOP_TC, [MA_SV] = @MA_SV, [DIEM_CC] = @DIEM_CC, [DIEM_GK] = @DIEM_GK, [DIEM_CK] = @DIEM_CK, [HUY] = @HUY, [rowguid] = @rowguid WHERE (([MA_LOP_TC] = @Original_MA_LOP_TC) AND ([MA_SV] = @Original_MA_SV) AND ((@IsNull_DIEM_CC = 1 AND [DIEM_CC] IS NULL) OR ([DIEM_CC] = @Original_DIEM_CC)) AND ((@IsNull_DIEM_GK = 1 AND [DIEM_GK] IS NULL) OR ([DIEM_GK] = @Original_DIEM_GK)) AND ((@IsNull_DIEM_CK = 1 AND [DIEM_CK] IS NULL) OR ([DIEM_CK] = @Original_DIEM_CK)) AND ([HUY] = @Original_HUY) AND ([rowguid] = @Original_rowguid));
-SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WHERE (MA_LOP_TC = @MA_LOP_TC) AND (MA_SV = @MA_SV)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [DANG_KI] SET [MA_LOP_TC] = @MA_LOP_TC, [MA_SV] = @MA_SV, [DIEM_CC] = @DIEM_CC, [DIEM_GK] = @DIEM_GK, [DIEM_CK] = @DIEM_CK, [HUY] = @HUY WHERE (([MA_LOP_TC] = @Original_MA_LOP_TC) AND ([MA_SV] = @Original_MA_SV) AND ((@IsNull_DIEM_CC = 1 AND [DIEM_CC] IS NULL) OR ([DIEM_CC] = @Original_DIEM_CC)) AND ((@IsNull_DIEM_GK = 1 AND [DIEM_GK] IS NULL) OR ([DIEM_GK] = @Original_DIEM_GK)) AND ((@IsNull_DIEM_CK = 1 AND [DIEM_CK] IS NULL) OR ([DIEM_CK] = @Original_DIEM_CK)) AND ([HUY] = @Original_HUY));
+SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY FROM DANG_KI WHERE (MA_LOP_TC = @MA_LOP_TC) AND (MA_SV = @MA_SV)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_LOP_TC", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_LOP_TC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MA_SV", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_SV", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2154,7 +2125,6 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIEM_GK", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_GK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DIEM_CK", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_CK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HUY", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HUY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rowguid", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rowguid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_LOP_TC", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_LOP_TC", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MA_SV", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MA_SV", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DIEM_CC", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_CC", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -2164,7 +2134,6 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DIEM_CK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_CK", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DIEM_CK", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DIEM_CK", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_HUY", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HUY", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_rowguid", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "rowguid", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2180,8 +2149,7 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM dbo.DANG_KI" +
-                "";
+            this._commandCollection[0].CommandText = "SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY FROM DANG_KI";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2242,7 +2210,7 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_MA_LOP_TC, string Original_MA_SV, global::System.Nullable<double> Original_DIEM_CC, global::System.Nullable<double> Original_DIEM_GK, global::System.Nullable<double> Original_DIEM_CK, bool Original_HUY, System.Guid Original_rowguid) {
+        public virtual int Delete(int Original_MA_LOP_TC, string Original_MA_SV, global::System.Nullable<double> Original_DIEM_CC, global::System.Nullable<double> Original_DIEM_GK, global::System.Nullable<double> Original_DIEM_CK, bool Original_HUY) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_MA_LOP_TC));
             if ((Original_MA_SV == null)) {
                 throw new global::System.ArgumentNullException("Original_MA_SV");
@@ -2275,7 +2243,6 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
                 this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_HUY));
-            this.Adapter.DeleteCommand.Parameters[9].Value = ((System.Guid)(Original_rowguid));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2296,7 +2263,7 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int MA_LOP_TC, string MA_SV, global::System.Nullable<double> DIEM_CC, global::System.Nullable<double> DIEM_GK, global::System.Nullable<double> DIEM_CK, bool HUY, System.Guid rowguid) {
+        public virtual int Insert(int MA_LOP_TC, string MA_SV, global::System.Nullable<double> DIEM_CC, global::System.Nullable<double> DIEM_GK, global::System.Nullable<double> DIEM_CK, bool HUY) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MA_LOP_TC));
             if ((MA_SV == null)) {
                 throw new global::System.ArgumentNullException("MA_SV");
@@ -2323,7 +2290,6 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(HUY));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((System.Guid)(rowguid));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2344,7 +2310,7 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int MA_LOP_TC, string MA_SV, global::System.Nullable<double> DIEM_CC, global::System.Nullable<double> DIEM_GK, global::System.Nullable<double> DIEM_CK, bool HUY, System.Guid rowguid, int Original_MA_LOP_TC, string Original_MA_SV, global::System.Nullable<double> Original_DIEM_CC, global::System.Nullable<double> Original_DIEM_GK, global::System.Nullable<double> Original_DIEM_CK, bool Original_HUY, System.Guid Original_rowguid) {
+        public virtual int Update(int MA_LOP_TC, string MA_SV, global::System.Nullable<double> DIEM_CC, global::System.Nullable<double> DIEM_GK, global::System.Nullable<double> DIEM_CK, bool HUY, int Original_MA_LOP_TC, string Original_MA_SV, global::System.Nullable<double> Original_DIEM_CC, global::System.Nullable<double> Original_DIEM_GK, global::System.Nullable<double> Original_DIEM_CK, bool Original_HUY) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MA_LOP_TC));
             if ((MA_SV == null)) {
                 throw new global::System.ArgumentNullException("MA_SV");
@@ -2371,40 +2337,38 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(HUY));
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.Guid)(rowguid));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_MA_LOP_TC));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_MA_LOP_TC));
             if ((Original_MA_SV == null)) {
                 throw new global::System.ArgumentNullException("Original_MA_SV");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_MA_SV));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_MA_SV));
             }
             if ((Original_DIEM_CC.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((double)(Original_DIEM_CC.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((double)(Original_DIEM_CC.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_DIEM_GK.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((double)(Original_DIEM_GK.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((double)(Original_DIEM_GK.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             if ((Original_DIEM_CK.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((double)(Original_DIEM_CK.Value));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((double)(Original_DIEM_CK.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((bool)(Original_HUY));
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((System.Guid)(Original_rowguid));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(Original_HUY));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2425,8 +2389,8 @@ SELECT MA_LOP_TC, MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid FROM DANG_KI WH
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<double> DIEM_CC, global::System.Nullable<double> DIEM_GK, global::System.Nullable<double> DIEM_CK, bool HUY, System.Guid rowguid, int Original_MA_LOP_TC, string Original_MA_SV, global::System.Nullable<double> Original_DIEM_CC, global::System.Nullable<double> Original_DIEM_GK, global::System.Nullable<double> Original_DIEM_CK, bool Original_HUY, System.Guid Original_rowguid) {
-            return this.Update(Original_MA_LOP_TC, Original_MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, rowguid, Original_MA_LOP_TC, Original_MA_SV, Original_DIEM_CC, Original_DIEM_GK, Original_DIEM_CK, Original_HUY, Original_rowguid);
+        public virtual int Update(global::System.Nullable<double> DIEM_CC, global::System.Nullable<double> DIEM_GK, global::System.Nullable<double> DIEM_CK, bool HUY, int Original_MA_LOP_TC, string Original_MA_SV, global::System.Nullable<double> Original_DIEM_CC, global::System.Nullable<double> Original_DIEM_GK, global::System.Nullable<double> Original_DIEM_CK, bool Original_HUY) {
+            return this.Update(Original_MA_LOP_TC, Original_MA_SV, DIEM_CC, DIEM_GK, DIEM_CK, HUY, Original_MA_LOP_TC, Original_MA_SV, Original_DIEM_CC, Original_DIEM_GK, Original_DIEM_CK, Original_HUY);
         }
     }
     
