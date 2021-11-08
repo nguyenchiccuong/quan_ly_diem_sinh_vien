@@ -105,6 +105,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSSVDKC.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DSSVDKC2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSSVDKC2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +266,17 @@
     </None>
     <None Include="DSSVDKC.xss">
       <DependentUpon>DSSVDKC.xsd</DependentUpon>
+    </None>
+    <None Include="DSSVDKC2.xsc">
+      <DependentUpon>DSSVDKC2.xsd</DependentUpon>
+    </None>
+    <None Include="DSSVDKC2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSVDKC2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSSVDKC2.xss">
+      <DependentUpon>DSSVDKC2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

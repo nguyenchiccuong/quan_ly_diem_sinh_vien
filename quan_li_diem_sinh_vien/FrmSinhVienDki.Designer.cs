@@ -32,8 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSinhVienDki));
             this.xtraScrollableControlTong = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControlThuocTinhSv = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.lblTenMonHoc2 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.dangKiSvGridControl = new DevExpress.XtraGrid.GridControl();
-            this.dangKyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dangKyBDS = new System.Windows.Forms.BindingSource(this.components);
             this.lopTinChiBDS = new System.Windows.Forms.BindingSource(this.components);
             this.DSSVDKC = new quan_li_diem_sinh_vien.DSSVDKC();
             this.gridViewDangKySv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -51,6 +53,12 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.xtraScrollableControlThuocTinhDki = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.lblTenGiangVien = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblSoLuongSinhVienDaDki = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTenMonHoc1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.giangGridControl = new DevExpress.XtraGrid.GridControl();
             this.giangBDS = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewGiang = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -77,18 +85,14 @@
             this.tableAdapterManager = new quan_li_diem_sinh_vien.DSSVDKCTableAdapters.TableAdapterManager();
             this.dangKyTableAdapter = new quan_li_diem_sinh_vien.DSSVDKCTableAdapters.DANG_KITableAdapter();
             this.giangTableAdapter = new quan_li_diem_sinh_vien.DSSVDKCTableAdapters.GIANGTableAdapter();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTenMonHoc1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblSoLuongSinhVienDaDki = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblTenGiangVien = new System.Windows.Forms.Label();
-            this.lblTenMonHoc2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.DSSVDKC2 = new quan_li_diem_sinh_vien.DSSVDKC2();
+            this.dangKyBDS2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dangKyTableAdapter2 = new quan_li_diem_sinh_vien.DSSVDKC2TableAdapters.DANG_KITableAdapter();
+            this.tableAdapterManager2 = new quan_li_diem_sinh_vien.DSSVDKC2TableAdapters.TableAdapterManager();
             this.xtraScrollableControlTong.SuspendLayout();
             this.xtraScrollableControlThuocTinhSv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dangKiSvGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dangKyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dangKyBDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopTinChiBDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSSVDKC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDangKySv)).BeginInit();
@@ -101,6 +105,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLopTinChi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlKhoa)).BeginInit();
             this.panelControlKhoa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DSSVDKC2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dangKyBDS2)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraScrollableControlTong
@@ -127,9 +133,27 @@
             this.xtraScrollableControlThuocTinhSv.Size = new System.Drawing.Size(1067, 61);
             this.xtraScrollableControlThuocTinhSv.TabIndex = 5;
             // 
+            // lblTenMonHoc2
+            // 
+            this.lblTenMonHoc2.AutoSize = true;
+            this.lblTenMonHoc2.Location = new System.Drawing.Point(108, 24);
+            this.lblTenMonHoc2.Name = "lblTenMonHoc2";
+            this.lblTenMonHoc2.Size = new System.Drawing.Size(104, 16);
+            this.lblTenMonHoc2.TabIndex = 5;
+            this.lblTenMonHoc2.Text = "lblTenMonHoc2";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 16);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Tên môn học:";
+            // 
             // dangKiSvGridControl
             // 
-            this.dangKiSvGridControl.DataSource = this.dangKyBindingSource;
+            this.dangKiSvGridControl.DataSource = this.dangKyBDS2;
             this.dangKiSvGridControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.dangKiSvGridControl.Location = new System.Drawing.Point(0, 439);
             this.dangKiSvGridControl.MainView = this.gridViewDangKySv;
@@ -140,10 +164,10 @@
             this.dangKiSvGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDangKySv});
             // 
-            // dangKyBindingSource
+            // dangKyBDS
             // 
-            this.dangKyBindingSource.DataMember = "FK_DANG_KI_LOP_TIN_CHI";
-            this.dangKyBindingSource.DataSource = this.lopTinChiBDS;
+            this.dangKyBDS.DataMember = "FK_DANG_KI_LOP_TIN_CHI";
+            this.dangKyBDS.DataSource = this.lopTinChiBDS;
             // 
             // lopTinChiBDS
             // 
@@ -315,6 +339,60 @@
             this.xtraScrollableControlThuocTinhDki.Size = new System.Drawing.Size(1067, 49);
             this.xtraScrollableControlThuocTinhDki.TabIndex = 3;
             // 
+            // lblTenGiangVien
+            // 
+            this.lblTenGiangVien.AutoSize = true;
+            this.lblTenGiangVien.Location = new System.Drawing.Point(348, 17);
+            this.lblTenGiangVien.Name = "lblTenGiangVien";
+            this.lblTenGiangVien.Size = new System.Drawing.Size(109, 16);
+            this.lblTenGiangVien.TabIndex = 5;
+            this.lblTenGiangVien.Text = "lblTenGiangVien";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(242, 17);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 16);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Tên giảng viên:";
+            // 
+            // lblSoLuongSinhVienDaDki
+            // 
+            this.lblSoLuongSinhVienDaDki.AutoSize = true;
+            this.lblSoLuongSinhVienDaDki.Location = new System.Drawing.Point(754, 17);
+            this.lblSoLuongSinhVienDaDki.Name = "lblSoLuongSinhVienDaDki";
+            this.lblSoLuongSinhVienDaDki.Size = new System.Drawing.Size(167, 16);
+            this.lblSoLuongSinhVienDaDki.TabIndex = 3;
+            this.lblSoLuongSinhVienDaDki.Text = "lblSoLuongSinhVienDaDki";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(550, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(185, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Số lượng sinh viên đã đăng kí:";
+            // 
+            // lblTenMonHoc1
+            // 
+            this.lblTenMonHoc1.AutoSize = true;
+            this.lblTenMonHoc1.Location = new System.Drawing.Point(108, 17);
+            this.lblTenMonHoc1.Name = "lblTenMonHoc1";
+            this.lblTenMonHoc1.Size = new System.Drawing.Size(104, 16);
+            this.lblTenMonHoc1.TabIndex = 1;
+            this.lblTenMonHoc1.Text = "lblTenMonHoc1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên môn học:";
+            // 
             // giangGridControl
             // 
             this.giangGridControl.DataSource = this.giangBDS;
@@ -327,6 +405,7 @@
             this.giangGridControl.TabIndex = 2;
             this.giangGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewGiang});
+            this.giangGridControl.Click += new System.EventHandler(this.giangGridControl_Click);
             // 
             // giangBDS
             // 
@@ -390,6 +469,7 @@
             this.lopTinChiGridControl.TabIndex = 1;
             this.lopTinChiGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewLopTinChi});
+            this.lopTinChiGridControl.Click += new System.EventHandler(this.lopTinChiGridControl_Click);
             // 
             // gridViewLopTinChi
             // 
@@ -539,77 +619,25 @@
             // 
             this.giangTableAdapter.ClearBeforeFill = true;
             // 
-            // label1
+            // DSSVDKC2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên môn học:";
+            this.DSSVDKC2.DataSetName = "DSSVDKC2";
+            this.DSSVDKC2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // lblTenMonHoc1
+            // dangKyBDS2
             // 
-            this.lblTenMonHoc1.AutoSize = true;
-            this.lblTenMonHoc1.Location = new System.Drawing.Point(108, 17);
-            this.lblTenMonHoc1.Name = "lblTenMonHoc1";
-            this.lblTenMonHoc1.Size = new System.Drawing.Size(104, 16);
-            this.lblTenMonHoc1.TabIndex = 1;
-            this.lblTenMonHoc1.Text = "lblTenMonHoc1";
+            this.dangKyBDS2.DataMember = "DANG_KI";
+            this.dangKyBDS2.DataSource = this.DSSVDKC2;
             // 
-            // label3
+            // dangKyTableAdapter2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(550, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Số lượng sinh viên đã đăng kí:";
+            this.dangKyTableAdapter2.ClearBeforeFill = true;
             // 
-            // lblSoLuongSinhVienDaDki
+            // tableAdapterManager2
             // 
-            this.lblSoLuongSinhVienDaDki.AutoSize = true;
-            this.lblSoLuongSinhVienDaDki.Location = new System.Drawing.Point(754, 17);
-            this.lblSoLuongSinhVienDaDki.Name = "lblSoLuongSinhVienDaDki";
-            this.lblSoLuongSinhVienDaDki.Size = new System.Drawing.Size(167, 16);
-            this.lblSoLuongSinhVienDaDki.TabIndex = 3;
-            this.lblSoLuongSinhVienDaDki.Text = "lblSoLuongSinhVienDaDki";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(242, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 16);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Tên giảng viên:";
-            // 
-            // lblTenGiangVien
-            // 
-            this.lblTenGiangVien.AutoSize = true;
-            this.lblTenGiangVien.Location = new System.Drawing.Point(348, 17);
-            this.lblTenGiangVien.Name = "lblTenGiangVien";
-            this.lblTenGiangVien.Size = new System.Drawing.Size(109, 16);
-            this.lblTenGiangVien.TabIndex = 5;
-            this.lblTenGiangVien.Text = "lblTenGiangVien";
-            // 
-            // lblTenMonHoc2
-            // 
-            this.lblTenMonHoc2.AutoSize = true;
-            this.lblTenMonHoc2.Location = new System.Drawing.Point(108, 24);
-            this.lblTenMonHoc2.Name = "lblTenMonHoc2";
-            this.lblTenMonHoc2.Size = new System.Drawing.Size(104, 16);
-            this.lblTenMonHoc2.TabIndex = 5;
-            this.lblTenMonHoc2.Text = "lblTenMonHoc2";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 16);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Tên môn học:";
+            this.tableAdapterManager2.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager2.DANG_KITableAdapter = this.dangKyTableAdapter2;
+            this.tableAdapterManager2.UpdateOrder = quan_li_diem_sinh_vien.DSSVDKC2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // FrmSinhVienDki
             // 
@@ -631,7 +659,7 @@
             this.xtraScrollableControlThuocTinhSv.ResumeLayout(false);
             this.xtraScrollableControlThuocTinhSv.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dangKiSvGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dangKyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dangKyBDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lopTinChiBDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSSVDKC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDangKySv)).EndInit();
@@ -646,6 +674,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControlKhoa)).EndInit();
             this.panelControlKhoa.ResumeLayout(false);
             this.panelControlKhoa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DSSVDKC2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dangKyBDS2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -679,7 +709,7 @@
         private DevExpress.XtraGrid.GridControl giangGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewGiang;
         private DSSVDKCTableAdapters.DANG_KITableAdapter dangKyTableAdapter;
-        private System.Windows.Forms.BindingSource dangKyBindingSource;
+        private System.Windows.Forms.BindingSource dangKyBDS;
         private DevExpress.XtraGrid.GridControl dangKiSvGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewDangKySv;
         private DevExpress.XtraGrid.Columns.GridColumn colMA_LOP_TC1;
@@ -708,5 +738,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTenMonHoc2;
         private System.Windows.Forms.Label label10;
+        private DSSVDKC2 DSSVDKC2;
+        private System.Windows.Forms.BindingSource dangKyBDS2;
+        private DSSVDKC2TableAdapters.DANG_KITableAdapter dangKyTableAdapter2;
+        private DSSVDKC2TableAdapters.TableAdapterManager tableAdapterManager2;
     }
 }
