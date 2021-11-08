@@ -103,7 +103,6 @@ namespace quan_li_diem_sinh_vien
                 f.Show();
             }
         }
-
         private void bartbnNienKhoaHocKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(FrmNKHK));
