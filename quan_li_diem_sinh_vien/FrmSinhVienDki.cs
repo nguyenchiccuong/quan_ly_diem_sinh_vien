@@ -93,7 +93,10 @@ namespace quan_li_diem_sinh_vien
             }
             else
             {
-                barBtnXoa.Enabled = barBtnDangKi.Enabled = true;
+                if (dangKyBDS2.Count > 0)
+                    barBtnXoa.Enabled = barBtnDangKi.Enabled = true;
+                else
+                    barBtnXoa.Enabled = barBtnDangKi.Enabled = false;
             }
         }
 
@@ -138,7 +141,55 @@ namespace quan_li_diem_sinh_vien
 
         private void barBtnTaiLai_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.lopTinChiTableAdapter.Fill(this.DSSVDKC.LOP_TIN_CHI);
+            this.dangKyTableAdapter.Fill(this.DSSVDKC.DANG_KI);
+            this.giangTableAdapter.Fill(this.DSSVDKC.GIANG);
+            this.dangKyTableAdapter2.Fill(this.DSSVDKC2.DANG_KI);
 
+            if (lopTinChiBDS.Count > 0)
+            {
+                viTriLop = lopTinChiBDS.Position;
+                int indexOfMonHoc = monHocBDS.Find("MA_MH", ((DataRowView)lopTinChiBDS[viTriLop])["MA_MH"].ToString());
+                lblTenMonHoc1.Text = ((DataRowView)monHocBDS[indexOfMonHoc])["TEN_MH"].ToString();
+            }
+            else
+            {
+                lblTenMonHoc1.Text = "";
+            }
+
+            if (giangBDS.Count > 0)
+            {
+                viTriGiang = giangBDS.Position;
+                int indexOfGiangVien = giangVienBDS.Find("MA_GV", ((DataRowView)giangBDS[viTriGiang])["MA_GV"].ToString());
+                lblTenGiangVien.Text = ((DataRowView)giangVienBDS[indexOfGiangVien])["HO_TEN"].ToString();
+                lblSoLuongSinhVienDaDki.Text = dangKyBDS.Count.ToString();
+            }
+            else
+            {
+                lblTenGiangVien.Text = "";
+                lblSoLuongSinhVienDaDki.Text = "";
+            }
+
+            if (dangKyBDS2.Count > 0)
+            {
+                int maLopTc = int.Parse(((DataRowView)dangKyBDS2[dangKyBDS2.Position])["MA_LOP_TC"].ToString());
+                int indexOfLopTc = lopTinChiBDS.Find("MA_LOP_TC", maLopTc);
+                int indexOfMonHoc = monHocBDS.Find("MA_MH", ((DataRowView)lopTinChiBDS[indexOfLopTc])["MA_MH"].ToString());
+                lblTenMonHoc2.Text = ((DataRowView)monHocBDS[indexOfMonHoc])["TEN_MH"].ToString();
+            }
+            else
+            {
+                lblTenMonHoc2.Text = "";
+            }
+
+            if (kiemTraChoPhepHieuChinh() != 0)
+            {
+                barBtnXoa.Enabled = barBtnDangKi.Enabled = false;
+            }
+            else
+            {
+                barBtnXoa.Enabled = barBtnDangKi.Enabled = false;
+            }
         }
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
