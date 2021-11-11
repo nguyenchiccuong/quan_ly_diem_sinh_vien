@@ -188,18 +188,103 @@ namespace quan_li_diem_sinh_vien
             }
             else
             {
-                barBtnXoa.Enabled = barBtnDangKi.Enabled = false;
+                barBtnXoa.Enabled = barBtnDangKi.Enabled = true;
             }
         }
 
         private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (kiemTraChoPhepHieuChinh() != 0)
+            {
+                barBtnXoa.Enabled = barBtnDangKi.Enabled = false;
+                MessageBox.Show("Ngoài thời gian cho phép hủy đăng kí", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                barBtnXoa.Enabled = barBtnDangKi.Enabled = true;
+            }
 
+            if (dangKyBDS2.Count > 0)
+            {
+                if (Program.KetNoi(Program.connstr) == 0) return;
+                String strLenh = String.Format("DELETE FROM DANG_KI WHERE MA_LOP_TC = {0} AND MA_SV ='{1}'", ((DataRowView)lopTinChiBDS[viTriLop])["MA_LOP_TC"].ToString(), Program.mloginDN);
+                try
+                {
+                    Program.ExecSqlNonQuery(strLenh);
+                    Program.conn.Close();
+                    barBtnTaiLai.PerformClick();
+                    MessageBox.Show("Xóa đăng kí môn học thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xóa đăng kí môn học thất bại \n" + ex, "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+            }
         }
 
         private void barBtnDangKi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (kiemTraChoPhepHieuChinh() != 0)
+            {
+                barBtnXoa.Enabled = barBtnDangKi.Enabled = false;
+                MessageBox.Show("Ngoài thời gian cho phép đăng kí", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+            else
+            {
+                barBtnXoa.Enabled = barBtnDangKi.Enabled = true;
+            }
 
+            if (lopTinChiBDS.Count > 0)
+            {
+                if (Program.KetNoi(Program.connstr) == 0) return;
+                string strLenh = String.Format("EXEC SP_CHECKTRUNGMONHOC @maSV = N'{0}', @maMH = N'{1}', @maNKHK = {2}", Program.mloginDN, ((DataRowView)lopTinChiBDS[viTriLop])["MA_MH"].ToString(), cboNKHK.SelectedValue.ToString());
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                Program.myReader.Read();
+                int ketQua = Program.myReader.GetInt32(0);
+                Program.myReader.Close();
+                Program.conn.Close();
+
+                if (ketQua == 1)
+                {
+                    MessageBox.Show("Bạn đã đăng kí môn học này trong học kì này rồi", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
+                for (int i = 0; i < giangBDS.Count; i++)
+                {
+                    if (Program.KetNoi(Program.connstr) == 0) return;
+                    strLenh = String.Format("EXEC SP_CHECKTRUNGLICHHOC @maSV = N'{0}', @maNKHK = N'{1}', @thu = {2}, @tietBDau = {3}", Program.mloginDN, cboNKHK.SelectedValue.ToString(), ((DataRowView)giangBDS[i])["THU"].ToString(), ((DataRowView)giangBDS[i])["TIET_BDAU"].ToString());
+                    Program.myReader = Program.ExecSqlDataReader(strLenh);
+                    Program.myReader.Read();
+                    ketQua = Program.myReader.GetInt32(0);
+                    Program.myReader.Close();
+                    Program.conn.Close();
+
+                    if (ketQua == 1)
+                    {
+                        MessageBox.Show("Bạn bị trùng lịch học", "Thông báo", MessageBoxButtons.OK);
+                        return;
+                    }
+                }
+
+                if (Program.KetNoi(Program.connstr) == 0) return;
+                strLenh = String.Format("INSERT INTO DANG_KI (MA_LOP_TC, MA_SV, HUY) VALUES({0}, '{1}', 0); ", ((DataRowView)lopTinChiBDS[viTriLop])["MA_LOP_TC"].ToString(), Program.mloginDN);
+                try
+                {
+                    Program.ExecSqlNonQuery(strLenh);
+                    Program.conn.Close();
+                    barBtnTaiLai.PerformClick();
+                    MessageBox.Show("Đăng kí môn học thành công", "Thông báo", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Đăng kí môn học thất bại \n" + ex, "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+            }
         }
 
         private void cboNKHK_SelectedIndexChanged(object sender, EventArgs e)
