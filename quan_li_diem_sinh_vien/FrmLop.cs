@@ -396,7 +396,6 @@ namespace quan_li_diem_sinh_vien
                         tbMaLop2.Focus(); // dua con tro ve vi tri form dang nhap
                         return;
                     }    
-                    
                     if (Program.KetNoi() == 0) return;
                     
                     SqlCommand cmd = new SqlCommand("SP_CHUYENSV", Program.conn);
