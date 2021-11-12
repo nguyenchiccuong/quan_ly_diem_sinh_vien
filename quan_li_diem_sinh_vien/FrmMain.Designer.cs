@@ -42,6 +42,7 @@
             this.barBtnNhapDiemPGV = new DevExpress.XtraBars.BarButtonItem();
             this.barbtnNhapDiemGV = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnDangKy = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnTaoTkGv = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHT1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPagePGV = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -54,6 +55,7 @@
             this.ribbonPageGroupPGV7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGV = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupGV1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroupGV2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageSV = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupSV1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -62,8 +64,6 @@
             this.sttHoTen = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttNhom = new System.Windows.Forms.ToolStripStatusLabel();
             this.sttKhoa = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ribbonPageGroupGV2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnTaoTkGv = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager)).BeginInit();
             this.statusStripThongTin.SuspendLayout();
@@ -181,6 +181,14 @@
             this.barBtnDangKy.Caption = "Đăng ký";
             this.barBtnDangKy.Id = 18;
             this.barBtnDangKy.Name = "barBtnDangKy";
+            this.barBtnDangKy.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDangKy_ItemClick);
+            // 
+            // barBtnTaoTkGv
+            // 
+            this.barBtnTaoTkGv.Caption = "Tài khoản";
+            this.barBtnTaoTkGv.Id = 19;
+            this.barBtnTaoTkGv.Name = "barBtnTaoTkGv";
+            this.barBtnTaoTkGv.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTaoTkGv_ItemClick);
             // 
             // ribbonPageHeThong
             // 
@@ -258,6 +266,11 @@
             this.ribbonPageGroupGV1.ItemLinks.Add(this.barbtnNhapDiemGV);
             this.ribbonPageGroupGV1.Name = "ribbonPageGroupGV1";
             // 
+            // ribbonPageGroupGV2
+            // 
+            this.ribbonPageGroupGV2.ItemLinks.Add(this.barBtnTaoTkGv);
+            this.ribbonPageGroupGV2.Name = "ribbonPageGroupGV2";
+            // 
             // ribbonPageSV
             // 
             this.ribbonPageSV.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -311,18 +324,6 @@
             this.sttKhoa.Name = "sttKhoa";
             this.sttKhoa.Size = new System.Drawing.Size(40, 17);
             this.sttKhoa.Text = "KHOA";
-            // 
-            // ribbonPageGroupGV2
-            // 
-            this.ribbonPageGroupGV2.ItemLinks.Add(this.barBtnTaoTkGv);
-            this.ribbonPageGroupGV2.Name = "ribbonPageGroupGV2";
-            // 
-            // barBtnTaoTkGv
-            // 
-            this.barBtnTaoTkGv.Caption = "Tài khoản";
-            this.barBtnTaoTkGv.Id = 19;
-            this.barBtnTaoTkGv.Name = "barBtnTaoTkGv";
-            this.barBtnTaoTkGv.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTaoTkGv_ItemClick);
             // 
             // FrmMain
             // 
