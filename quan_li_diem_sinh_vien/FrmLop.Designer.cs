@@ -96,7 +96,6 @@ namespace quan_li_diem_sinh_vien
             this.panelSV = new DevExpress.XtraEditors.PanelControl();
             this.checkPhai = new DevExpress.XtraEditors.CheckEdit();
             this.tbMCN = new System.Windows.Forms.ComboBox();
-            this.tbMaLop2 = new System.Windows.Forms.TextBox();
             this.dateSV = new DevExpress.XtraEditors.DateEdit();
             this.tbDCSV = new System.Windows.Forms.TextBox();
             this.tbTen = new System.Windows.Forms.TextBox();
@@ -104,6 +103,8 @@ namespace quan_li_diem_sinh_vien
             this.tbMaSV = new System.Windows.Forms.TextBox();
             this.cHUYEN_NGANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cHUYEN_NGANHTableAdapter = new quan_li_diem_sinh_vien.DSTableAdapters.CHUYEN_NGANHTableAdapter();
+            this.btnChuyenLop = new DevExpress.XtraBars.BarButtonItem();
+            this.tbMaLop2 = new System.Windows.Forms.ComboBox();
             mA_LOPLabel = new System.Windows.Forms.Label();
             tEN_LOPLabel = new System.Windows.Forms.Label();
             mA_KHOALabel = new System.Windows.Forms.Label();
@@ -275,9 +276,10 @@ namespace quan_li_diem_sinh_vien
             this.btnSV,
             this.btnLoad,
             this.btnThoat,
-            this.btnPhucHoi});
+            this.btnPhucHoi,
+            this.btnChuyenLop});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 9;
+            this.barManager1.MaxItemId = 10;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -303,8 +305,9 @@ namespace quan_li_diem_sinh_vien
             new DevExpress.XtraBars.LinkPersistInfo(this.btnSua),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnGhi),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnLoad),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhucHoi),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnThoat),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPhucHoi)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChuyenLop)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -749,6 +752,7 @@ namespace quan_li_diem_sinh_vien
             // 
             // panelSV
             // 
+            this.panelSV.Controls.Add(this.tbMaLop2);
             this.panelSV.Controls.Add(pHAILabel);
             this.panelSV.Controls.Add(this.checkPhai);
             this.panelSV.Controls.Add(mA_CH_NGANHLabel);
@@ -756,7 +760,6 @@ namespace quan_li_diem_sinh_vien
             this.panelSV.Controls.Add(tEN_CH_NGANHLabel);
             this.panelSV.Controls.Add(mA_LOPLabel1);
             this.panelSV.Controls.Add(this.cboChuyenNganh);
-            this.panelSV.Controls.Add(this.tbMaLop2);
             this.panelSV.Controls.Add(nGAY_SINHLabel);
             this.panelSV.Controls.Add(this.dateSV);
             this.panelSV.Controls.Add(dIA_CHILabel);
@@ -793,15 +796,6 @@ namespace quan_li_diem_sinh_vien
             this.tbMCN.Name = "tbMCN";
             this.tbMCN.Size = new System.Drawing.Size(121, 21);
             this.tbMCN.TabIndex = 17;
-            // 
-            // tbMaLop2
-            // 
-            this.tbMaLop2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsSinhVien, "MA_LOP", true));
-            this.tbMaLop2.Enabled = false;
-            this.tbMaLop2.Location = new System.Drawing.Point(80, 6);
-            this.tbMaLop2.Name = "tbMaLop2";
-            this.tbMaLop2.Size = new System.Drawing.Size(100, 21);
-            this.tbMaLop2.TabIndex = 15;
             // 
             // dateSV
             // 
@@ -859,6 +853,28 @@ namespace quan_li_diem_sinh_vien
             // cHUYEN_NGANHTableAdapter
             // 
             this.cHUYEN_NGANHTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnChuyenLop
+            // 
+            this.btnChuyenLop.Caption = "Chuyển Lớp";
+            this.btnChuyenLop.Enabled = false;
+            this.btnChuyenLop.Id = 9;
+            this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
+            this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
+            this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
+            // 
+            // tbMaLop2
+            // 
+            this.tbMaLop2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsSinhVien, "MA_LOP", true));
+            this.tbMaLop2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tbMaLop2.Enabled = false;
+            this.tbMaLop2.FormattingEnabled = true;
+            this.tbMaLop2.Location = new System.Drawing.Point(80, 6);
+            this.tbMaLop2.Name = "tbMaLop2";
+            this.tbMaLop2.Size = new System.Drawing.Size(121, 21);
+            this.tbMaLop2.TabIndex = 19;
             // 
             // FrmLop
             // 
@@ -948,7 +964,6 @@ namespace quan_li_diem_sinh_vien
         private System.Windows.Forms.TextBox tbTenLop;
         private System.Windows.Forms.TextBox tbMaLop;
         private System.Windows.Forms.ComboBox cboNamNhapHoc;
-        private System.Windows.Forms.TextBox tbMaLop2;
         private DevExpress.XtraEditors.DateEdit dateSV;
         private System.Windows.Forms.TextBox tbDCSV;
         private System.Windows.Forms.TextBox tbTen;
@@ -968,5 +983,7 @@ namespace quan_li_diem_sinh_vien
         private DSTableAdapters.CHUYEN_NGANHTableAdapter cHUYEN_NGANHTableAdapter;
         private System.Windows.Forms.ComboBox tbMCN;
         private DevExpress.XtraEditors.CheckEdit checkPhai;
+        private DevExpress.XtraBars.BarButtonItem btnChuyenLop;
+        private System.Windows.Forms.ComboBox tbMaLop2;
     }
 }
