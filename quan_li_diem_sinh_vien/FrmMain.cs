@@ -103,7 +103,6 @@ namespace quan_li_diem_sinh_vien
                 f.Show();
             }
         }
-
         private void bartbnNienKhoaHocKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(FrmNKHK));
@@ -147,6 +146,18 @@ namespace quan_li_diem_sinh_vien
             else
             {
                 FrmSinhVienDki f = new FrmSinhVienDki();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barBtnNhapDiemPGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FrmNhapDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmNhapDiem f = new FrmNhapDiem();
                 f.MdiParent = this;
                 f.Show();
             }

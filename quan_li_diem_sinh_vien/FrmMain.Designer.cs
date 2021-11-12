@@ -168,6 +168,7 @@
             this.barBtnNhapDiemPGV.Caption = "Nhập điểm";
             this.barBtnNhapDiemPGV.Id = 15;
             this.barBtnNhapDiemPGV.Name = "barBtnNhapDiemPGV";
+            this.barBtnNhapDiemPGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnNhapDiemPGV_ItemClick);
             // 
             // barbtnNhapDiemGV
             // 

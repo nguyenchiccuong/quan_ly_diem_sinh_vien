@@ -69,6 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS.cs">
+      <DependentUpon>DS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -152,6 +155,12 @@
     <Compile Include="FrmMonHoc.Designer.cs">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNhapDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNhapDiem.Designer.cs">
+      <DependentUpon>FrmNhapDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmNKHK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +196,9 @@
     <EmbeddedResource Include="FrmMonHoc.resx">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNhapDiem.resx">
+      <DependentUpon>FrmNhapDiem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmNKHK.resx">
       <DependentUpon>FrmNKHK.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,7 +220,11 @@
     <None Include="DS.xsc">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
-    <None Include="DS.xsd" />
+    <None Include="DS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DS.xss">
       <DependentUpon>DS.xsd</DependentUpon>
     </None>
