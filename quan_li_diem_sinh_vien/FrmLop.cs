@@ -375,6 +375,27 @@ namespace quan_li_diem_sinh_vien
             {
                 try
                 {
+                    int i=0;
+                    
+                    if(tbMaLop2.Text.Trim().Contains("CNTT")==true)
+                    {
+                        i = int.Parse(tbMaLop2.Text.Trim().Substring(4, 4));
+                        
+                    }
+                    else
+                    {
+                        i = int.Parse(tbMaLop2.Text.Trim().Substring(2, 4));
+                        
+                        
+                    }
+                    int sv= int.Parse(tbMaSV.Text.Trim().Substring(0, 4));
+
+                    if (i<sv)
+                    {
+                        MessageBox.Show("Lớp phải là lớp mới so với năm sinh viên nhập học \n ", "", MessageBoxButtons.OK);
+                        tbMaLop2.Focus(); // dua con tro ve vi tri form dang nhap
+                        return;
+                    }    
                     
                     if (Program.KetNoi() == 0) return;
                     
@@ -404,7 +425,7 @@ namespace quan_li_diem_sinh_vien
                 }
                 finally
                 {
-                    btnLoad.PerformClick();
+                    
                     Program.conn.Close();
                 }
             }
