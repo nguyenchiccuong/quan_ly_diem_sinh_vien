@@ -126,8 +126,13 @@ namespace quan_li_diem_sinh_vien
                 cboMaMonHoc.SelectedValue = ((DataRowView)lopTinChiBDS[lopTinChiBDS.Position])["MA_MH"].ToString();
                 cboNienKhoaHocKy.SelectedValue = ((DataRowView)lopTinChiBDS[lopTinChiBDS.Position])["MA_NK_HK"].ToString();
                 viTriLop = lopTinChiBDS.Position;
-
+                if (giangBDS.Count > 0)
+                {
+                    cboMaGiangVien.SelectedValue = ((DataRowView)giangBDS[giangBDS.Position])["MA_GV"].ToString();
+                    viTriGiang = giangBDS.Position;
+                }
             }
+
         }
 
         private void giangGridControl_Click(object sender, EventArgs e)
