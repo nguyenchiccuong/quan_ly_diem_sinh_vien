@@ -81,7 +81,8 @@ namespace quan_li_diem_sinh_vien
             btnSV.Enabled = true;
             panelLop.Enabled = false;
             panelSV.Enabled = false;
-
+            if (String.Compare(Program.mGroup.Trim(), "PGV", true) == 0) panelControl1.Enabled = true;
+            else panelControl1.Enabled = false;
         }
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -277,8 +278,8 @@ namespace quan_li_diem_sinh_vien
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
-                    btnLoad.PerformClick();
+                    MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
+                    
                 }
                 finally
                 {
@@ -360,12 +361,70 @@ namespace quan_li_diem_sinh_vien
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
-                    btnLoad.PerformClick();
+                    MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
+                   
                 }
                 finally
                 {
                     btnLoad.PerformClick();
+                    Program.conn.Close();
+                }
+
+            }
+            else if (chon == 3)
+            {
+                try
+                {
+                    int i=0;
+                    
+                    if(tbMaLop2.Text.Trim().Contains("CNTT")==true)
+                    {
+                        i = int.Parse(tbMaLop2.Text.Trim().Substring(4, 4));
+                        
+                    }
+                    else
+                    {
+                        i = int.Parse(tbMaLop2.Text.Trim().Substring(2, 4));
+                        
+                        
+                    }
+                    int sv= int.Parse(tbMaSV.Text.Trim().Substring(0, 4));
+
+                    if (i<sv)
+                    {
+                        MessageBox.Show("Lớp phải là lớp mới so với năm sinh viên nhập học \n ", "", MessageBoxButtons.OK);
+                        tbMaLop2.Focus(); // dua con tro ve vi tri form dang nhap
+                        return;
+                    }    
+                    if (Program.KetNoi() == 0) return;
+                    
+                    SqlCommand cmd = new SqlCommand("SP_CHUYENSV", Program.conn);
+                    cmd.Parameters.Clear();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    
+                    //B3. Gắn các Parameter và giá trị cho đối tượng Command
+                    cmd.Parameters.Add(new SqlParameter("@MA_SV", tbMaSV.Text.Trim()));
+                    cmd.Parameters.Add(new SqlParameter("@HO", tbHoSV.Text.Trim()));
+                    cmd.Parameters.Add(new SqlParameter("@TEN", tbTen.Text.Trim()));
+                    cmd.Parameters.Add(new SqlParameter("@PHAI", checkPhai.Checked));
+                    cmd.Parameters.Add(new SqlParameter("@DIA_CHI", tbDCSV.Text));
+                    cmd.Parameters.Add(new SqlParameter("@NGAY_SINH", dateSV.Text.Trim()));
+                    cmd.Parameters.Add(new SqlParameter("@MA_LOP", tbMaLop2.Text.Trim()));
+                    cmd.Parameters.Add(new SqlParameter("@MA_CH_NGANH", cboChuyenNganh.SelectedValue.ToString().Trim()));
+                    //B4. Thực thi Stored Procedure
+                    cmd.ExecuteNonQuery();
+                    Program.conn.Close();
+                    
+                    MessageBox.Show("Ghi Thành Công \n ", "", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
+                    
+                }
+                finally
+                {
+                    
                     Program.conn.Close();
                 }
             }
@@ -451,7 +510,7 @@ namespace quan_li_diem_sinh_vien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
             }
 
         }
@@ -472,6 +531,7 @@ namespace quan_li_diem_sinh_vien
             else btnPhucHoi.Enabled = false;
             if (bdsLop.Count < 1) btnSua.Enabled = btnXoa.Enabled = false;
             else btnSua.Enabled = btnXoa.Enabled = true;
+            btnChuyenLop.Enabled = false;
         }
 
         private void btnSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -486,10 +546,12 @@ namespace quan_li_diem_sinh_vien
                 cboChuyenNganh.DisplayMember = "TEN_CH_NGANH";
                 if (bdsSinhVien.Count < 1) btnSua.Enabled = btnXoa.Enabled = false;
                 else btnSua.Enabled = btnXoa.Enabled = true;
+                if (String.Compare(Program.mGroup.Trim(), "PGV", true) == 0) btnChuyenLop.Enabled = true;
+                else btnChuyenLop.Enabled = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
             }
             finally
             {
@@ -529,7 +591,7 @@ namespace quan_li_diem_sinh_vien
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                    MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
                     btnLoad.PerformClick();
                 }
                 finally
@@ -567,7 +629,7 @@ namespace quan_li_diem_sinh_vien
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                    MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
                     btnLoad.PerformClick();
                 }
                 finally
@@ -591,7 +653,7 @@ namespace quan_li_diem_sinh_vien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi /n " + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
                 btnLoad.PerformClick();
             }
             finally
@@ -658,6 +720,47 @@ namespace quan_li_diem_sinh_vien
             return result.Trim();
         }
 
+        private void btnChuyenLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                SqlDataAdapter da = new SqlDataAdapter("Select * From LINK0.QLDSV_TC.dbo.CHUYEN_NGANH", Program.connstr);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cboChuyenNganh.DataSource = dt;
+                cboChuyenNganh.ValueMember = "MA_CH_NGANH";
+                cboChuyenNganh.DisplayMember = "TEN_CH_NGANH";
+                SqlDataAdapter da1 = new SqlDataAdapter("Select * From LINK0.QLDSV_TC.dbo.LOP", Program.connstr);
+                DataTable dt1 = new DataTable();
+                da1.Fill(dt1);
+                tbMaLop2.DataSource = dt1;
+                tbMaLop2.ValueMember = "MA_LOP";
+                tbMaLop2.DisplayMember = "MA_LOP";
+                if (bdsSinhVien.Count < 1) btnSua.Enabled = btnXoa.Enabled = false;
+                else btnSua.Enabled = btnXoa.Enabled = true;
+                if (String.Compare(Program.mGroup.Trim(), "PGV", true) == 0) btnChuyenLop.Enabled = true;
+                else btnChuyenLop.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
+            }
+            finally
+            {
+                Program.conn.Close();
+            }
+            panelLop.Enabled = false;
+            panelSV.Enabled = true;
+            tbMaLop2.Enabled = true;
+            cboChuyenNganh.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnThem.Enabled = false;
+            btnGhi.Enabled = true;
+            tbMaSV.Enabled = tbTen.Enabled = tbHoSV.Enabled = checkPhai.Enabled = tbDCSV.Enabled = dateSV.Enabled = false;
+            tbMaLop2.Text = tbMaLop.Text;
+            chon = 3;
+        }
     }
 
 }

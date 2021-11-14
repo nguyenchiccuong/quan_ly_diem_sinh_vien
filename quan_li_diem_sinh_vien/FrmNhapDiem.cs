@@ -30,6 +30,8 @@ namespace quan_li_diem_sinh_vien
 
         private void FrmNhapDiem_Load(object sender, EventArgs e)
         {
+            dS.EnforceConstraints = false;
+            this.sP_DSLTCTableAdapter.Connection.ConnectionString = Program.connstr;
             while (nienkhoa >= DateTime.Now.Year - sonienkhoa)
             {
                 cboNK.Items.Add(nienkhoa.ToString());
@@ -61,11 +63,25 @@ namespace quan_li_diem_sinh_vien
             }
             try
             {
+               
+                gcDSSV.Enabled=false;
+                dS.EnforceConstraints = false;
+                this.sP_DSLTCTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sP_DSLTCTableAdapter.Fill(this.dS.SP_DSLTC, int.Parse(cboNK.Text.Trim()), int.Parse(cboHK.Text.Trim()));
+                if (bdsDSLTC.Count < 1)
+                {
+                    MessageBox.Show("Không có lớp tín chỉ nào được mở trong học kỳ và niên khóa này", "", MessageBoxButtons.OK);
+                } 
+                    
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
+            }
+            finally
+            {
+                Program.conn.Close();
+
             }
         }
 
@@ -73,10 +89,20 @@ namespace quan_li_diem_sinh_vien
         {
             try
             {
+                gcDSSV.Enabled = true;
+                if (Program.KetNoi() == 0)
+                {
+                    //MessageBox.Show("Tài khoản không tồn tại", "Báo lỗi đăng nhập", MessageBoxButtons.OK);
+                    return;
+                }
                 maltc = ((DataRowView)bdsDSLTC[bdsDSLTC.Position])["MA_LOP_TC"].ToString();
                 string lenh = "EXEC SP_LAY_DSSV_DANGKY " + maltc;
                 dt = Program.ExecSqlDataTable(lenh);
                 gcDSSV.DataSource = dt;
+                if (dt.Rows.Count<1)
+                {
+                    MessageBox.Show("Lớp chưa có sinh viên", "", MessageBoxButtons.OK);
+                }
             }
             catch (Exception ex)
             {
