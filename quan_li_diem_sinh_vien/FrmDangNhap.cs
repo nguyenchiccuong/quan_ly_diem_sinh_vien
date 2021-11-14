@@ -225,7 +225,13 @@ namespace quan_li_diem_sinh_vien
             else
             {
                 Program.frmMain.ribbonPageSV.Visible = true;
+                Program.frmMain.ribbonPageGroupBc1.Visible = false;
+                Program.frmMain.ribbonPageGroupBc2.Visible = false;
+                Program.frmMain.ribbonPageGroupBc3.Visible = false;
+                Program.frmMain.ribbonPageGroupBc4.Visible = false;
+                Program.frmMain.ribbonPageGroupBc6.Visible = false;
             }
+            Program.frmMain.ribbonPageBaoCao.Visible = true;
             Close();
 
         }

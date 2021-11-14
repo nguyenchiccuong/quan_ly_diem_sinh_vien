@@ -47,6 +47,7 @@ namespace quan_li_diem_sinh_vien
             Program.frmMain.ribbonPagePGV.Visible = false;
             Program.frmMain.ribbonPageGV.Visible = false;
             Program.frmMain.ribbonPageSV.Visible = false;
+            Program.frmMain.ribbonPageBaoCao.Visible = false;
 
             Form[] childArray = this.MdiChildren;
             foreach (Form childForm in childArray)
