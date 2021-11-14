@@ -95,6 +95,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSMHC.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DSMLC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMLC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSSVDKC.cs">
+      <DependentUpon>DSSVDKC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSSVDKC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSSVDKC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSSVDKC2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSSVDKC2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +143,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMoLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMoLop.Designer.cs">
+      <DependentUpon>FrmMoLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +167,12 @@
     <Compile Include="FrmNKHK.Designer.cs">
       <DependentUpon>FrmNKHK.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSinhVienDki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSinhVienDki.Designer.cs">
+      <DependentUpon>FrmSinhVienDki.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmDangNhap.resx">
@@ -160,6 +190,9 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMoLop.resx">
+      <DependentUpon>FrmMoLop.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMonHoc.resx">
       <DependentUpon>FrmMonHoc.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNKHK.resx">
       <DependentUpon>FrmNKHK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSinhVienDki.resx">
+      <DependentUpon>FrmSinhVienDki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -224,6 +260,39 @@
     </None>
     <None Include="DSMHC.xss">
       <DependentUpon>DSMHC.xsd</DependentUpon>
+    </None>
+    <None Include="DSMLC.xsc">
+      <DependentUpon>DSMLC.xsd</DependentUpon>
+    </None>
+    <None Include="DSMLC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMLC.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSMLC.xss">
+      <DependentUpon>DSMLC.xsd</DependentUpon>
+    </None>
+    <None Include="DSSVDKC.xsc">
+      <DependentUpon>DSSVDKC.xsd</DependentUpon>
+    </None>
+    <None Include="DSSVDKC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSVDKC.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSSVDKC.xss">
+      <DependentUpon>DSSVDKC.xsd</DependentUpon>
+    </None>
+    <None Include="DSSVDKC2.xsc">
+      <DependentUpon>DSSVDKC2.xsd</DependentUpon>
+    </None>
+    <None Include="DSSVDKC2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSVDKC2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSSVDKC2.xss">
+      <DependentUpon>DSSVDKC2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
