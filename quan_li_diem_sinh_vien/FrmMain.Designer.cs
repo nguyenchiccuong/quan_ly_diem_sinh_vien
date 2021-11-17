@@ -221,6 +221,7 @@
             this.barButtonIBc2.Caption = "Danh sách lớp tín chỉ";
             this.barButtonIBc2.Id = 21;
             this.barButtonIBc2.Name = "barButtonIBc2";
+            this.barButtonIBc2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc2_ItemClick);
             // 
             // barButtonIBc3
             // 
