@@ -195,6 +195,7 @@
             this.barbtnNhapDiemGV.Caption = "Nhập điểm";
             this.barbtnNhapDiemGV.Id = 16;
             this.barbtnNhapDiemGV.Name = "barbtnNhapDiemGV";
+            this.barbtnNhapDiemGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnNhapDiemGV_ItemClick);
             // 
             // barBtnDangKy
             // 

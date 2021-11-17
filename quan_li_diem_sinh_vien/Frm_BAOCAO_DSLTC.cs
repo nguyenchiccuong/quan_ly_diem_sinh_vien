@@ -103,18 +103,19 @@ namespace quan_li_diem_sinh_vien
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            if (cboHK.Text.Trim() == "")
-            {
-                MessageBox.Show("Vui lòng chọn học kỳ", "", MessageBoxButtons.OK);
-                cboHK.Focus(); // dua con tro ve vi tri form dang nhap
-                return;
-            }
             if (cboNK.Text.Trim() == "")
             {
                 MessageBox.Show("Vui lòng chọn niên khóa", "", MessageBoxButtons.OK);
                 cboNK.Focus(); // dua con tro ve vi tri form dang nhap
                 return;
             }
+            if (cboHK.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng chọn học kỳ", "", MessageBoxButtons.OK);
+                cboHK.Focus(); // dua con tro ve vi tri form dang nhap
+                return;
+            }
+            
             Xrpt_BAOCAO_DSLTC rpt = new Xrpt_BAOCAO_DSLTC(cboNK.Text.Trim(), int.Parse(cboHK.Text));
 
             rpt.lbTieuDe.Text = "KHOA : " +cboKhoa.Text;

@@ -154,14 +154,7 @@ namespace quan_li_diem_sinh_vien
 
         private void barBtnNhapDiemPGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(FrmNhapDiem));
-            if (frm != null) frm.Activate();
-            else
-            {
-                FrmNhapDiem f = new FrmNhapDiem();
-                f.MdiParent = this;
-                f.Show();
-            }
+            
         }
 
         private void barButtonIBc2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -171,6 +164,18 @@ namespace quan_li_diem_sinh_vien
             else
             {
                 Frm_BAOCAO_DSLTC f = new Frm_BAOCAO_DSLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barbtnNhapDiemGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(FrmNhapDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                FrmNhapDiem f = new FrmNhapDiem();
                 f.MdiParent = this;
                 f.Show();
             }
