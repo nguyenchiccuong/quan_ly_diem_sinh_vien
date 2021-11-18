@@ -192,6 +192,18 @@ namespace quan_li_diem_sinh_vien
                 f.Show();
             }
         }
+
+        private void barButtonIBc4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Frm_BAOCAO_BANGDIEM));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frm_BAOCAO_BANGDIEM f = new Frm_BAOCAO_BANGDIEM();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 
 

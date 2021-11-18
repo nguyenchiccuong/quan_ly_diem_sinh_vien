@@ -1,7 +1,7 @@
 ﻿
 namespace quan_li_diem_sinh_vien
 {
-    partial class Frm_BAOCAO_DSSV_DKLTC
+    partial class Frm_BAOCAO_BANGDIEM
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@ namespace quan_li_diem_sinh_vien
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnIn = new System.Windows.Forms.Button();
@@ -43,20 +42,9 @@ namespace quan_li_diem_sinh_vien
             this.cboNK = new System.Windows.Forms.ComboBox();
             this.cboKhoa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.panelControl2);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1076, 289);
-            this.panelControl1.TabIndex = 0;
             // 
             // panelControl2
             // 
@@ -73,15 +61,15 @@ namespace quan_li_diem_sinh_vien
             this.panelControl2.Controls.Add(this.cboKhoa);
             this.panelControl2.Controls.Add(this.label1);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1072, 207);
-            this.panelControl2.TabIndex = 1;
+            this.panelControl2.Size = new System.Drawing.Size(1051, 207);
+            this.panelControl2.TabIndex = 2;
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(669, 117);
+            this.btnThoat.Location = new System.Drawing.Point(671, 107);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(122, 33);
             this.btnThoat.TabIndex = 22;
@@ -92,7 +80,7 @@ namespace quan_li_diem_sinh_vien
             // btnIn
             // 
             this.btnIn.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIn.Location = new System.Drawing.Point(669, 41);
+            this.btnIn.Location = new System.Drawing.Point(671, 31);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(122, 38);
             this.btnIn.TabIndex = 21;
@@ -187,7 +175,7 @@ namespace quan_li_diem_sinh_vien
             this.cboKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboKhoa.FormattingEnabled = true;
             this.cboKhoa.ItemHeight = 24;
-            this.cboKhoa.Location = new System.Drawing.Point(107, 27);
+            this.cboKhoa.Location = new System.Drawing.Point(107, 23);
             this.cboKhoa.Name = "cboKhoa";
             this.cboKhoa.Size = new System.Drawing.Size(261, 32);
             this.cboKhoa.TabIndex = 18;
@@ -198,24 +186,22 @@ namespace quan_li_diem_sinh_vien
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 35);
+            this.label1.Location = new System.Drawing.Point(42, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 21);
             this.label1.TabIndex = 17;
             this.label1.Text = "Khoa:";
             // 
-            // Frm_BAOCAO_DSSV_DKLTC
+            // Frm_BAOCAO_BANGDIEM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 514);
-            this.Controls.Add(this.panelControl1);
-            this.Name = "Frm_BAOCAO_DSSV_DKLTC";
-            this.Text = "Frm_BAOCAO_DSSV_DKLTC";
+            this.ClientSize = new System.Drawing.Size(1051, 529);
+            this.Controls.Add(this.panelControl2);
+            this.Name = "Frm_BAOCAO_BANGDIEM";
+            this.Text = "Frm_BAOCAO_BANGDIEM";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Frm_BAOCAO_DSSV_DKLTC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.Frm_BAOCAO_BANGDIEM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
@@ -225,19 +211,18 @@ namespace quan_li_diem_sinh_vien
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cboHK;
+        private System.Windows.Forms.ComboBox cboNhom;
+        private System.Windows.Forms.ComboBox cboMonHoc;
         private System.Windows.Forms.ComboBox cboNK;
         private System.Windows.Forms.ComboBox cboKhoa;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cboNhom;
-        private System.Windows.Forms.ComboBox cboMonHoc;
     }
 }

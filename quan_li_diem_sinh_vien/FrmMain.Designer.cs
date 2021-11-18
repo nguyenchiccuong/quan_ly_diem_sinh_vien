@@ -236,6 +236,7 @@
             this.barButtonIBc4.Caption = "Bảng điểm môn";
             this.barButtonIBc4.Id = 23;
             this.barButtonIBc4.Name = "barButtonIBc4";
+            this.barButtonIBc4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc4_ItemClick);
             // 
             // barButtonIBc5
             // 

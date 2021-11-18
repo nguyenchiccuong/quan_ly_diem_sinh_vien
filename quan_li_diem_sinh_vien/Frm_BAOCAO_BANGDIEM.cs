@@ -13,22 +13,22 @@ using System.Windows.Forms;
 
 namespace quan_li_diem_sinh_vien
 {
-    public partial class Frm_BAOCAO_DSSV_DKLTC : DevExpress.XtraEditors.XtraForm
-
+    public partial class Frm_BAOCAO_BANGDIEM : DevExpress.XtraEditors.XtraForm
     {
         int nienkhoa = DateTime.Now.Year + 1;
         int sonienkhoa = 5;
         int sohocky = 3;
         int hocky = 1;
         string makhoa = "";
-        int maltc=0;
-        public Frm_BAOCAO_DSSV_DKLTC()
+        int maltc = 0;
+        public Frm_BAOCAO_BANGDIEM()
         {
             InitializeComponent();
         }
 
-        private void Frm_BAOCAO_DSSV_DKLTC_Load(object sender, EventArgs e)
+        private void Frm_BAOCAO_BANGDIEM_Load(object sender, EventArgs e)
         {
+
             if (Program.mChinhanh == "Công Nghệ Thông Tin")
             {
                 makhoa = "CNTT";
@@ -106,7 +106,7 @@ namespace quan_li_diem_sinh_vien
                         }
                         try
                         {
-                         
+
                             SqlDataAdapter da1 = new SqlDataAdapter("SELECT NHOM From LOP_TIN_CHI GROUP BY NHOM", Program.connstr);
                             DataTable dt1 = new DataTable();
                             da1.Fill(dt1);
@@ -183,20 +183,20 @@ namespace quan_li_diem_sinh_vien
 
                     return;
                 }
-                string strLenh = "exec SP_Search_MaLTC " + cboNK.Text.Trim().Substring(0, 4) + ","+cboHK.Text.Trim() +",'"+cboMonHoc.SelectedValue.ToString().Trim() + "'," + cboNhom.Text.Trim();
+                string strLenh = "exec SP_Search_MaLTC " + cboNK.Text.Trim().Substring(0, 4) + "," + cboHK.Text.Trim() + ",'" + cboMonHoc.SelectedValue.ToString().Trim() + "'," + cboNhom.Text.Trim();
 
                 Program.myReader = Program.ExecSqlDataReader(strLenh);
                 if (Program.myReader == null) return;
                 Program.myReader.Read();
                 maltc = Program.myReader.GetInt32(0);
                 Program.conn.Close();
-                
-                
-                Xrpt_BAOCAO_DSSV_DKLTC rpt = new Xrpt_BAOCAO_DSSV_DKLTC(cboNK.Text.Trim(), int.Parse(cboHK.Text), maltc);
+
+
+                Xrpt_BAOCAO_BANGDIEM rpt = new Xrpt_BAOCAO_BANGDIEM(maltc);
                 rpt.lbTieuDe.Text = "KHOA : " + cboKhoa.Text;
                 rpt.lbHocKy.Text = cboHK.Text.Trim();
                 rpt.lbNienKhoa.Text = cboNK.Text.Trim();
-                rpt.lbMonHoc.Text = "Môn Học : "+ cboMonHoc.Text +" - Nhóm : " +cboNhom.Text;
+                rpt.lbMonHoc.Text = "Môn Học : " + cboMonHoc.Text + " - Nhóm : " + cboNhom.Text;
                 ReportPrintTool print = new ReportPrintTool(rpt);
                 print.ShowPreviewDialog();
             }
@@ -215,4 +215,6 @@ namespace quan_li_diem_sinh_vien
             Close();
         }
     }
+
+
 }

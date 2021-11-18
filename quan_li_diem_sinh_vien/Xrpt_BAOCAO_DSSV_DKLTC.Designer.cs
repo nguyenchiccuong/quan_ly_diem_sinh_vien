@@ -204,7 +204,7 @@ namespace quan_li_diem_sinh_vien
             // lbMonHoc
             // 
             this.lbMonHoc.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.lbMonHoc.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 99.98602F);
+            this.lbMonHoc.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 109.361F);
             this.lbMonHoc.Multiline = true;
             this.lbMonHoc.Name = "lbMonHoc";
             this.lbMonHoc.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -217,7 +217,7 @@ namespace quan_li_diem_sinh_vien
             // lbHocKy
             // 
             this.lbHocKy.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.lbHocKy.LocationFloat = new DevExpress.Utils.PointFloat(438.2737F, 66.65268F);
+            this.lbHocKy.LocationFloat = new DevExpress.Utils.PointFloat(438.2737F, 76.02768F);
             this.lbHocKy.Multiline = true;
             this.lbHocKy.Name = "lbHocKy";
             this.lbHocKy.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -228,7 +228,7 @@ namespace quan_li_diem_sinh_vien
             // xrLabel6
             // 
             this.xrLabel6.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(363.2737F, 66.65268F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(363.2737F, 76.02768F);
             this.xrLabel6.Multiline = true;
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -239,7 +239,7 @@ namespace quan_li_diem_sinh_vien
             // lbNienKhoa
             // 
             this.lbNienKhoa.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.lbNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(251.0417F, 66.65268F);
+            this.lbNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(251.0417F, 76.02768F);
             this.lbNienKhoa.Multiline = true;
             this.lbNienKhoa.Name = "lbNienKhoa";
             this.lbNienKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -250,7 +250,7 @@ namespace quan_li_diem_sinh_vien
             // xrLabel4
             // 
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(153.125F, 66.65268F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(153.125F, 76.02768F);
             this.xrLabel4.Multiline = true;
             this.xrLabel4.Name = "xrLabel4";
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -261,7 +261,7 @@ namespace quan_li_diem_sinh_vien
             // lbTieuDe
             // 
             this.lbTieuDe.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTieuDe.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 30.19435F);
+            this.lbTieuDe.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 39.56935F);
             this.lbTieuDe.Multiline = true;
             this.lbTieuDe.Name = "lbTieuDe";
             this.lbTieuDe.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -564,7 +564,7 @@ namespace quan_li_diem_sinh_vien
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(5.999994F, 10.00001F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(10.00001F, 9.999974F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
