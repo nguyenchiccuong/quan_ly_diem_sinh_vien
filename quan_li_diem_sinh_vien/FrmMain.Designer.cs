@@ -229,6 +229,7 @@
             this.barButtonIBc3.Caption = "Danh sách sinh viên đăng kí";
             this.barButtonIBc3.Id = 22;
             this.barButtonIBc3.Name = "barButtonIBc3";
+            this.barButtonIBc3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc3_ItemClick);
             // 
             // barButtonIBc4
             // 

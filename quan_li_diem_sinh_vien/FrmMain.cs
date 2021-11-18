@@ -180,6 +180,18 @@ namespace quan_li_diem_sinh_vien
                 f.Show();
             }
         }
+
+        private void barButtonIBc3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Frm_BAOCAO_DSSV_DKLTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frm_BAOCAO_DSSV_DKLTC f = new Frm_BAOCAO_DSSV_DKLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 
 
