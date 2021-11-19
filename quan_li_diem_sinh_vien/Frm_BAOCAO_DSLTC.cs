@@ -26,6 +26,11 @@ namespace quan_li_diem_sinh_vien
 
         private void Frm_BAOCAO_DSLTC_Load(object sender, EventArgs e)
         {
+            if (Program.KetNoi() == 0)
+            {
+                //MessageBox.Show("Tài khoản không tồn tại", "Báo lỗi đăng nhập", MessageBoxButtons.OK);
+                return;
+            }
             if (Program.mChinhanh == "Công Nghệ Thông Tin")
             {
                 makhoa = "CNTT";

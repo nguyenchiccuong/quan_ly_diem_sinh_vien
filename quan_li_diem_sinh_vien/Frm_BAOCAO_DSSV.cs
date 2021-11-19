@@ -13,21 +13,20 @@ using System.Windows.Forms;
 
 namespace quan_li_diem_sinh_vien
 {
-    public partial class Frm_BAOCAO_DSSV_DKLTC : DevExpress.XtraEditors.XtraForm
-
+    public partial class Frm_BAOCAO_DSSV : DevExpress.XtraEditors.XtraForm
     {
-        int nienkhoa = DateTime.Now.Year + 1;
-        int sonienkhoa = 5;
-        int sohocky = 3;
-        int hocky = 1;
         string makhoa = "";
-        int maltc=0;
-        public Frm_BAOCAO_DSSV_DKLTC()
+        public Frm_BAOCAO_DSSV()
         {
             InitializeComponent();
         }
 
-        private void Frm_BAOCAO_DSSV_DKLTC_Load(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Frm_BAOCAO_DSSV_Load(object sender, EventArgs e)
         {
             if (Program.KetNoi() == 0)
             {
@@ -50,34 +49,17 @@ namespace quan_li_diem_sinh_vien
             cboKhoa.SelectedText = Program.mChinhanh.ToString();
             int index = cboKhoa.FindStringExact(Program.mChinhanh);
             cboKhoa.SelectedIndex = index;
-            while (nienkhoa >= DateTime.Now.Year - sonienkhoa)
-            {
-                int tempnk = nienkhoa;
-                cboNK.Items.Add((tempnk - 1) + "-" + nienkhoa.ToString());
-                nienkhoa--;
-            }
-            while (hocky <= sohocky)
-            {
-                cboHK.Items.Add(hocky.ToString());
-                hocky++;
-            }
             if (String.Compare(Program.mGroup.Trim(), "PGV", true) == 0) cboKhoa.Enabled = true;
             else cboKhoa.Enabled = false;
 
             try
             {
-                SqlDataAdapter da = new SqlDataAdapter("Select MA_MH,TEN_MH From MON_HOC", Program.connstr);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                cboMonHoc.DataSource = dt;
-                cboMonHoc.ValueMember = "MA_MH";
-                cboMonHoc.DisplayMember = "TEN_MH";
-                SqlDataAdapter da1 = new SqlDataAdapter("SELECT NHOM From LOP_TIN_CHI GROUP BY NHOM", Program.connstr);
+                SqlDataAdapter da1 = new SqlDataAdapter("SELECT MA_LOP,TEN_LOP From LOP", Program.connstr);
                 DataTable dt1 = new DataTable();
                 da1.Fill(dt1);
-                cboNhom.DataSource = dt1;
-                cboNhom.ValueMember = "NHOM";
-                cboNhom.DisplayMember = "NHOM";
+                cboLop.DataSource = dt1;
+                cboLop.ValueMember = "MA_LOP";
+                cboLop.DisplayMember = "TEN_LOP";
             }
             catch (Exception ex)
             {
@@ -111,13 +93,13 @@ namespace quan_li_diem_sinh_vien
                         }
                         try
                         {
-                         
-                            SqlDataAdapter da1 = new SqlDataAdapter("SELECT NHOM From LOP_TIN_CHI GROUP BY NHOM", Program.connstr);
+
+                            SqlDataAdapter da1 = new SqlDataAdapter("SELECT MA_LOP,TEN_LOP From LOP", Program.connstr);
                             DataTable dt1 = new DataTable();
                             da1.Fill(dt1);
-                            cboNhom.DataSource = dt1;
-                            cboNhom.ValueMember = "NHOM";
-                            cboNhom.DisplayMember = "NHOM";
+                            cboLop.DataSource = dt1;
+                            cboLop.ValueMember = "MA_LOP";
+                            cboLop.DisplayMember = "TEN_LOP";
                         }
                         catch (Exception ex)
                         {
@@ -143,12 +125,12 @@ namespace quan_li_diem_sinh_vien
                         try
                         {
 
-                            SqlDataAdapter da1 = new SqlDataAdapter("SELECT NHOM From LOP_TIN_CHI GROUP BY NHOM", Program.connstr);
+                            SqlDataAdapter da1 = new SqlDataAdapter("SELECT MA_LOP,TEN_LOP From LOP", Program.connstr);
                             DataTable dt1 = new DataTable();
                             da1.Fill(dt1);
-                            cboNhom.DataSource = dt1;
-                            cboNhom.ValueMember = "NHOM";
-                            cboNhom.DisplayMember = "NHOM";
+                            cboLop.DataSource = dt1;
+                            cboLop.ValueMember = "MA_LOP";
+                            cboLop.DisplayMember = "TEN_LOP";
                         }
                         catch (Exception ex)
                         {
@@ -164,44 +146,25 @@ namespace quan_li_diem_sinh_vien
             catch (Exception)
             {
             }
-
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cboNK.Text.Trim() == "")
+                if (cboLop.Text.Trim() == "")
                 {
-                    MessageBox.Show("Vui lòng chọn niên khóa", "", MessageBoxButtons.OK);
-                    cboNK.Focus(); // dua con tro ve vi tri form dang nhap
+                    MessageBox.Show("Vui lòng chọn lớp", "", MessageBoxButtons.OK);
+                    cboLop.Focus(); // dua con tro ve vi tri form dang nhap
                     return;
                 }
-                if (cboHK.Text.Trim() == "")
-                {
-                    MessageBox.Show("Vui lòng chọn học kỳ", "", MessageBoxButtons.OK);
-                    cboHK.Focus(); // dua con tro ve vi tri form dang nhap
-                    return;
-                }
-                if (Program.KetNoi() == 0)
-                {
 
-                    return;
-                }
-                string strLenh = "exec SP_Search_MaLTC " + cboNK.Text.Trim().Substring(0, 4) + ","+cboHK.Text.Trim() +",'"+cboMonHoc.SelectedValue.ToString().Trim() + "'," + cboNhom.Text.Trim();
 
-                Program.myReader = Program.ExecSqlDataReader(strLenh);
-                if (Program.myReader == null) return;
-                Program.myReader.Read();
-                maltc = Program.myReader.GetInt32(0);
-                Program.conn.Close();
+
+                string malop = cboLop.SelectedValue.ToString().Trim();
+                Xrpt_BAOCAO_DSSV rpt = new Xrpt_BAOCAO_DSSV(malop);
+                rpt.lbLop.Text = "LỚP : " + cboLop.Text;
                 
-                
-                Xrpt_BAOCAO_DSSV_DKLTC rpt = new Xrpt_BAOCAO_DSSV_DKLTC(cboNK.Text.Trim(), int.Parse(cboHK.Text), maltc);
-                rpt.lbTieuDe.Text = "KHOA : " + cboKhoa.Text;
-                rpt.lbHocKy.Text = cboHK.Text.Trim();
-                rpt.lbNienKhoa.Text = cboNK.Text.Trim();
-                rpt.lbMonHoc.Text = "Môn Học : "+ cboMonHoc.Text +" - Nhóm : " +cboNhom.Text;
                 ReportPrintTool print = new ReportPrintTool(rpt);
                 print.ShowPreviewDialog();
             }
@@ -213,11 +176,6 @@ namespace quan_li_diem_sinh_vien
             {
                 Program.conn.Close();
             }
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

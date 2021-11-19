@@ -199,6 +199,12 @@
     <Compile Include="Frm_BAOCAO_DSLTC.Designer.cs">
       <DependentUpon>Frm_BAOCAO_DSLTC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_BAOCAO_DSSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_BAOCAO_DSSV.Designer.cs">
+      <DependentUpon>Frm_BAOCAO_DSSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_BAOCAO_DSSV_DKLTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,6 +229,12 @@
     </Compile>
     <Compile Include="Xrpt_BAOCAO_DSLTC.Designer.cs">
       <DependentUpon>Xrpt_BAOCAO_DSLTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_BAOCAO_DSSV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_BAOCAO_DSSV.Designer.cs">
+      <DependentUpon>Xrpt_BAOCAO_DSSV.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_BAOCAO_DSSV_DKLTC.cs">
       <SubType>Component</SubType>
@@ -266,6 +278,9 @@
     <EmbeddedResource Include="Frm_BAOCAO_DSLTC.resx">
       <DependentUpon>Frm_BAOCAO_DSLTC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_BAOCAO_DSSV.resx">
+      <DependentUpon>Frm_BAOCAO_DSSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_BAOCAO_DSSV_DKLTC.resx">
       <DependentUpon>Frm_BAOCAO_DSSV_DKLTC.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_BAOCAO_DSLTC.resx">
       <DependentUpon>Xrpt_BAOCAO_DSLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_BAOCAO_DSSV.resx">
+      <DependentUpon>Xrpt_BAOCAO_DSSV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_BAOCAO_DSSV_DKLTC.resx">
       <DependentUpon>Xrpt_BAOCAO_DSSV_DKLTC.cs</DependentUpon>
