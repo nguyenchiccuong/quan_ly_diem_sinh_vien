@@ -114,8 +114,8 @@ namespace quan_li_diem_sinh_vien
                 string tenLop = Program.myReader.GetString(2);
                 Program.conn.Close();
                 Xrpt_BAOCAO_PHIEUDIEM rpt = new Xrpt_BAOCAO_PHIEUDIEM(masv);
-                rpt.lbSV.Text = "Mã Sinh Viên : " + tbMaSV.Text+ " - Họ và tên : "+ho+' '+ten;
-                rpt.lbLK.Text = "Lớp : " + tenLop ;
+                rpt.lbSV.Text = "Mã Sinh Viên : " + tbMaSV.Text + " - Họ và tên : " + ho + ' ' + ten;
+                rpt.lbLK.Text = "Lớp : " + tenLop;
                 ReportPrintTool print = new ReportPrintTool(rpt);
                 print.ShowPreviewDialog();
             }
