@@ -170,7 +170,7 @@ namespace quan_li_diem_sinh_vien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Môn học chưa được mở lớp tín chỉ vui lòng mở lớp tín chỉ hoặc kiểm tra lại thông tin để in báo cáo \n " + ex.Message, "", MessageBoxButtons.OK);
+                MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
             }
             finally
             {
