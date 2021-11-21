@@ -193,6 +193,12 @@
     <Compile Include="Frm_BAOCAO_BANGDIEM.Designer.cs">
       <DependentUpon>Frm_BAOCAO_BANGDIEM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_BAOCAO_BDTK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_BAOCAO_BDTK.Designer.cs">
+      <DependentUpon>Frm_BAOCAO_BDTK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_BAOCAO_DSLTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,12 @@
     </Compile>
     <Compile Include="Xrpt_BAOCAO_BANGDIEM.Designer.cs">
       <DependentUpon>Xrpt_BAOCAO_BANGDIEM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_BAOCAO_BDTK.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_BAOCAO_BDTK.Designer.cs">
+      <DependentUpon>Xrpt_BAOCAO_BDTK.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_BAOCAO_DSLTC.cs">
       <SubType>Component</SubType>
@@ -287,6 +299,9 @@
     <EmbeddedResource Include="Frm_BAOCAO_BANGDIEM.resx">
       <DependentUpon>Frm_BAOCAO_BANGDIEM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm_BAOCAO_BDTK.resx">
+      <DependentUpon>Frm_BAOCAO_BDTK.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_BAOCAO_DSLTC.resx">
       <DependentUpon>Frm_BAOCAO_DSLTC.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +327,9 @@
     </Compile>
     <EmbeddedResource Include="Xrpt_BAOCAO_BANGDIEM.resx">
       <DependentUpon>Xrpt_BAOCAO_BANGDIEM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_BAOCAO_BDTK.resx">
+      <DependentUpon>Xrpt_BAOCAO_BDTK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_BAOCAO_DSLTC.resx">
       <DependentUpon>Xrpt_BAOCAO_DSLTC.cs</DependentUpon>

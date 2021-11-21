@@ -251,6 +251,7 @@
             this.barButtonIBc6.Caption = "Bảng điểm tổng kết";
             this.barButtonIBc6.Id = 25;
             this.barButtonIBc6.Name = "barButtonIBc6";
+            this.barButtonIBc6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc6_ItemClick);
             // 
             // ribbonPageHeThong
             // 
