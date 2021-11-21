@@ -154,11 +154,76 @@ namespace quan_li_diem_sinh_vien
 
         private void barBtnNhapDiemPGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            
+        }
+
+        private void barButtonIBc2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Frm_BAOCAO_DSLTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frm_BAOCAO_DSLTC f = new Frm_BAOCAO_DSLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barbtnNhapDiemGV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
             Form frm = this.CheckExists(typeof(FrmNhapDiem));
             if (frm != null) frm.Activate();
             else
             {
                 FrmNhapDiem f = new FrmNhapDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonIBc3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Frm_BAOCAO_DSSV_DKLTC));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frm_BAOCAO_DSSV_DKLTC f = new Frm_BAOCAO_DSSV_DKLTC();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonIBc4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Frm_BAOCAO_BANGDIEM));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frm_BAOCAO_BANGDIEM f = new Frm_BAOCAO_BANGDIEM();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonIBc1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Frm_BAOCAO_DSSV));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frm_BAOCAO_DSSV f = new Frm_BAOCAO_DSSV();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonIBc5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Frm_BAOCAO_PHIEUDIEM));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Frm_BAOCAO_PHIEUDIEM f = new Frm_BAOCAO_PHIEUDIEM();
                 f.MdiParent = this;
                 f.Show();
             }

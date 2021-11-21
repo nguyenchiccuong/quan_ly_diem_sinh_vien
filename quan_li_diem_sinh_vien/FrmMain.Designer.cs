@@ -195,6 +195,7 @@
             this.barbtnNhapDiemGV.Caption = "Nhập điểm";
             this.barbtnNhapDiemGV.Id = 16;
             this.barbtnNhapDiemGV.Name = "barbtnNhapDiemGV";
+            this.barbtnNhapDiemGV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barbtnNhapDiemGV_ItemClick);
             // 
             // barBtnDangKy
             // 
@@ -215,30 +216,35 @@
             this.barButtonIBc1.Caption = "Danh sách sinh viên";
             this.barButtonIBc1.Id = 20;
             this.barButtonIBc1.Name = "barButtonIBc1";
+            this.barButtonIBc1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc1_ItemClick);
             // 
             // barButtonIBc2
             // 
             this.barButtonIBc2.Caption = "Danh sách lớp tín chỉ";
             this.barButtonIBc2.Id = 21;
             this.barButtonIBc2.Name = "barButtonIBc2";
+            this.barButtonIBc2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc2_ItemClick);
             // 
             // barButtonIBc3
             // 
             this.barButtonIBc3.Caption = "Danh sách sinh viên đăng kí";
             this.barButtonIBc3.Id = 22;
             this.barButtonIBc3.Name = "barButtonIBc3";
+            this.barButtonIBc3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc3_ItemClick);
             // 
             // barButtonIBc4
             // 
             this.barButtonIBc4.Caption = "Bảng điểm môn";
             this.barButtonIBc4.Id = 23;
             this.barButtonIBc4.Name = "barButtonIBc4";
+            this.barButtonIBc4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc4_ItemClick);
             // 
             // barButtonIBc5
             // 
             this.barButtonIBc5.Caption = "Phiếu điểm";
             this.barButtonIBc5.Id = 24;
             this.barButtonIBc5.Name = "barButtonIBc5";
+            this.barButtonIBc5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonIBc5_ItemClick);
             // 
             // barButtonIBc6
             // 

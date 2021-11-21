@@ -14,7 +14,7 @@ namespace quan_li_diem_sinh_vien
 {
     public partial class FrmNhapDiem : DevExpress.XtraEditors.XtraForm
     {
-        int nienkhoa = DateTime.Now.Year;
+        int nienkhoa = DateTime.Now.Year+1;
         int sonienkhoa = 5;
         int sohocky = 3;
         int hocky = 1;
@@ -34,7 +34,8 @@ namespace quan_li_diem_sinh_vien
             this.sP_DSLTCTableAdapter.Connection.ConnectionString = Program.connstr;
             while (nienkhoa >= DateTime.Now.Year - sonienkhoa)
             {
-                cboNK.Items.Add(nienkhoa.ToString());
+                int tempnk = nienkhoa;
+                cboNK.Items.Add((tempnk - 1) + "-" + nienkhoa.ToString());
                 nienkhoa--;
             }
             while (hocky <= sohocky)
@@ -67,7 +68,7 @@ namespace quan_li_diem_sinh_vien
                 gcDSSV.Enabled=false;
                 dS.EnforceConstraints = false;
                 this.sP_DSLTCTableAdapter.Connection.ConnectionString = Program.connstr;
-                this.sP_DSLTCTableAdapter.Fill(this.dS.SP_DSLTC, int.Parse(cboNK.Text.Trim()), int.Parse(cboHK.Text.Trim()));
+                this.sP_DSLTCTableAdapter.Fill(this.dS.SP_DSLTC, int.Parse(cboNK.Text.Trim().Substring(0, 4)), int.Parse(cboHK.Text.Trim()));
                 if (bdsDSLTC.Count < 1)
                 {
                     MessageBox.Show("Không có lớp tín chỉ nào được mở trong học kỳ và niên khóa này", "", MessageBoxButtons.OK);
