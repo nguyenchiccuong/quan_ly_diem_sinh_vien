@@ -425,7 +425,7 @@ namespace quan_li_diem_sinh_vien
                     //B4. Thực thi Stored Procedure
                     cmd.ExecuteNonQuery();
                     Program.conn.Close();
-                    
+                    myStack.Clear();
                     MessageBox.Show("Ghi Thành Công \n ", "", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
