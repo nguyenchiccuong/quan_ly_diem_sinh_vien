@@ -83,6 +83,11 @@ namespace quan_li_diem_sinh_vien
             panelSV.Enabled = false;
             if (String.Compare(Program.mGroup.Trim(), "PGV", true) == 0) panelControl1.Enabled = true;
             else panelControl1.Enabled = false;
+            string str = tbMaLop.Text.Trim();
+            tbMaLop2.Enabled = false;
+
+            tbMaLop2.Items.Add(str.ToString());
+            tbMaLop2.Text = str.ToString();
         }
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -166,6 +171,8 @@ namespace quan_li_diem_sinh_vien
                 btnGhi.Enabled = true;
                 vitri = bdsLop.Position;
                 bdsLop.AddNew();
+                cboNamNhapHoc.Enabled = true;
+                gcLop.Enabled = false;
                 thuchien = 1;
                 if (Program.mChinhanh == "Công Nghệ Thông Tin")
                 {
@@ -187,12 +194,11 @@ namespace quan_li_diem_sinh_vien
                 btnThem.Enabled = false;
                 btnGhi.Enabled = true;
                 gcLop.Enabled = false;
+                sINH_VIENGridControl.Enabled = false;
                 vitri = bdsSinhVien.Position;
                 bdsSinhVien.AddNew();
                 checkPhai.Checked = true;
-                string str1 = tbMaLop.Text;
-                tbMaLop2.Text = tbMaLop.Text;
-
+                
                 thuchien = 1;
                 dateSV.Text = "";
 
@@ -273,17 +279,19 @@ namespace quan_li_diem_sinh_vien
                     btnXoa.Enabled = true;
                     btnThem.Enabled = true;
                     btnGhi.Enabled = false;
+                    if (myStack.Count > 0) btnPhucHoi.Enabled = true;
+                    else btnPhucHoi.Enabled = false;
                     MessageBox.Show("Ghi Thành Công", "Thông báo", MessageBoxButtons.OK);
-
+                    gcLop.Enabled = true;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
-                    
+                    btnLoad.PerformClick();
                 }
                 finally
                 {
-                    btnLoad.PerformClick();
+                    
                     Program.conn.Close();
                 }
             }
@@ -357,16 +365,19 @@ namespace quan_li_diem_sinh_vien
                     btnGhi.Enabled = false;
                     btnThem.Enabled = true;
                     gcLop.Enabled = true;
+                    sINH_VIENGridControl.Enabled = true;
+                    if (myStack.Count > 0) btnPhucHoi.Enabled = true;
+                    else btnPhucHoi.Enabled = false;
                     MessageBox.Show("Ghi Thành Công", "Thông báo", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
-                   
+                    btnLoad.PerformClick();
                 }
                 finally
                 {
-                    btnLoad.PerformClick();
+                    
                     Program.conn.Close();
                 }
 
@@ -424,7 +435,8 @@ namespace quan_li_diem_sinh_vien
                 }
                 finally
                 {
-                    
+                    btnLoad.PerformClick();
+                    btnChuyenLop.Enabled=false;
                     Program.conn.Close();
                 }
             }
@@ -446,11 +458,12 @@ namespace quan_li_diem_sinh_vien
                     }
                     catch (Exception ex)
                     {
+                        btnLoad.PerformClick();
                         MessageBox.Show("Xóa lớp thất bại. Vui lòng kiểm tra lại khóa ngoại " + ex.Message, "", MessageBoxButtons.OK);
                     }
                     finally
                     {
-                        btnLoad.PerformClick();
+                        
                         Program.conn.Close();
 
                     }
@@ -471,12 +484,13 @@ namespace quan_li_diem_sinh_vien
                     }
                     catch (Exception ex)
                     {
+                        btnLoad.PerformClick();
                         MessageBox.Show("Xóa sinh viên thất bại. Vui lòng kiểm tra lại khóa ngoại " + ex.Message, "", MessageBoxButtons.OK);
                     }
                     finally
                     {
 
-                        btnLoad.PerformClick();
+                        
                         Program.conn.Close();
                     }
                 }
@@ -507,6 +521,7 @@ namespace quan_li_diem_sinh_vien
                 btnSV.Enabled = true;
                 panelLop.Enabled = false;
                 panelSV.Enabled = false;
+                sINH_VIENGridControl.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -548,6 +563,7 @@ namespace quan_li_diem_sinh_vien
                 else btnSua.Enabled = btnXoa.Enabled = true;
                 if (String.Compare(Program.mGroup.Trim(), "PGV", true) == 0) btnChuyenLop.Enabled = true;
                 else btnChuyenLop.Enabled = false;
+                sINH_VIENGridControl.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -613,6 +629,7 @@ namespace quan_li_diem_sinh_vien
                     cboChuyenNganh.Enabled = true;
                     cboNamNhapHoc.Enabled = false;
                     gcLop.Enabled = false;
+                    
                     thuchien = 2;
                     if (Program.KetNoi() == 0)
                     {
@@ -670,6 +687,11 @@ namespace quan_li_diem_sinh_vien
             lenhThem = "INSERT INTO LOP (MA_LOP, TEN_LOP, NAM_NHAP_HOC, MA_KHOA) VALUES('" + tbMaLop.Text.Trim() + "', N'" + tbTenLop.Text.Trim() + "', N'" + cboNamNhapHoc.Text.Trim() + "', N'" + tbMaKhoa.Text.Trim() + "') ";
             if (chon == 2 && bdsSinhVien.Count < 1) btnSua.Enabled = btnXoa.Enabled = false;
             else btnSua.Enabled = btnXoa.Enabled = true;
+            string str = tbMaLop.Text.Trim();
+            tbMaLop2.Enabled = false;
+
+            tbMaLop2.Items.Add(str.ToString());
+            tbMaLop2.Text = str.ToString();
         }
 
         private void sINH_VIENGridControl_Click(object sender, EventArgs e)
@@ -744,6 +766,7 @@ namespace quan_li_diem_sinh_vien
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi \n " + ex.Message, "", MessageBoxButtons.OK);
+                btnLoad.PerformClick();
             }
             finally
             {

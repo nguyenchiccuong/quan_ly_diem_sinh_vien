@@ -55,8 +55,9 @@ namespace quan_li_diem_sinh_vien
             this.btnSua = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoad = new DevExpress.XtraBars.BarButtonItem();
-            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChuyenLop = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -94,6 +95,7 @@ namespace quan_li_diem_sinh_vien
             this.tbMaLop = new System.Windows.Forms.TextBox();
             this.cboChuyenNganh = new System.Windows.Forms.ComboBox();
             this.panelSV = new DevExpress.XtraEditors.PanelControl();
+            this.tbMaLop2 = new System.Windows.Forms.ComboBox();
             this.checkPhai = new DevExpress.XtraEditors.CheckEdit();
             this.tbMCN = new System.Windows.Forms.ComboBox();
             this.dateSV = new DevExpress.XtraEditors.DateEdit();
@@ -103,8 +105,6 @@ namespace quan_li_diem_sinh_vien
             this.tbMaSV = new System.Windows.Forms.TextBox();
             this.cHUYEN_NGANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cHUYEN_NGANHTableAdapter = new quan_li_diem_sinh_vien.DSTableAdapters.CHUYEN_NGANHTableAdapter();
-            this.btnChuyenLop = new DevExpress.XtraBars.BarButtonItem();
-            this.tbMaLop2 = new System.Windows.Forms.ComboBox();
             mA_LOPLabel = new System.Windows.Forms.Label();
             tEN_LOPLabel = new System.Windows.Forms.Label();
             mA_KHOALabel = new System.Windows.Forms.Label();
@@ -393,6 +393,16 @@ namespace quan_li_diem_sinh_vien
             this.btnLoad.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnLoad.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoad_ItemClick);
             // 
+            // btnPhucHoi
+            // 
+            this.btnPhucHoi.Caption = "Phục Hồi";
+            this.btnPhucHoi.Id = 8;
+            this.btnPhucHoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.Image")));
+            this.btnPhucHoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.LargeImage")));
+            this.btnPhucHoi.Name = "btnPhucHoi";
+            this.btnPhucHoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
+            // 
             // btnThoat
             // 
             this.btnThoat.Caption = "Thoát";
@@ -403,15 +413,16 @@ namespace quan_li_diem_sinh_vien
             this.btnThoat.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.btnThoat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThoat_ItemClick);
             // 
-            // btnPhucHoi
+            // btnChuyenLop
             // 
-            this.btnPhucHoi.Caption = "Phục Hồi";
-            this.btnPhucHoi.Id = 8;
-            this.btnPhucHoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.Image")));
-            this.btnPhucHoi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhucHoi.ImageOptions.LargeImage")));
-            this.btnPhucHoi.Name = "btnPhucHoi";
-            this.btnPhucHoi.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
+            this.btnChuyenLop.Caption = "Chuyển Lớp";
+            this.btnChuyenLop.Enabled = false;
+            this.btnChuyenLop.Id = 9;
+            this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
+            this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
+            this.btnChuyenLop.Name = "btnChuyenLop";
+            this.btnChuyenLop.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
             // 
             // bar3
             // 
@@ -777,6 +788,17 @@ namespace quan_li_diem_sinh_vien
             this.panelSV.Size = new System.Drawing.Size(744, 353);
             this.panelSV.TabIndex = 12;
             // 
+            // tbMaLop2
+            // 
+            this.tbMaLop2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsSinhVien, "MA_LOP", true));
+            this.tbMaLop2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tbMaLop2.Enabled = false;
+            this.tbMaLop2.FormattingEnabled = true;
+            this.tbMaLop2.Location = new System.Drawing.Point(80, 6);
+            this.tbMaLop2.Name = "tbMaLop2";
+            this.tbMaLop2.Size = new System.Drawing.Size(121, 21);
+            this.tbMaLop2.TabIndex = 19;
+            // 
             // checkPhai
             // 
             this.checkPhai.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsSinhVien, "PHAI", true));
@@ -853,28 +875,6 @@ namespace quan_li_diem_sinh_vien
             // cHUYEN_NGANHTableAdapter
             // 
             this.cHUYEN_NGANHTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnChuyenLop
-            // 
-            this.btnChuyenLop.Caption = "Chuyển Lớp";
-            this.btnChuyenLop.Enabled = false;
-            this.btnChuyenLop.Id = 9;
-            this.btnChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.Image")));
-            this.btnChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChuyenLop.ImageOptions.LargeImage")));
-            this.btnChuyenLop.Name = "btnChuyenLop";
-            this.btnChuyenLop.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            this.btnChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenLop_ItemClick);
-            // 
-            // tbMaLop2
-            // 
-            this.tbMaLop2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsSinhVien, "MA_LOP", true));
-            this.tbMaLop2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tbMaLop2.Enabled = false;
-            this.tbMaLop2.FormattingEnabled = true;
-            this.tbMaLop2.Location = new System.Drawing.Point(80, 6);
-            this.tbMaLop2.Name = "tbMaLop2";
-            this.tbMaLop2.Size = new System.Drawing.Size(121, 21);
-            this.tbMaLop2.TabIndex = 19;
             // 
             // FrmLop
             // 
